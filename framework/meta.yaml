@@ -1,0 +1,45 @@
+package:
+  name: mantid
+  version: "dev"
+
+source:
+  git_rev: master
+  git_url: https://github.com/mcvine/mantid.git
+
+requirements:
+  build:
+    - python
+    - cmake
+    - boost
+    - hdf4
+    - hdf5 1.8.15*
+    - h5py
+    - muparser
+    - gsl
+    - mpi4py
+    - scipy
+    - dateutil
+    - readline
+
+  run:
+    - python
+    - cmake
+    - boost
+    - hdf4
+    - hdf5 1.8.15*
+    - h5py
+    - muparser
+    - gsl
+    - mpi4py
+    - scipy
+    - dateutil
+    - readline
+
+test:
+  imports:
+  
+
+about:
+  home: 
+  license:
+  license_file:

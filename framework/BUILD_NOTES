@@ -1,0 +1,126 @@
+Build (successful)
+==================
+
+$ conda create -n build-mantid python
+$ source activate build-mantid
+
+Dependencies
+------------
+$ conda install -c conda-forge cmake boost h5py muparser gsl mpi4py scipy dateutil readline boost
+** manual install
+export PREFIX=/home/lj7/anaconda2/envs/build-mantid
+poco: installed from source. 1.7.3-all. download, expand, ./configure --prefix=$PREFIX; make -j 8; make install 
+neuxs: nexus-4.3.1.tar.gz https://github.com/nexusformat/code/releases/download/4.3.1/nexus-4.3.1.tar.gz. download, expand, CFLAGS="-I $PREFIX/include" ./configure --prefix=$PREFIX --with-hdf5=$PREFIX; make -j 7; make install
+jsoncpp 0.10.6,download, unpack; mkdir build; cd build; cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=ON ..;  make -j 7; make install
+
+Build
+-----
+mkdir build; cd build 
+cmake -DBOOST_ROOT=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
+make -j 7
+make install
+
+Run
+---
+export PYTHONPATH=$PREFIX/bin:$PYTHONPATH
+
+
+Build (successful)
+==================
+
+$ conda create -n build-mantid python
+$ source activate build-mantid
+
+Dependencies
+------------
+$ conda install -c conda-forge cmake boost h5py muparser gsl mpi4py scipy dateutil readline
+** manual install
+export PREFIX=/home/lj7/anaconda2/envs/build-mantid
+poco: installed from source. 1.7.3-all. download, expand, ./configure --prefix=$PREFIX; make -j 8; make install 
+neuxs: nexus-4.3.1.tar.gz https://github.com/nexusformat/code/releases/download/4.3.1/nexus-4.3.1.tar.gz. download, expand, CFLAGS="-I $PREFIX/include" ./configure --prefix=$PREFIX --with-hdf5=$PREFIX; make -j 7; make install
+jsoncpp 0.10.6,download, unpack; mkdir build; cd build; cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=ON ..;  make -j 7; make install
+boost: download, expand, ./bootstrap.sh --prefix=$PREFIX; append new line "using mpi ;" to the end of project-config.jam; ./b2 -j7 --target=shared; ./b2 install
+
+Build
+-----
+mkdir build; cd build 
+cmake -DBOOST_ROOT=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
+
+Run
+---
+
+export PYTHONPATH=$PREFIX/bin:$PYTHONPATH
+
+
+Build (compile failed)
+======================
+
+$ conda create -n build-mantid python
+$ source activate build-mantid
+
+Dependencies
+------------
+$ conda install -c conda-forge cmake boost h5py muparser gsl mpi4py scipy dateutil readline
+** manual install
+export PREFIX=/home/lj7/anaconda2/envs/build-mantid
+poco: installed from source. 1.7.3-all. download, expand, ./configure --prefix=$PREFIX; make -j 8; make install 
+neuxs: nexus-4.3.1.tar.gz https://github.com/nexusformat/code/releases/download/4.3.1/nexus-4.3.1.tar.gz. download, expand, CFLAGS="-I $PREFIX/include" ./configure --prefix=$PREFIX --with-hdf5=$PREFIX; make -j 7; make install
+jsoncpp 0.10.6,download, unpack; mkdir build; cd build; cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=ON ..;  make -j 7; make install
+boost: download, expand, ./bootstrap.sh --prefix=$PREFIX; append new line "using mpi ;" to the end of project-config.jam; ./b2 -j7 --target=shared; ./b2 install
+
+Build
+-----
+mkdir build; cd build 
+cmake -DMPI_BUILD=on -DBOOST_ROOT=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
+
+Build failed at
+Building CXX object MPIAlgorithms/CMakeFiles/MPIAlgorithms.dir/src/BroadcastWorkspace.cpp.o
+
+
+
+Older build (failed - seg fault)
+================================
+
+new conda env
+conda create -n build-mantid python
+
+export PREFIX=/home/linjiao/miniconda2/envs/build-mantid
+
+deps
+cmake
+boost
+poco: installed from source. download, expand, ./configure --prefix=..., make -j 8; make install 
+
+and for cmake to find poco, need
+cmake -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib ../Framework/
+
+conda install h5py
+
+neuxs: nexus-4.3.1.tar.gz https://github.com/nexusformat/code/releases/download/4.3.1/nexus-4.3.1.tar.gz
+./configure --prefix=$PREFIX --with-hdf5=$PREFIX
+cmake -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include ../Framework/
+
+
+conda install -c conda-forge muparser
+cmake -DMUPARSER_INCLUDE_DIR=$PREFIX/include ../Framework/
+
+jsoncpp
+download, unpack
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=ON ..
+make -j 7
+make install
+
+conda install -c conda-forge gsl mpi4py
+
+pip install -i https://pypi.anaconda.org/pypi/simple boostmpi
+
+cmake -DMPI_BUILD=on -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
+
+build seems finished after modify Framework/CMake... to force find_package gsl and opengl.
+
+install scipy, dateutil
+
+segmentation fault
