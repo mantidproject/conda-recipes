@@ -1,6 +1,6 @@
 package:
   name: mantid-framework
-  version: "nightly_withpoco,nexus,jsoncpp"
+  version: "nightlywPNJ"
 
 source:
   git_rev: master
