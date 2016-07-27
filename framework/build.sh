@@ -36,6 +36,11 @@ cd .. # back to deps
 cd .. # back
 
 # ----------------------------------------------------------------------
+# update cmake files
+git clone https://github.com/mantidproject/conda-recipes mantid-conda-recipes
+rsync -av ./mantid-conda-recipes/framework/revised/ ./
+
+# ----------------------------------------------------------------------
 mkdir build; cd build
 cmake -DBOOST_ROOT=$PREFIX -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include -DHDF5_DIR=$PREFIX -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= -DVERSION_PATCH=100  ../Framework/
 make -j $CORES
