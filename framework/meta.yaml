@@ -1,6 +1,6 @@
 package:
   name: mantid-framework
-  version: "nightlywPNJ"
+  version: "nightly"
 
 source:
   git_rev: master
@@ -20,6 +20,9 @@ requirements:
     - scipy
     - dateutil
     - readline
+    - poco
+    - nexus
+    - jsoncpp
 
   run:
     - python
@@ -34,6 +37,9 @@ requirements:
     - scipy
     - dateutil
     - readline
+    - poco
+    - nexus
+    - jsoncpp
 
 test:
   imports:
