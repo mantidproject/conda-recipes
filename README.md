@@ -9,7 +9,7 @@ $ conda build .
 ## Upload to anaconda
 ```
 $ anaconda login
-$ anaconda upload /path/to/conda/conda-bld/linux-64/mantid-framework-nightly-py27_0.tar.bz2
+$ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py27_0.tar.bz2
 ```
 
 ## User installation of mantid framework conda package
