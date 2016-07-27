@@ -1,0 +1,28 @@
+package:
+  name: nexus
+  version: "4.3.1"
+
+source:
+  git_rev: 4.3.1
+  git_url: https://github.com/nexusformat/code.git
+
+requirements:
+  build:
+    - libtool
+    - automake
+    - cmake
+    - python
+    - h5py
+
+  run:
+    - python
+    - h5py
+
+test:
+  imports:
+  
+
+about:
+  home: 
+  license:
+  license_file:
