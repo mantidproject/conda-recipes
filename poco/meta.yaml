@@ -1,0 +1,23 @@
+package:
+  name: poco
+  version: "1.7.3"
+
+source:
+  git_rev: poco-1.7.3-release
+  git_url: https://github.com/pocoproject/poco.git
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+test:
+  imports:
+  
+
+about:
+  home: 
+  license:
+  license_file:
