@@ -1,6 +1,6 @@
 package:
   name: mantid
-  version: "dev"
+  version: "nightly"
 
 source:
   git_rev: master
