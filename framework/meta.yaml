@@ -1,5 +1,5 @@
 package:
-  name: mantid
+  name: mantid-framework
   version: "nightly"
 
 source:
