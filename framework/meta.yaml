@@ -1,10 +1,10 @@
 package:
   name: mantid-framework
-  version: "nightly"
+  version: "nightly_withpoco,nexus,jsoncpp"
 
 source:
   git_rev: master
-  git_url: https://github.com/mcvine/mantid.git
+  git_url: https://github.com/mantidproject/mantid.git
 
 requirements:
   build:
