@@ -3,7 +3,7 @@ package:
   version: "nightly"
 
 source:
-  git_rev: master
+  git_rev: FrameworkBuilds
   git_url: https://github.com/mantidproject/mantid.git
 
 requirements:
@@ -22,6 +22,7 @@ requirements:
     - readline
     - poco
     - nexus
+    - openssl
     - jsoncpp
 
   run:
@@ -39,13 +40,14 @@ requirements:
     - readline
     - poco
     - nexus
+    - openssl
     - jsoncpp
 
 test:
   imports:
-  
+
 
 about:
-  home: 
+  home:
   license:
   license_file:
