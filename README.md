@@ -10,8 +10,7 @@
 ## Build
 First activate anaconda, then
 ```
-$ cd framework
-$ conda build .
+$ conda build framework
 ```
 and wait
 
@@ -27,6 +26,7 @@ $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py2
 
 ## User installation of mantid framework conda package
 ```
+$ conda config --add channels conda-forge
 $ conda install -c mantid mantid-framework
 ```
 
