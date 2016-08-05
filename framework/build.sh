@@ -24,16 +24,24 @@ fi
 
 # ----------------------------------------------------------------------
 # update cmake files
-git clone https://github.com/mantidproject/conda-recipes mantid-conda-recipes
-rsync -av ./mantid-conda-recipes/framework/revised/ ./
+# git clone https://github.com/mantidproject/conda-recipes mantid-conda-recipes
+# rsync -av ./mantid-conda-recipes/framework/revised/ ./
 
 # ----------------------------------------------------------------------
 mkdir build; cd build
-${CMAKE} ${CMAKE_GENERATOR} -DBOOST_ROOT=$PREFIX -DENABLE_MANTIDPLOT=FALSE -DCMAKE_INSTALL_PREFIX=$PREFIX \
-         -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib -DNEXUS_LIBRARIES=$PREFIX/lib -DNEXUS_INCLUDE_DIR=$PREFIX/include \
-         -DHDF5_DIR=$PREFIX -DMUPARSER_INCLUDE_DIR=$PREFIX/include  -DENABLE_OPENCASCADE= \
-         -DOPENSSL_INCLUDE_DIR=$PREFIX/include -DOPENSSL_CRYPTO_LIBRARY=$PREFIX/lib/libcrypto.so \
-         -DOPENSSL_SSL_LIBRARY=$PREFIX/lib/libssl.so ../
+${CMAKE} ${CMAKE_GENERATOR} \
+    -DENABLE_MANTIDPLOT=FALSE \
+    -DBOOST_ROOT=$PREFIX \
+    -DCMAKE_INSTALL_PREFIX=$PREFIX \
+    -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib \
+    -DNEXUS_LIBRARIES=$PREFIX/lib \
+    -DNEXUS_INCLUDE_DIR=$PREFIX/include \
+    -DHDF5_DIR=$PREFIX \
+    -DMUPARSER_INCLUDE_DIR=$PREFIX/include \
+    -DENABLE_OPENCASCADE= \
+    -DOPENSSL_INCLUDE_DIR=$PREFIX/include \
+    -DOPENSSL_CRYPTO_LIBRARY=$PREFIX/lib/libcrypto.so \
+    -DOPENSSL_SSL_LIBRARY=$PREFIX/lib/libssl.so ../
 ${CMAKE} --build . -- -j $CORES
 ${CMAKE} --build . --target install
 
