@@ -1,9 +1,11 @@
+{% set version = "3.7.20160812" %}
+
 package:
   name: mantid-framework
-  version: "nightly"
+  version: {{ version }}
 
 source:
-  git_rev: FrameworkBuilds
+  git_rev: master
   git_url: https://github.com/mantidproject/mantid.git
 
 requirements:
