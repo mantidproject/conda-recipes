@@ -26,13 +26,18 @@ $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py2
 
 Upload with a "nightly" label:
 ```
-$ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py27_0.tar.bz2 -l main -l nightly
+$ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py27_0.tar.bz2 -l nightly
 ```
 
 ## User installation of mantid framework conda package
 ```
 $ conda config --add channels conda-forge
 $ conda install -c mantid mantid-framework
+```
+
+To install the nightly build:
+```
+$ conda install -c mantid/label/nightly mantid-framework
 ```
 
 [Design document](../../../documents/blob/master/Design/Anaconda.md)
