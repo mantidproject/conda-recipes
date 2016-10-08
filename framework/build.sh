@@ -22,28 +22,16 @@ if [ -e CMakeCache.txt ]; then
 fi
 
 
-# ----------------------------------------------------------------------
-# update cmake files
-# git clone https://github.com/mantidproject/conda-recipes mantid-conda-recipes
-# rsync -av ./mantid-conda-recipes/framework/revised/ ./
-
-# ----------------------------------------------------------------------
 mkdir build; cd build
 ${CMAKE} ${CMAKE_GENERATOR} \
+    -DOPENGL_gl_LIBRARY=${OPENGL_gl_LIBRARY} \
+    -DOPENGL_glu_LIBRARY=${OPENGL_glu_LIBRARY} \
     -DENABLE_MANTIDPLOT=FALSE \
     -DCMAKE_SKIP_INSTALL_RPATH=ON \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_PREFIX_PATH=$PREFIX \
-    -DCMAKE_SYSTEM_LIBRARY_PATH=$PREFIX/lib \
-    -DBOOST_ROOT=$PREFIX \
-    -DNEXUS_LIBRARIES=$PREFIX/lib \
-    -DNEXUS_INCLUDE_DIR=$PREFIX/include \
-    -DHDF5_DIR=$PREFIX \
-    -DMUPARSER_INCLUDE_DIR=$PREFIX/include \
     -DENABLE_OPENCASCADE=FALSE \
-    -DOPENSSL_INCLUDE_DIR=$PREFIX/include \
-    -DOPENSSL_CRYPTO_LIBRARY=$PREFIX/lib/libcrypto.so \
-    -DOPENSSL_SSL_LIBRARY=$PREFIX/lib/libssl.so ../
+    ../
 ${CMAKE} --build . -- -j $CORES
 ${CMAKE} --build . --target install
 
