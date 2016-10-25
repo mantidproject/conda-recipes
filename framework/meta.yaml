@@ -53,10 +53,6 @@ build:
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
 
-test:
-  imports:
-    - mantid
-
 about:
   home:
   license:
