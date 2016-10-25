@@ -55,7 +55,7 @@ build:
 
 test:
   imports:
-
+    - mantid
 
 about:
   home:
