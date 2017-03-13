@@ -30,6 +30,9 @@ $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py2
 ```
 
 ## User installation of mantid framework conda package
+
+At the moment we only have packages available for the linux64 architecture.
+
 ```
 $ conda config --add channels conda-forge
 $ conda install -c mantid mantid-framework
