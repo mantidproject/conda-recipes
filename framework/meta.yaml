@@ -1,5 +1,5 @@
-{% set version = "3.9.20170418.1747" %}
-{% set git_rev = "bde050d0dbeadb9779de33dc9e191a9bad587635" %}
+{% set version = "3.9.2unstable" %}
+{% set git_rev = "master" %}
 
 package:
   name: mantid-framework
@@ -20,6 +20,8 @@ requirements:
     - muparser
     - gsl
     - mpi4py
+    - openblas
+    - numpy
     - scipy
     - dateutil
     - readline
@@ -39,6 +41,8 @@ requirements:
     - muparser
     - gsl
     - mpi4py
+    - openblas
+    - numpy
     - scipy
     - dateutil
     - readline
