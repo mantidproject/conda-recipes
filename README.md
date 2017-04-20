@@ -2,10 +2,10 @@
 
 ## Prerequisites
 
-42. anaconda or miniconda
-42. `conda-build`
-42. `conda config --add channels conda-forge`
-42. `conda install muparser`
+* anaconda or miniconda
+* `conda-build`
+* `conda config --add channels conda-forge`
+* `conda install muparser`
 
 ## Build
 First activate anaconda, then
