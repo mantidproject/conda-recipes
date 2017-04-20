@@ -6,5 +6,5 @@ if ((CORES < 1)); then
     CORES = 1;
 fi
 
-./configure --prefix=$PREFIX && make -j $CORES && make install 
-
+./configure --prefix=$PREFIX --include-path=$PREFIX/include --library-path=$PREFIX/lib \
+	&& make -j $CORES && make install 
