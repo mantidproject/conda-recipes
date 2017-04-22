@@ -32,7 +32,7 @@ if hash docker-machine 2> /dev/null && docker-machine active > /dev/null; then
     HOST_USER_ID=$(docker-machine ssh $(docker-machine active) id -u)
 fi
 
-cat << EOF | docker run -i \
+cat << EOF | docker run --net=host -i \
                         -v ${REPO_ROOT}:/staged-recipes \
                         -v ${ARTEFACTS_ROOT}:/build_artefacts \
                         -a stdin -a stdout -a stderr \
@@ -44,6 +44,7 @@ cat << EOF | docker run -i \
 # Only copy the framework
 mkdir -p ~/conda-recipes
 cp -r /staged-recipes/framework ~/conda-recipes/framework
+# cp -r /staged-recipes/poco ~/conda-recipes/poco
 # cp -r /staged-recipes ~/conda-recipes
 
 # This has to match the version in matrix conditions for numpy
@@ -67,6 +68,6 @@ export OPENGL_glu_LIBRARY=/usr/lib64/libGLU.so
 yum install -y mesa-libGLU-devel
 
 # build
-conda build-all ~/conda-recipes --matrix-conditions "numpy ==1.11" "python ==2.7" "r-base >=3.3.2" &>/build_artefacts/log.build
+conda build-all ~/conda-recipes --matrix-conditions "numpy ==1.11" "python ==2.7" "r-base >=3.3.2" 
 
 EOF
