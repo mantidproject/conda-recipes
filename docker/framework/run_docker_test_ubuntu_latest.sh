@@ -27,7 +27,6 @@ conda install --quiet --yes -c mantid/label/candidate mantid-framework
 
 apt-get install -y freeglut3-dev
 
-sleep 5
 python -c "import mantid; print(mantid.__version__)"
 
 EOF
