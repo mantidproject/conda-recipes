@@ -6,6 +6,11 @@ REPO_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts
 IMAGE_NAME="condaforge/linux-anvil"
 
+rm -rf ${ARTEFACTS_ROOT}
+mkdir -p ${ARTEFACTS_ROOT}
+owner=$(stat -c '%u:%g' ${ARTEFACTS_ROOT})
+
+
 config=$(cat <<CONDARC
 
 channels:
@@ -61,5 +66,8 @@ yum install -y mesa-libGLU-devel
 
 # build
 conda build --python 2.7 --numpy 1.11 ~/conda-recipes/framework
+
+#
+chown -R ${owner} /build_artefacts
 
 EOF
