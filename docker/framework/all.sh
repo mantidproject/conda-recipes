@@ -5,4 +5,5 @@
     sleep 10 && \
     ./run_docker_test_centos6.sh && \
     ./run_docker_test_ubuntu_latest.sh && \
-    anaconda upload -l nightly --force $(ls build_artefacts/linux-64/mantid-framework-*.tar.bz2)
+    anaconda upload -l nightly --force $(ls build_artefacts/linux-64/mantid-framework-*.tar.bz2) && \
+    rm -rf build_artefacts
