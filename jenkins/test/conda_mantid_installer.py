@@ -6,6 +6,8 @@ from mantidinstaller import MantidInstaller, run
 
 class CondaInstaller(MantidInstaller):
 
+    python_args = "" # not mantidpython. just normal python
+
     def __init__(self, package_dir, do_install=True):
         filepattern = "mantid-framework*.tar.bz2"
         MantidInstaller.__init__(self, package_dir, filepattern, do_install)
