@@ -74,7 +74,9 @@ if doInstall:
         log("Application path " + installer.mantidPlotPath)
         installer.no_uninstall = False
     except Exception,err:
-        scriptfailure("Installing failed. "+str(err))
+        import traceback
+        tb = traceback.format_exc()
+        scriptfailure("Installing failed. %s\n%s" % (err, tb))
 else:
     installer.no_uninstall = True
 
