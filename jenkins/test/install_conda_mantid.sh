@@ -1,8 +1,8 @@
 wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
 
 unset PYTHONPATH
-bash miniconda.sh -b -p /opt/miniconda2
-export PATH=/opt/miniconda2/bin:$PATH
+bash miniconda.sh -b -p $HOME/opt/miniconda2
+export PATH=$HOME/opt/miniconda2/bin:$PATH
 conda config --add channels conda-forge
 conda config --add channels mantid
 ## Establish mantid environment

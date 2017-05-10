@@ -10,7 +10,7 @@ class CondaInstaller(MantidInstaller):
         filepattern = "mantid-framework*.tar.bz2"
         MantidInstaller.__init__(self, package_dir, filepattern, do_install)
         package = os.path.basename(self.mantidInstaller)
-        self.conda_prefix = '/opt/miniconda2'
+        self.conda_prefix = os.path.expanduser('~/opt/miniconda2')
         install_prefix = os.path.join(self.conda_prefix, 'envs', 'mantid')
         self.mantidPlotPath = None
         self.python_cmd = install_prefix + '/bin/python'
@@ -20,10 +20,10 @@ class CondaInstaller(MantidInstaller):
         """
         thisdir = os.path.dirname(__file__)
         script = os.path.join(thisdir, 'install_conda_mantid.sh')
-        run('sudo %s %s' % (script, self.mantidInstaller))
+        run('%s %s' % (script, self.mantidInstaller))
 
     def do_uninstall(self):
         """Removes the debian package
         """
-        run('sudo rm -rf %s' % self.conda_prefix)
+        run('rm -rf %s' % self.conda_prefix)
 
