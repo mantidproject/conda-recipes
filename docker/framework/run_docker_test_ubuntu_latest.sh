@@ -39,6 +39,7 @@ conda config --set always_yes true
 
 apt-get install -y freeglut3-dev
 
+conda install --quiet --yes numpy
 conda install --quiet --yes -c mantid/label/candidate mantid-framework
 
 python -c "import mantid" >/work/log.test-ubuntu-latest-first-import 2>&1 || echo "first import errored"
