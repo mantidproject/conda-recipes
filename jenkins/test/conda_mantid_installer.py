@@ -4,8 +4,8 @@ from mantidinstaller import MantidInstaller
 
 class CondaInstaller(MantidInstaller):
 
-    def __init__(self, package_dir, filepattern=None, do_install=True):
-        filepattern = filepattern or "mantid-framework*.tar.bz2"
+    def __init__(self, package_dir, do_install=True):
+        filepattern = "mantid-framework*.tar.bz2"
         MantidInstaller.__init__(self, package_dir, filepattern, do_install)
         package = os.path.basename(self.mantidInstaller)
         self.conda_prefix = '/opt/miniconda2'
