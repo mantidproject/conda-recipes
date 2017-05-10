@@ -1,6 +1,8 @@
 #
 
-from mantidinstaller import MantidInstaller
+import os
+
+from mantidinstaller import MantidInstaller, run
 
 class CondaInstaller(MantidInstaller):
 
