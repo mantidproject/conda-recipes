@@ -8,7 +8,7 @@ conda config --add channels mantid
 ## Establish mantid environment
 conda create --yes --name mantid python=2
 source activate mantid
-conda install --yes numpy
-conda install --yes mantid-framework
-conda remove --yes mantid-framework
-conda install --yes $1
+conda install --yes --quiet numpy
+conda install --yes --quiet mantid-framework
+conda remove --yes --quiet mantid-framework
+conda install --yes --quiet $1
