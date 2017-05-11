@@ -1,8 +1,9 @@
-wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
+wget --no-verbose http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh
 
 unset PYTHONPATH
-bash miniconda.sh -b -p $HOME/opt/miniconda2
-export PATH=$HOME/opt/miniconda2/bin:$PATH
+CONDA_PREFIX=$HOME/jenkins-systemtests-opt/miniconda2
+bash miniconda.sh -b -p $CONDA_PREFIX
+export PATH=$CONDA_PREFIX/bin:$PATH
 conda config --add channels conda-forge
 conda config --add channels mantid
 
