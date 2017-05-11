@@ -13,10 +13,12 @@ requirements:
     - cmake
     - python
     - h5py
+    - hdf4
 
   run:
     - python
     - h5py
+    - hdf4
 
 test:
   imports:
