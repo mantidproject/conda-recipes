@@ -27,5 +27,5 @@ class CondaInstaller(MantidInstaller):
     def do_uninstall(self):
         """Removes the debian package
         """
-        run('rm -rf %s' % self.conda_prefix)
+        # run('rm -rf %s' % self.conda_prefix)
 
