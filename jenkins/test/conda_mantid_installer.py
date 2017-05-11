@@ -12,7 +12,7 @@ class CondaInstaller(MantidInstaller):
         filepattern = "mantid-framework*.tar.bz2"
         MantidInstaller.__init__(self, package_dir, filepattern, do_install)
         package = os.path.basename(self.mantidInstaller)
-        self.conda_prefix = os.path.expanduser('~/opt/miniconda2')
+        self.conda_prefix = os.path.expanduser('~/jenkins-systemtests-opt/miniconda2')
         install_prefix = os.path.join(self.conda_prefix, 'envs', 'mantid')
         self.mantidPlotPath = "Unknown"
         self.python_cmd = install_prefix + '/bin/python'
