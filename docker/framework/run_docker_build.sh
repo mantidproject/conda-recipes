@@ -65,7 +65,7 @@ export OPENGL_glu_LIBRARY=/usr/lib64/libGLU.so
 yum install -y mesa-libGLU-devel
 
 # build
-conda build --python 2.7 --numpy 1.11 ~/conda-recipes/framework
+conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework
 
 #
 chown -R ${owner} /build_artefacts
