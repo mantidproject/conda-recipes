@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# this script works for ornl manos only
+
 # find .
 
 # get miniconda. don't need it anymore because it is there
