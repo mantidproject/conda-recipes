@@ -18,6 +18,11 @@ In the case that `jsoncpp', poco`, and `nexus` aren't available, build
 them first using the same technique.
 
 You may need to rebuild boost ([recipe](https://github.com/conda-forge/boost-feedstock)) and muparser ([recipe](https://github.com/conda-forge/muparser-feedstock)).
+
+### Build using docker
+
+Can be done following instructions in ./docker/framework/run_docker_build.sh
+
 ## Upload to anaconda
 ```
 $ anaconda login
@@ -28,10 +33,6 @@ Upload with a "nightly" label:
 ```
 $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py27_0.tar.bz2 -l nightly
 ```
-
-### Build using docker
-
-Can be done following instructions in ./docker/framework/run_docker_build.sh
 
 
 ## User installation of mantid framework conda package
