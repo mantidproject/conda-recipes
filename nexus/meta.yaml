@@ -11,13 +11,11 @@ requirements:
     - libtool
     - automake
     - cmake
-    - python
-    - h5py
+    - hdf5 1.8.18
     - hdf4
 
   run:
-    - python
-    - h5py
+    - hdf5 1.8.18
     - hdf4
 
 test:

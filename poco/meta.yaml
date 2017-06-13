@@ -9,11 +9,11 @@ source:
 requirements:
   build:
     - openssl
-    - python
+    - zlib
 
   run:
     - openssl
-    - python
+    - zlib
 
 test:
   imports:

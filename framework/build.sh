@@ -36,7 +36,7 @@ ${CMAKE} --build . -- -j $CORES
 ${CMAKE} --build . --target install
 
 # move mantid
-python_site_pkg_path=`python -c "import h5py, os; opd=os.path.dirname; print opd(opd(h5py.__file__))"`
+python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 mv $PREFIX/bin/mantid $python_site_pkg_path
 mkdir $PREFIX/lib/mantid
 ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins

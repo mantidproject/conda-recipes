@@ -21,9 +21,9 @@ requirements:
     - gsl 1.16
     - mpi4py
     - openblas
-    - numpy
+    - numpy x.x
     - scipy
-    - dateutil
+    - python-dateutil
     - readline
     - poco
     - nexus
@@ -43,9 +43,9 @@ requirements:
     - gsl 1.16
     - mpi4py
     - openblas
-    - numpy
+    - numpy x.x
     - scipy
-    - dateutil
+    - python-dateutil
     - readline
     - poco
     - nexus
