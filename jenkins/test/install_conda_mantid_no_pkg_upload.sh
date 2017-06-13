@@ -16,9 +16,9 @@ conda config --add channels conda-forge
 conda config --add channels mantid
 
 ## Establish mantid environment
-conda create --yes --quiet --name mantid python=2
+conda create --yes --quiet --name mantid python=${PYTHON_VER}
 ## install
 source activate mantid
 conda install --yes --quiet numpy
 ## !!! change the following line to use different conda channel !!!
-conda install --yes --quiet -c mantid/label/jenkins mantid-framework
+conda install --yes --quiet -c mantid/label/${LABEL} mantid-framework
