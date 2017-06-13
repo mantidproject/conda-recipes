@@ -29,6 +29,11 @@ Upload with a "nightly" label:
 $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py27_0.tar.bz2 -l nightly
 ```
 
+### Build using docker
+
+Can be done following instructions in ./docker/framework/run_docker_build.sh
+
+
 ## User installation of mantid framework conda package
 
 At the moment we only have packages available for the linux64 architecture.
