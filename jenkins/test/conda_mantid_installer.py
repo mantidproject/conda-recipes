@@ -13,7 +13,7 @@ class CondaInstaller(MantidInstaller):
         MantidInstaller.__init__(self, package_dir, filepattern, do_install)
         package = os.path.basename(self.mantidInstaller)
         self.conda_prefix = os.path.expanduser('~/jenkins-systemtests-opt/miniconda2')
-        install_prefix = os.path.join(self.conda_prefix, 'envs', 'mantid')
+        self.conda_mantid_env_prefix = install_prefix = os.path.join(self.conda_prefix, 'envs', 'mantid')
         self.mantidPlotPath = "Unknown"
         self.python_cmd = install_prefix + '/bin/python'
 
@@ -27,5 +27,5 @@ class CondaInstaller(MantidInstaller):
     def do_uninstall(self):
         """Removes the debian package
         """
-        run('rm -rf %s' % self.conda_prefix)
+        run('rm -rf %s' % self.conda_mantid_env_prefix)
 
