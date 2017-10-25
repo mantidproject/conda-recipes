@@ -35,3 +35,12 @@ $ anaconda upload /PATH/TO/CONDA/conda-bld/linux-64/mantid-framework-VERSION-py2
 ```
 
 [Design document](../../../documents/blob/master/Design/Anaconda.md)
+
+## Using the package
+
+To install the [conda package](https://anaconda.org/mantid/mantid-framework) without building (`nightly` version)
+```
+$ conda config --add channels conda-forge
+$ conda install -c mantid/label/nightly mantid-framework
+```
+At the moment, only `linux-64` is supported.
