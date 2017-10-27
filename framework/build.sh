@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-let CORES=`grep -c ^processor /proc/cpuinfo`
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)
+	let CORES=`grep -c ^processor /proc/cpuinfo`
+	CMAKE_EXTRA_ARGS="-DOPENGL_gl_LIBRARY=${OPENGL_gl_LIBRARY} -DOPENGL_glu_LIBRARY=${OPENGL_glu_LIBRARY}"
+	;;
+    Darwin*)
+	let CORES=`sysctl -n hw.ncpu`
+	export CXXFLAGS="-stdlib=libc++ -std=c++11"
+	CMAKE_EXTRA_ARGS="-DHDF5_ROOT=$PREFIX"
+	;;
+    *)  echo "${unameOut} unsupported"; exit 1
+esac
 let CORES-=1
 if ((CORES < 1)); then
     CORES = 1;
@@ -24,8 +36,7 @@ fi
 
 mkdir build; cd build
 ${CMAKE} ${CMAKE_GENERATOR} \
-    -DOPENGL_gl_LIBRARY=${OPENGL_gl_LIBRARY} \
-    -DOPENGL_glu_LIBRARY=${OPENGL_glu_LIBRARY} \
+    ${CMAKE_EXTRA_ARGS} \
     -DENABLE_MANTIDPLOT=FALSE \
     -DCMAKE_SKIP_INSTALL_RPATH=ON \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
