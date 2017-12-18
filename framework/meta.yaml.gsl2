@@ -18,7 +18,7 @@ requirements:
     - hdf5 1.8.18
     - h5py
     - muparser
-    - gsl 1.16
+    - gsl 2.*
     - mpi4py
     - openblas
     - numpy 1.13.3 py27_blas_openblas_201
@@ -40,7 +40,7 @@ requirements:
     - hdf5 1.8.18
     - h5py
     - muparser
-    - gsl 1.16
+    - gsl 2.*
     - mpi4py
     - openblas
     - numpy 1.13.3 py27_blas_openblas_201
@@ -59,7 +59,7 @@ build:
     - CXX
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
-  string: py27_np113_openblas201
+  string: py27_np113_openblas201_gsl2
 
 about:
   home:
