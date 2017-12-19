@@ -14,44 +14,44 @@ requirements:
     - python
     - cmake
     - boost 1.61.*
-    - hdf4
+    - hdf4 4.2.13
     - hdf5 1.8.18
     - h5py
-    - muparser
+    - muparser 2.2.5
     - gsl 1.16
     - mpi4py
-    - openblas
+    - openblas 0.2.20
     - numpy 1.13.3 py27_blas_openblas_201
     - scipy
     - python-dateutil
     - readline
-    - poco
-    - nexus
+    - poco 1.7.3
+    - nexus 4.3.1
     - openssl
-    - jsoncpp
-    - tbb
+    - jsoncpp 0.10.6
+    - tbb 2018_20170919
 
   run:
     - python
     - cmake
     - pyyaml
     - boost 1.61.*
-    - hdf4
+    - hdf4 4.2.13
     - hdf5 1.8.18
     - h5py
-    - muparser
+    - muparser 2.2.5
     - gsl 1.16
     - mpi4py
-    - openblas
+    - openblas 0.2.20
     - numpy 1.13.3 py27_blas_openblas_201
     - scipy
     - python-dateutil
     - readline
-    - poco
-    - nexus
+    - poco 1.7.3
+    - nexus 4.3.1
     - openssl
-    - jsoncpp
-    - tbb
+    - jsoncpp 0.10.6
+    - tbb 2018_20170919
 
 build:
   script_env:
