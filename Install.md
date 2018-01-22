@@ -12,3 +12,5 @@ To install the nightly build:
 ```
 $ conda install -c mantid/label/nightly mantid-framework
 ```
+
+At the moment, only `linux-64` is supported.
