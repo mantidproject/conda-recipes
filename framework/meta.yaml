@@ -45,6 +45,7 @@ requirements:
     - openblas 0.2.20
     - numpy 1.13.3 py27_blas_openblas_201
     - scipy
+    - matplotlib
     - python-dateutil
     - readline
     - poco 1.7.3
