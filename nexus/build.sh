@@ -16,5 +16,8 @@ if ((CORES < 1)); then
     CORES = 1;
 fi
 
-sh autogen.sh
-CFLAGS="-I $PREFIX/include" ./configure --prefix=$PREFIX --with-hdf5=$PREFIX --with-hdf4=$PREFIX; make -j $CORES; make install
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DENABLE_HDF4=ON -DHDF4_ROOT=$PREFIX -DENABLE_HDF5=ON -DHDF5_ROOT=$PREFIX -DENABLE_CXX=ON ..
+make -j $CORES
+make install
