@@ -1,0 +1,4 @@
+#!/bin/bash
+# command for "build" section of jenkins "master_create_conda_linux_pkg" project
+
+cd docker/framework && ./run_docker_build.sh
