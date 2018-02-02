@@ -19,6 +19,12 @@ them first using the same technique.
 
 You may need to rebuild boost ([recipe](https://github.com/conda-forge/boost-feedstock)) and muparser ([recipe](https://github.com/conda-forge/muparser-feedstock)).
 
+### GL and GLU libs
+Sometimes GL and GLU libs need to be installed natively.
+
+* fedora: `yum install -y mesa-libGLU-devel`
+* ubuntu: `apt-get install freeglut3-dev`
+
 ### Build using docker
 
 Can be done following instructions in ./docker/framework/run_docker_build.sh
