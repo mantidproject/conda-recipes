@@ -53,6 +53,7 @@ requirements:
     - openssl
     - jsoncpp 0.10.6
     - tbb 2018_20170919
+    - pycifrw
 
 build:
   script_env:
