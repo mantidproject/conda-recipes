@@ -3,19 +3,20 @@
 There several Jenkins projects in builds.mantidproject.org to build the conda package nightly.
 
 ## master_clean-rhel7
-Among other things, it generates an artifact called "conda_update_recipe.py" with the right version number.
+Among other things, it generates an artifact called "conda_update_recipe.py" with the right version number of mantid.
 
 ## master_condarecipes_update
-* Update conda recipe by running "conda_update_recipe.py".
+* Update mantid-framework conda recipe by running "conda_update_recipe.py".
 * git push to mantidproject/conda-recipes
 
 ## master_create_conda_linux_pkg
-Run conda build
+Run conda build by using docker. This is done only at ornl-manos. 
+The conda package will be built as an artifact.
 
   `cd docker/framework && ./run_docker_build.sh`
 
 ## master_systemtests-conda
-* Run system tests
+* Run system tests by using the conda package built in the last step
 * If all tests pass, upload conda package to anaconda
 
 ```
