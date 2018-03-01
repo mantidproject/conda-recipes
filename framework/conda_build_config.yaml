@@ -1,0 +1,53 @@
+python:
+  - 2.7
+  - 3.6
+boost:
+  - 1.66
+hdf4:
+  - 4.2.13
+hdf5:
+  - 1.8.18
+muparser:
+  - 2.2.5
+gsl:
+  - 1.16
+openblas:
+  - 0.2.20
+blas:
+  - 1.1 openblas
+numpy:
+  - 1.14
+poco:
+  - 1.7.3
+nexus:
+  - 4.4.3
+jsoncpp:
+  - 0.10.6
+tbb:
+  - 2018_20170919
+
+pin_run_as_build:
+  boost:
+    max_pin: x.x
+  hdf4:
+    max_pin: x.x
+  hdf5:
+    max_pin: x.x
+  muparser:
+    max_pin: x.x
+  gsl:
+    max_pin: x.x
+  openblas:
+    max_pin: x.x
+  blas:
+    max_pin: x.x
+  numpy:
+    max_pin: x.x
+  poco:
+    max_pin: x.x
+  nexus:
+    max_pin: x.x
+  jsoncpp:
+    max_pin: x.x
+  tbb:
+    max_pin: x.x

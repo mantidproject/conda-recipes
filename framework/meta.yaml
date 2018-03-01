@@ -1,5 +1,5 @@
-{% set version = "3.11.20180226.2137" %}
-{% set git_rev = "a2e82891e70990205bda0572581881a47e1dfcaa" %}
+{% set version = "3.11.unstable" %}
+{% set git_rev = "master" %}
 
 package:
   name: mantid-framework
@@ -13,46 +13,48 @@ requirements:
   build:
     - python
     - cmake
-    - boost 1.61.*
-    - hdf4 4.2.13
-    - hdf5 1.8.18
+    - boost     {{ boost }}
+    - hdf4      {{ hdf4 }}
+    - hdf5      {{ hdf5 }}
     - h5py
-    - muparser 2.2.5
-    - gsl 1.16
+    - muparser  {{ muparser }}
+    - gsl       {{ gsl }}
     - mpi4py
-    - openblas 0.2.20
-    - numpy 1.13.3 py27_blas_openblas_201
+    - openblas  {{ openblas }}
+    - blas      {{ blas }}
+    - numpy     {{ numpy }} 
     - scipy
     - python-dateutil
     - readline
-    - poco 1.7.3
-    - nexus 4.4.3
+    - poco      {{ poco }}
+    - nexus     {{ nexus }}
     - openssl
-    - jsoncpp 0.10.6
-    - tbb 2018_20170919
+    - jsoncpp   {{ jsoncpp }}
+    - tbb       {{ tbb }}
 
   run:
     - python
     - cmake
     - pyyaml
-    - boost 1.61.*
-    - hdf4 4.2.13
-    - hdf5 1.8.18
+    - boost
+    - hdf4
+    - hdf5
     - h5py
-    - muparser 2.2.5
-    - gsl 1.16
+    - muparser
+    - gsl
     - mpi4py
-    - openblas 0.2.20
-    - numpy 1.13.3 py27_blas_openblas_201
+    - openblas
+    - blas
+    - numpy
     - scipy
     - matplotlib
     - python-dateutil
     - readline
-    - poco 1.7.3
-    - nexus 4.4.3
+    - poco
+    - nexus
     - openssl
-    - jsoncpp 0.10.6
-    - tbb 2018_20170919
+    - jsoncpp
+    - tbb
     - pycifrw
 
 build:
@@ -61,7 +63,7 @@ build:
     - CXX
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
-  string: py27_np113_openblas201
+  string:
 
 about:
   home:
