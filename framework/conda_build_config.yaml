@@ -2,7 +2,7 @@ python:
   - 2.7
   - 3.6
 boost:
-  - 1.66
+  - 1.61
 hdf4:
   - 4.2.13
 hdf5:
@@ -16,7 +16,7 @@ openblas:
 blas:
   - 1.1 openblas
 numpy:
-  - 1.14
+  - 1.13
 poco:
   - 1.7.3
 nexus:
