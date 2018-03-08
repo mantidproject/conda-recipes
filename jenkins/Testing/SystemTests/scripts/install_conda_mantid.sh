@@ -11,10 +11,9 @@ conda config --add channels mantid
 
 ## anaconda client
 conda install -n root --yes --quiet anaconda-client
-anaconda login --username mantid --password $ANACONDA_PASSWORD
 
 ## upload conda pkg to mantid jenkins channel
-anaconda upload -l jenkins --force $1
+anaconda -t $ANACONDA_ACCESS_KEY upload -l jenkins --force $1
 
 ## Establish mantid environment
 conda create --yes --quiet --name mantid python=2

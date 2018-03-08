@@ -5,4 +5,4 @@ rm -rf conda-recipes
 git clone https://github.com/mantidproject/conda-recipes
 rsync -av conda-recipes/jenkins/Testing/ Testing/
 ./buildconfig/Jenkins/systemtests && \
-    ANACONDA_PASSWORD=$ANACONDA_PASSWORD conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
+    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)

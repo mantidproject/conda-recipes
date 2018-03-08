@@ -21,7 +21,7 @@ conda create -n build python=2.7
 conda install -n build anaconda-client
 source activate build
 # anaconda settings
-anaconda login --username mantid --password $ANACONDA_PASSWORD
+# anaconda login --username mantid --password $ANACONDA_PASSWORD
 conda config --set anaconda_upload no
 # build
 cd ../docker/framework && ./all.sh

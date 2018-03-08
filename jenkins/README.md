@@ -16,13 +16,14 @@ The conda package will be built as an artifact.
   `cd docker/framework && ./run_docker_build.sh`
 
 ## master_systemtests-conda
+* upload the artifact to anaconda with label "jenkins"
 * Run system tests by using the conda package built in the last step
-* If all tests pass, upload conda package to anaconda
+* If all tests pass, upload conda package to anaconda with new label "nightly"
 
 ```
 rm -rf conda-recipes
 git clone https://github.com/mantidproject/conda-recipes
 rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests using conda package
 ./buildconfig/Jenkins/systemtests && \
-	ANACONDA_PASSWORD=$ANACONDA_PASSWORD conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
+	ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
 ```
