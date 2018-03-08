@@ -27,3 +27,7 @@ rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests 
 ./buildconfig/Jenkins/systemtests && \
 	ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
 ```
+
+## Misc Notes
+* anaconda organization: mantid
+* anaconda authentication: use access key. it need to be updated once a while
