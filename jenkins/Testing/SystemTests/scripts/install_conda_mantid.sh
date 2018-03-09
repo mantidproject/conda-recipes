@@ -18,6 +18,12 @@ anaconda -t $ANACONDA_ACCESS_KEY upload -l jenkins --force $1
 ## Establish mantid environment
 conda create --yes --quiet --name mantid python=2
 ## install
-source activate mantid
+conda activate mantid
 conda install --yes --quiet numpy
-conda install --yes --quiet -c mantid/label/jenkins mantid-framework
+
+pwd
+which conda
+conda env list
+cat ~/.condarc
+conda search mantid-framework
+conda install --yes -c mantid/label/jenkins mantid-framework
