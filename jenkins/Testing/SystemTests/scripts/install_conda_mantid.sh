@@ -27,3 +27,5 @@ conda env list
 cat ~/.condarc
 conda search mantid-framework
 conda install --yes -c mantid/label/jenkins mantid-framework
+python -c "import numpy"
+python -c "import matplotlib; import mantid"
