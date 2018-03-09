@@ -115,23 +115,20 @@ The conda package will be built as an artifact.
     * Flatten directories
     * Fingerprint artifacts
   * Execute Shell
-    ```#!/bin/bash
-    cd docker/framework && ./run_docker_build.sh
+    ```
+    rm -rf conda-recipes
+    git clone https://github.com/mantidproject/conda-recipes
+    rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests using conda package
+    ./buildconfig/Jenkins/systemtests && \
+    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
     ```
 * Post-build Actions
   * Archive the artifacts
-    * files to archive: docker/framework/build_artefacts/linux-64/*.bz2
-  * Build other projects
-    * master_systemtests-conda
+    * files to archive: build/Testing/SystemTests/scripts/*-mismatch.nxs, build/Testing/SystemTests/scripts/revision_tested.log,build/UsageData.zip
+  * Publish JUnit test result report
+    * Test report XMLs: build/Testing/SystemTests/scripts/TEST-*.xml
 
 
-```
-rm -rf conda-recipes
-git clone https://github.com/mantidproject/conda-recipes
-rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests using conda package
-./buildconfig/Jenkins/systemtests && \
-	ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
-```
 
 
 ## Misc Notes
