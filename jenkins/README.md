@@ -124,7 +124,7 @@ The conda package will be built as an artifact.
     ```
 * Post-build Actions
   * Archive the artifacts
-    * files to archive: build/Testing/SystemTests/scripts/*-mismatch.nxs, build/Testing/SystemTests/scripts/revision_tested.log,build/UsageData.zip
+    * files to archive:
   * Publish JUnit test result report
     * Test report XMLs: build/Testing/SystemTests/scripts/TEST-*.xml
 
