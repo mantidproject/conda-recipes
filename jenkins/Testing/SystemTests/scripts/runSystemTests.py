@@ -5,9 +5,6 @@ import optparse
 import os
 import sys
 
-print(sys.executable)
-import numpy; print (numpy)
-
 # set up the command line options
 VERSION = "1.1"
 THIS_MODULE_DIR = os.path.dirname(os.path.realpath(__file__))
