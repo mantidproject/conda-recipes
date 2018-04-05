@@ -3,6 +3,8 @@ python:
   - 3.6
 boost:
   - 1.61
+eigen:
+  - 3.3.3
 hdf4:
   - 4.2.13
 hdf5:
@@ -28,6 +30,8 @@ tbb:
 
 pin_run_as_build:
   boost:
+    max_pin: x.x
+  eigen:
     max_pin: x.x
   hdf4:
     max_pin: x.x
