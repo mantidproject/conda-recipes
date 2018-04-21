@@ -27,6 +27,8 @@ jsoncpp:
   - 0.10.6
 tbb:
   - 2018_20170919
+librdkafka:
+  - 0.11
 
 pin_run_as_build:
   boost:
@@ -54,4 +56,6 @@ pin_run_as_build:
   jsoncpp:
     max_pin: x.x
   tbb:
+    max_pin: x.x
+  librdkafka:
     max_pin: x.x

@@ -32,6 +32,7 @@ requirements:
     - openssl
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
+    - librdkafka  {{ librdkafka }}
 
   run:
     - python
@@ -57,6 +58,7 @@ requirements:
     - jsoncpp
     - tbb
     - pycifrw
+    - librdkafka
 
 build:
   script_env:
