@@ -15,3 +15,4 @@ conda config --add channels conda-forge
 conda config --add channels mantid
 conda config --set show_channel_urls true
 conda install conda-build
+conda install anaconda-client
