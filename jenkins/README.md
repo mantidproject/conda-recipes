@@ -120,7 +120,7 @@ The conda package will be built as an artifact.
     git clone https://github.com/mantidproject/conda-recipes
     rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests using conda package
     ./buildconfig/Jenkins/systemtests && \
-    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
+    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY MC_DIR=$HOME/miniconda2 conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
     ```
 * Post-build Actions
   * Archive the artifacts
