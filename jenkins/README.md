@@ -2,6 +2,7 @@
 
 There several Jenkins projects in builds.mantidproject.org to build the conda package nightly.
 
+* [Default Redhat build -- not conda](master_clean-rhel7.md)
 
 ## Misc Notes
 * anaconda organization: mantid
