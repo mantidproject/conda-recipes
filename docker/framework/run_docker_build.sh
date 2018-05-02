@@ -9,14 +9,13 @@ IMAGE_NAME="condaforge/linux-anvil"
 rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
 owner=$(stat -c '%u:%g' ${ARTEFACTS_ROOT})
-
+echo "ARTEFACTS_ROOT: "${ARTEFACTS_ROOT}
 
 config=$(cat <<CONDARC
 
 channels:
  - conda-forge
  - mantid
- - NLeSC
  - defaults
 
 conda-build:
@@ -54,6 +53,8 @@ cp -r /staged-recipes/framework ~/conda-recipes/framework
 # cp -r /staged-recipes ~/conda-recipes
 
 echo "$config" > ~/.condarc
+echo "# ~/.condarc"
+cat ~/.condarc
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
@@ -70,5 +71,6 @@ conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework
 
 #
 chown -R ${owner} /build_artefacts
+ls -l /build_artefacts
 
 EOF
