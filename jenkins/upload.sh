@@ -2,9 +2,9 @@
 
 # Usage: ./upload.sh  -l nightly --force /path/to/pkg.bz2
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. $DIR/setup_mc2.sh
-source activate build
+# conda
+# MC_DIR=$HOME/miniconda2  
+export PATH=$MC_DIR/bin:$PATH
 
 # upload
 anaconda -t $ANACONDA_ACCESS_KEY upload $@
