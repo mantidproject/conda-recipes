@@ -18,8 +18,8 @@ channels:
  - mantid
  - defaults
 
-conda-build:
- root-dir: /build_artefacts
+# conda-build:
+#   root-dir: /build_artefacts
 
 always_yes: true
 show_channel_urls: true
@@ -68,6 +68,9 @@ yum install -y mesa-libGLU-devel
 
 # build
 conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework
+
+# copy artefacts
+cp -a /opt/conda/conda-bld/linux-64 /build_artefacts
 
 #
 chown -R ${owner} /build_artefacts
