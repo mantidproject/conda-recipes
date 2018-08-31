@@ -23,7 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 File change history is stored at: <https://github.com/mantidproject/systemtests>.
 '''
 from __future__ import (absolute_import, division, print_function)
-import matplotlib
 import datetime
 import imp
 import inspect

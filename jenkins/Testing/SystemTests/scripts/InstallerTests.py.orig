@@ -41,12 +41,6 @@ testRunErrPath = os.path.join(output_dir, "test_errors.log")
 
 log('Starting system tests')
 log('Searching for packages in ' + options.package_dir)
-< # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-< # use conda installer
-< # installer = get_installer(package_dir, doInstall)
-< from conda_mantid_installer import CondaInstaller
-< installer = CondaInstaller(package_dir, doInstall)
-< # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 installer = get_installer(options.package_dir, options.doInstall)
 
 # Install the found package
@@ -57,17 +51,10 @@ if options.doInstall:
         log("Application path " + installer.mantidPlotPath)
         installer.no_uninstall = False
     except Exception as err:
-        import traceback
-        tb = traceback.format_exc()
-        scriptfailure("Installing failed. %s\n%s" % (err, tb))
+        scriptfailure("Installing failed. "+str(err))
 else:
     installer.no_uninstall = True
 
-
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-# there is not mantidplot in conda mantid-framework
-# comment the following out for now
-"""
 try:
     # Keep hold of the version that was run
     version = run(installer.mantidPlotPath + ' -v')
@@ -87,9 +74,6 @@ try:
     revision_tested.close()
 except Exception as err:
     scriptfailure('Revision test failed: '+str(err), installer)
-"""
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 
 log("Running system tests. Log files are: '%s' and '%s'" % (testRunLogPath,testRunErrPath))
 try:
