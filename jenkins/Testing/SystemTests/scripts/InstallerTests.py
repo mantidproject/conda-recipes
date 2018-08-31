@@ -41,13 +41,12 @@ testRunErrPath = os.path.join(output_dir, "test_errors.log")
 
 log('Starting system tests')
 log('Searching for packages in ' + options.package_dir)
-< # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-< # use conda installer
-< # installer = get_installer(package_dir, doInstall)
-< from conda_mantid_installer import CondaInstaller
-< installer = CondaInstaller(package_dir, doInstall)
-< # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-installer = get_installer(options.package_dir, options.doInstall)
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# use conda installer
+# installer = get_installer(package_dir, doInstall)
+from conda_mantid_installer import CondaInstaller
+installer = CondaInstaller(package_dir, doInstall)
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # Install the found package
 if options.doInstall:
