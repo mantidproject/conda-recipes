@@ -43,9 +43,9 @@ log('Starting system tests')
 log('Searching for packages in ' + options.package_dir)
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # use conda installer
-# installer = get_installer(package_dir, doInstall)
+# installer = get_installer(options.package_dir, options.doInstall)
 from conda_mantid_installer import CondaInstaller
-installer = CondaInstaller(package_dir, doInstall)
+installer = CondaInstaller(options.package_dir, options.doInstall)
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # Install the found package
