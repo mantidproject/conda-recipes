@@ -5,6 +5,9 @@ case "${unameOut}" in
     Linux*)
 	let CORES=`grep -c ^processor /proc/cpuinfo`
 	CMAKE_EXTRA_ARGS="-DOPENGL_gl_LIBRARY=${OPENGL_gl_LIBRARY} -DOPENGL_glu_LIBRARY=${OPENGL_glu_LIBRARY}"
+	if [ ! -z "$OPENGL_INCLUDES" ]; then
+	   export CXXFLAGS="$CXXFLAGS -I$OPENGL_INCLUDES"
+	fi
 	;;
     Darwin*)
 	let CORES=`sysctl -n hw.ncpu`
@@ -35,9 +38,10 @@ fi
 
 
 mkdir build; cd build
-${CMAKE} ${CMAKE_GENERATOR} \
+CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
     ${CMAKE_EXTRA_ARGS} \
     -DUSE_SYSTEM_EIGEN=1 \
+    -DUSE_CXX98_ABI=TRUE \
     -DENABLE_MANTIDPLOT=FALSE \
     -DCMAKE_SKIP_INSTALL_RPATH=ON \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \

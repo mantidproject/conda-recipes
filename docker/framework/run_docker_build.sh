@@ -65,6 +65,9 @@ conda update conda conda-build
 export OPENGL_gl_LIBRARY=/usr/lib64/libGL.so
 export OPENGL_glu_LIBRARY=/usr/lib64/libGLU.so
 /usr/bin/sudo -n yum install -y mesa-libGLU-devel
+mkdir -p GL-includes
+cp -a /usr/include/GL GL-includes/GL
+export OPENGL_INCLUDES=$PWD/GL-includes
 
 # build
 conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework

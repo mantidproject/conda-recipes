@@ -1,5 +1,5 @@
-{% set version = "3.13.20180907.1622" %}
-{% set git_rev = "5a3a20f437651cad455087b6b476db38ef0ce61b" %}
+{% set version = "3.13.test" %}
+{% set git_rev = "23606-conda" %}
 
 package:
   name: mantid-framework
@@ -11,54 +11,58 @@ source:
 
 requirements:
   build:
-    - python
+    - {{ compiler('cxx') }}
     - cmake
+  host:
+    - python
     - boost     {{ boost }}
     - eigen     {{ eigen }}
     - hdf4      {{ hdf4 }}
     - hdf5      {{ hdf5 }}
-    - h5py
     - muparser  {{ muparser }}
     - gsl       {{ gsl }}
-    - mpi4py
     - openblas  {{ openblas }}
     - blas      {{ blas }}
     - numpy     {{ numpy }} 
-    - scipy
-    - python-dateutil
-    - readline
     - poco      {{ poco }}
     - nexus     {{ nexus }}
-    - openssl
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
+    - readline
+    - openssl
+    - python-dateutil
+    - h5py
+    - mpi4py
+    - scipy
 
   run:
     - python
-    - cmake
-    - pyyaml
     - boost
+    - eigen
     - hdf4
     - hdf5
-    - h5py
     - muparser
     - gsl
-    - mpi4py
     - openblas
     - blas
     - numpy
-    - scipy
-    - matplotlib
-    - python-dateutil
-    - readline
     - poco
     - nexus
-    - openssl
     - jsoncpp
     - tbb
-    - pycifrw
     - librdkafka
+    - readline
+    - openssl
+    - python-dateutil
+    - h5py
+    - mpi4py
+    - scipy
+    - pyyaml
+    - pycifrw
+    - matplotlib
+    - six
+    - cmake
 
 build:
   script_env:
@@ -66,6 +70,7 @@ build:
     - CXX
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
+    - OPENGL_INCLUDES
   string:
 
 about:
