@@ -1,5 +1,5 @@
-{% set version = "3.13.test" %}
-{% set git_rev = "23606-conda" %}
+{% set version = "3.13.20180927.1325" %}
+{% set git_rev = "bfb5d6cb9bbcb985739fa5f2a87901f25af56899" %}
 
 package:
   name: mantid-framework
