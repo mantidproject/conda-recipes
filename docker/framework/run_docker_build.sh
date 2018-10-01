@@ -18,8 +18,8 @@ channels:
  - mantid
  - defaults
 
-# conda-build:
-#   root-dir: /build_artefacts
+conda-build:
+ root-dir: /build_artefacts
 
 always_yes: true
 show_channel_urls: true
@@ -45,6 +45,9 @@ cat << EOF | docker run --net=host -i \
                         $IMAGE_NAME \
                         bash -ex || exit $?
 
+set -e
+export PYTHONUNBUFFERED=1
+
 # Copy the host recipes folder so we don't ever muck with it
 # Only copy the framework
 mkdir -p ~/conda-recipes
@@ -67,16 +70,18 @@ export OPENGL_glu_LIBRARY=/usr/lib64/libGLU.so
 /usr/bin/sudo -n yum install -y mesa-libGLU-devel
 mkdir -p GL-includes
 cp -a /usr/include/GL GL-includes/GL
-export OPENGL_INCLUDES=$PWD/GL-includes
+# $PWD does not work. have to hardcode. why???
+export OPENGL_INCLUDES=/home/conda/GL-includes
 
 # build
-conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework
+# conda build --python 2.7 --numpy 1.13 ~/conda-recipes/framework
+conda build ~/conda-recipes/framework
 
 # copy artefacts
-cp -a /opt/conda/conda-bld/linux-64 /build_artefacts
+# cp -a /opt/conda/conda-bld/linux-64 /build_artefacts
 
 #
-chown -R ${owner} /build_artefacts
 ls -l /build_artefacts
+# /usr/bin/sudo chown -R ${owner} /build_artefacts
 
 EOF
