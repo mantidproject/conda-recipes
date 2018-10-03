@@ -16,12 +16,11 @@ conda install -n root --yes --quiet anaconda-client
 anaconda -t $ANACONDA_ACCESS_KEY upload -l jenkins --force $1
 
 ## Establish mantid environment
-conda create --yes --quiet --name mantid python=2
+conda create --yes --quiet --name mantid python=2.7.14
 ## install
 source activate mantid
 pwd
 which conda
-conda install --yes --quiet numpy
 
 conda env list
 cat ~/.condarc
