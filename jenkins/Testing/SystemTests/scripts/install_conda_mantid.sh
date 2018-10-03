@@ -27,6 +27,7 @@ cat ~/.condarc
 conda remove mantid-framework
 conda search mantid-framework
 conda install --yes -c mantid/label/jenkins mantid-framework
+conda list
 which python
 python -c "import numpy"
 python -c "import matplotlib; import mantid"
