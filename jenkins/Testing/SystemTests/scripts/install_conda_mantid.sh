@@ -25,6 +25,7 @@ conda install --yes --quiet numpy
 
 conda env list
 cat ~/.condarc
+conda remove mantid-framework
 conda search mantid-framework
 conda install --yes -c mantid/label/jenkins mantid-framework
 which python
