@@ -22,7 +22,7 @@ The conda package will be built as an artifact.
 * Build
   * Execute Shell
     ```#!/bin/bash
-    cd docker/framework && ./run_docker_build.sh
+    cd docker/framework && ./run_docker_build_py2_for_systemtests.sh
     ```
 * Post-build Actions
   * Archive the artifacts
