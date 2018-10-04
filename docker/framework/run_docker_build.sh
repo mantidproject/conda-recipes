@@ -74,8 +74,7 @@ cp -a /usr/include/GL GL-includes/GL
 export OPENGL_INCLUDES=/home/conda/GL-includes
 
 # build
-conda build --python 2.7.14 --numpy 1.13 ~/conda-recipes/framework
-# conda build ~/conda-recipes/framework
+conda build ~/conda-recipes/framework
 
 # copy artefacts
 # cp -a /opt/conda/conda-bld/linux-64 /build_artefacts
