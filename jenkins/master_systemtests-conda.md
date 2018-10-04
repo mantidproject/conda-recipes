@@ -40,8 +40,8 @@
     ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY MC_DIR=$HOME/miniconda2 conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
     ```
 * Post-build Actions
-  * Archive the artifacts
-    * files to archive:
   * Publish JUnit test result report
     * Test report XMLs: build/Testing/SystemTests/scripts/TEST-*.xml
+  * Build other projects
+    * master_create_conda_linux_pkgs
 
