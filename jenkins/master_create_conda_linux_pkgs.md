@@ -1,7 +1,6 @@
 ## master_create_conda_linux_pkg
-Run conda build by using docker. This is done only at ornl-manos.
-The conda package will be built as an artifact.
-This only creates one package just for system tests.
+Run conda build by using docker. This is done only at ornl-manos. 
+The packages will be uploaded to anaconda.
 
 ### Configuration
 
@@ -23,10 +22,15 @@ This only creates one package just for system tests.
 * Build
   * Execute Shell
     ```#!/bin/bash
-    cd docker/framework && ./run_docker_build_py2_for_systemtests.sh
+    pwd
+    rm -rf docker/framework/build_artefacts
+    mkdir -p docker/framework/build_artefacts
+    cd docker/framework && ./run_docker_build.sh
+    cd $WORKSPACE
+
+    MF_TBS=$(ls docker/framework/build_artefacts/linux-64/mantid-framework-*.tar.bz2)
+    echo $MF_TBS
+
+    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY MC_DIR=$HOME/miniconda2 jenkins/upload.sh -l nightly --force ${MF_TBS}
     ```
 * Post-build Actions
-  * Archive the artifacts
-    * files to archive: docker/framework/build_artefacts/linux-64/*.bz2
-  * Build other projects
-    * master_systemtests-conda
