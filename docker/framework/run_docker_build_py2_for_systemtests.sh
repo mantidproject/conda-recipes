@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # NOTE: This script is modified from run_docker_build.sh
+# NOTE: and it is for a particular jenkins build for systemtests
 
 REPO_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts
