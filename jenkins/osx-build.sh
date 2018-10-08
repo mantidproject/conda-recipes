@@ -1,3 +1,3 @@
 #!/bin/bash
 
-conda build --python 2.7 ./framework
+conda build --python 2.7.14 ./framework
