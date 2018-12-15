@@ -58,6 +58,7 @@ requirements:
     - h5py
     - mpi4py
     - scipy
+    - scikit-image
     - pyyaml
     - pycifrw
     - matplotlib
