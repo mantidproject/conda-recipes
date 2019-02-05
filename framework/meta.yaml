@@ -19,7 +19,7 @@ requirements:
     - eigen     {{ eigen }}
     - hdf4      {{ hdf4 }}
     - hdf5      {{ hdf5 }}
-    - muparser  {{ muparser }}
+    - muparser  2.2.5 0
     - gsl       {{ gsl }}
     - openblas  {{ openblas }}
     - blas      {{ blas }}
@@ -42,7 +42,7 @@ requirements:
     - eigen
     - hdf4
     - hdf5
-    - muparser
+    - muparser 2.2.5 0
     - gsl
     - openblas
     - blas

@@ -21,8 +21,8 @@ hdf4:
   - 4.2.13
 hdf5:
   - 1.8.18
-muparser:
-  - 2.2.5
+# muparser:
+#   - 2.2.5
 gsl:
   - 1.16
   - 2.4
@@ -70,8 +70,6 @@ pin_run_as_build:
     max_pin: x.x
   hdf5:
     max_pin: x.x
-  muparser:
-    max_pin: x.x
   gsl:
     max_pin: x.x
   openblas:
@@ -90,3 +88,5 @@ pin_run_as_build:
     max_pin: x.x
   librdkafka:
     max_pin: x.x
+#  muparser:
+#    max_pin: x.x
