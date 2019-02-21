@@ -23,7 +23,10 @@ You may need to rebuild boost ([recipe](https://github.com/conda-forge/boost-fee
 Sometimes GL and GLU libs need to be installed natively.
 
 * fedora: `yum install -y mesa-libGLU-devel`
-* ubuntu: `apt-get install freeglut3-dev`
+* ubuntu: `apt-get install freeglut3-dev libglu1-mesa`
+  * `OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/mesa/libGL.so.1`
+  * `OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1`
+  * `OPENGL_INCLUDES=/usr/include/GL`
 
 ### Build using docker
 
