@@ -26,7 +26,7 @@ Sometimes GL and GLU libs need to be installed natively.
 * ubuntu: `apt-get install freeglut3-dev libglu1-mesa`
   * `OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/mesa/libGL.so.1`
   * `OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1`
-  * `OPENGL_INCLUDES=/usr/include/GL`
+  * `OPENGL_INCLUDES` should be `/usr/include/GL`. However this does not work because all the headers in `/usr/include`. Have to copy them somewhere else and include that.
 
 ### Build using docker
 
