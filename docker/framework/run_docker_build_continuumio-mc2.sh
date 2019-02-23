@@ -48,11 +48,21 @@ cat << EOF | docker run --net=host -i \
 set -e
 export PYTHONUNBUFFERED=1
 
+# need opengl and glu
+apt-get install -y freeglut3-dev make
+mkdir -p ~/GL-includes
+cp -a /usr/include/GL ~/GL-includes/GL
+# ls /root/GL-includes
+export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
+export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
+export OPENGL_INCLUDES=/root/GL-includes
+
 # Copy the host recipes folder so we don't ever muck with it
 # Only copy the framework
 mkdir -p ~/conda-recipes
 cp -r /staged-recipes/framework ~/conda-recipes/framework
 
+# condarc
 echo "$config" > ~/.condarc
 echo "# ~/.condarc"
 cat ~/.condarc
@@ -60,20 +70,9 @@ cat ~/.condarc
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
 
+# need conda build
 conda update conda
 conda install conda-build
-
-# need opengl and glu
-apt-get install -y freeglut3-dev make
-cd ~
-mkdir -p GL-includes
-cp -a /usr/include/GL GL-includes/GL
-
-export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
-export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
-export OPENGL_INCLUDES=/root/GL-includes
-ls $OPENGL_INCLUDES
-
 
 # build
 conda build ~/conda-recipes/framework
