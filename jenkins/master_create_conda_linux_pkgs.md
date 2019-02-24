@@ -28,7 +28,7 @@ The packages will be uploaded to anaconda.
     cd docker/framework && ./run_docker_build_continuumio-mc2.sh
     cd $WORKSPACE
 
-    MF_TBS=$(ls docker/framework/build_artefacts/linux-64/mantid-framework-*.tar.bz2)
+    MF_TBS=$(ls docker/framework/build_artefacts2/linux-64/mantid-framework-*.tar.bz2)
     echo $MF_TBS
 
     ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY MC_DIR=$HOME/miniconda2 jenkins/upload.sh -l nightly --force ${MF_TBS}
