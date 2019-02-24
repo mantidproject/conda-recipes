@@ -23,10 +23,10 @@ This only creates one package just for system tests.
 * Build
   * Execute Shell
     ```#!/bin/bash
-    cd docker/framework && ./run_docker_build_py2_for_systemtests.sh
+    cd docker/framework && ./run_docker_build_continuumio-mc2_py2_for_systemtests.sh
     ```
 * Post-build Actions
   * Archive the artifacts
-    * files to archive: docker/framework/build_artefacts/linux-64/*.bz2
+    * files to archive: docker/framework/build_artefacts2/linux-64/*.bz2
   * Build other projects
     * master_systemtests-conda
