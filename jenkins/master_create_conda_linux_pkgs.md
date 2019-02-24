@@ -25,7 +25,7 @@ The packages will be uploaded to anaconda.
     pwd
     rm -rf docker/framework/build_artefacts
     mkdir -p docker/framework/build_artefacts
-    cd docker/framework && ./run_docker_build.sh
+    cd docker/framework && ./run_docker_build_continuumio-mc2.sh
     cd $WORKSPACE
 
     MF_TBS=$(ls docker/framework/build_artefacts/linux-64/mantid-framework-*.tar.bz2)
