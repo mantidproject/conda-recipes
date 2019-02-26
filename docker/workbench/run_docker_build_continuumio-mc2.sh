@@ -3,7 +3,7 @@
 # NOTE: This script has been adapted from https://raw.githubusercontent.com/conda-forge/staged-recipes/master/scripts/run_docker_build.sh
 
 REPO_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
-ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
+ARTEFACTS_ROOT=$(pwd;)/build_artefacts_mc2
 IMAGE_NAME="continuumio/miniconda2"
 
 rm -rf ${ARTEFACTS_ROOT}
@@ -16,7 +16,6 @@ config=$(cat <<CONDARC
 channels:
  - conda-forge
  - mantid
- - defaults
 
 conda-build:
  root-dir: /build_artefacts
@@ -48,6 +47,9 @@ cat << EOF | docker run --net=host -i \
 set -e
 export PYTHONUNBUFFERED=1
 
+# Install ninja for building
+apt-get install -y ninja-build
+
 # need opengl and glu
 apt-get install -y freeglut3-dev make
 mkdir -p ~/GL-includes
@@ -58,9 +60,9 @@ export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
 export OPENGL_INCLUDES=/root/GL-includes
 
 # Copy the host recipes folder so we don't ever muck with it
-# Only copy the framework
+# Only copy the workbench 
 mkdir -p ~/conda-recipes
-cp -r /staged-recipes/framework ~/conda-recipes/framework
+cp -r /staged-recipes/workbench ~/conda-recipes/workbench
 
 # condarc
 echo "$config" > ~/.condarc
@@ -75,7 +77,7 @@ conda update conda
 conda install conda-build
 
 # build
-conda build ~/conda-recipes/framework
+conda build ~/conda-recipes/workbench
 
 #
 ls -l /build_artefacts
