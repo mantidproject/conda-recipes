@@ -1,0 +1,82 @@
+{% set version = "3.13.20190225.1515" %}
+{% set git_rev = "108691e6d928c3271afc790f77cdf52bdd24100f" %}
+
+package:
+  name: mantid-workbench
+  version: {{ version }}
+
+source:
+  git_rev: {{ git_rev }}
+  git_url: https://github.com/mantidproject/mantid.git
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}  # [linux]
+    - cmake
+  host:
+    - python
+    - boost     {{ boost }}
+    - eigen     {{ eigen }}
+    - hdf4      {{ hdf4 }}
+    - hdf5      {{ hdf5 }}
+    - muparser  2.2.5 0
+    - gsl       {{ gsl }}
+    - openblas  {{ openblas }}
+    - blas      {{ blas }}
+    - numpy     {{ numpy }} 
+    - poco      {{ poco }}
+    - pyqt      {{ pyqt }} 
+    - nexus     {{ nexus }}
+    - jsoncpp   {{ jsoncpp }}
+    - tbb       {{ tbb }}
+    - librdkafka  {{ librdkafka }}
+    - readline
+    - openssl
+    - python-dateutil
+    - h5py
+    - mpi4py
+    - scipy
+
+  run:
+    - python
+    - boost
+    - eigen
+    - hdf4
+    - hdf5
+    - muparser 2.2.5 0
+    - gsl
+    - openblas
+    - blas
+    - numpy
+    - poco
+    - pyqt 
+    - nexus
+    - jsoncpp
+    - tbb
+    - librdkafka
+    - readline
+    - openssl
+    - python-dateutil
+    - h5py
+    - mpi4py
+    - scipy
+    - scikit-image
+    - pyyaml
+    - pycifrw
+    - matplotlib
+    - six
+    - cmake
+
+build:
+  script_env:
+    - CC
+    - CXX
+    - OPENGL_gl_LIBRARY
+    - OPENGL_glu_LIBRARY
+    - OPENGL_INCLUDES
+  string:
+
+about:
+  home:
+  license:
+  license_file:
