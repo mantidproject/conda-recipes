@@ -30,7 +30,7 @@ requirements:
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
     - readline
-    - openssl
+    - openssl   {{ openssl }}
     - python-dateutil
     - h5py
     - mpi4py
