@@ -48,13 +48,16 @@ cat << EOF | docker run --net=host -i \
 set -e
 export PYTHONUNBUFFERED=1
 
+# Install ninja for building
+apt-get install -y ninja-build
+
 # need opengl and glu
 apt-get install -y freeglut3-dev make
 mkdir -p ~/GL-includes
 cp -a /usr/include/GL ~/GL-includes/GL
 # ls /root/GL-includes
 export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
-export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
+export OPENGL_glu_LIBRARY=usr/lib/x86_64-linux-gnu/libGLU.so.1
 export OPENGL_INCLUDES=/root/GL-includes
 
 # Copy the host recipes folder so we don't ever muck with it
@@ -75,7 +78,7 @@ conda update conda
 conda install conda-build
 
 # build
-conda build --croot /tmp/mtd_workbench_tmp ~/conda-recipes/workbench
+conda build ~/conda-recipes/workbench
 
 #
 ls -l /build_artefacts

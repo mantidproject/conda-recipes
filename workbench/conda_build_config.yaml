@@ -47,6 +47,8 @@ poco:
   - 1.7.3
 pyqt:
   - 4.11.4
+qtconsole:
+  - 4.4.3
 nexus:
   - 4.4.3
 jsoncpp:
@@ -55,6 +57,8 @@ tbb:
   - 2018_20170919
 librdkafka:
   - 0.11
+openssl:
+  - 1.0.2
 
 zip_keys:
   - python
@@ -84,6 +88,8 @@ pin_run_as_build:
     max_pin: x.x
   pyqt:
     max_pin: x.x
+  qtconsole:
+    max_pin: x.x
   nexus:
     max_pin: x.x
   jsoncpp:
@@ -91,6 +97,8 @@ pin_run_as_build:
   tbb:
     max_pin: x.x
   librdkafka:
+    max_pin: x.x
+  openssl:
     max_pin: x.x
 #  muparser:
 #    max_pin: x.x
