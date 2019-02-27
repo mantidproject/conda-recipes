@@ -16,21 +16,30 @@ echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 conda config --set always_yes yes
 conda config --add channels conda-forge
 conda config --add channels mantid
-conda create -n mantid-local -q python=2.7
-conda activate mantid-local
-conda install conda
-conda install conda-build
 
 # Move artifacts over for local install
-mkdir -p $CONDA_PREFIX/conda-bld/linux-64
-cp -r /build_artefacts2/linux-64/${MANTID_TAR_FILE} $CONDA_PREFIX/conda-bld/linux-64
+cp -r /build_artefacts2 $CONDA_PREFIX/conda-bld
 
-# Install
-conda index $CONDA_PREFIX/conda-bld
-conda install -c $CONDA_PREFIX/conda-bld mantid-framework
+# Loop over the different packages (two python2.7.14 and one python3.6)
+for package in $(echo $CONDA_PREFIX/conda-bld/mantid-framwork*)
+do
+  # Get python version from package name
+  PYVERSION=$(echo ${package} | sed -n 's/.*-py\([0-9]\)\([0-9]\).*$/\1\.\2/p')
 
-# Test
-python -c "import mantid"
-python -c "import mantid; print(mantid.__version__)"
+  # Setup the conda environment
+  conda create -n mantid-local -q python=${PYVERSION}
+  conda activate mantid-local
+  conda install conda
+  conda install conda-build
+
+  # Install package
+  conda index $CONDA_PREFIX/conda-bld
+  conda install ${package}
+
+  # Test installation
+  python -c "import mantid"
+  python -c "import mantid; print(mantid.__version__)"
+  python -c "from mantid import simpleapi"
+done
 
 EOF
