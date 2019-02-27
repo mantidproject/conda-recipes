@@ -26,6 +26,7 @@ requirements:
     - numpy     {{ numpy }} 
     - poco      {{ poco }}
     - pyqt      {{ pyqt }} 
+    - qt        {{ qt }}
     - qtconsole {{ qtconsole }} 
     - nexus     {{ nexus }}
     - jsoncpp   {{ jsoncpp }}
@@ -44,6 +45,7 @@ requirements:
     - eigen
     - hdf4
     - hdf5
+    - icu
     - muparser 2.2.5 0
     - gsl
     - openblas
@@ -51,6 +53,7 @@ requirements:
     - numpy
     - poco
     - pyqt 
+    - qt
     - qtconsole 
     - nexus
     - jsoncpp

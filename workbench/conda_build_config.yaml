@@ -46,7 +46,9 @@ numpy:
 poco:
   - 1.7.3
 pyqt:
-  - 4.11.4
+  - 5.6.0
+qt:
+  - 5.6.3
 qtconsole:
   - 4.4.3
 nexus:
@@ -87,6 +89,8 @@ pin_run_as_build:
   poco:
     max_pin: x.x
   pyqt:
+    max_pin: x.x
+  qt:
     max_pin: x.x
   qtconsole:
     max_pin: x.x
