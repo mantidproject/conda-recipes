@@ -33,7 +33,7 @@ for package in \$(ls /build_artefacts/${OS}/mantid-framework*); do
   conda install conda-build
 
   # Install package
-  cp -r /build_artefacts \${CONDA_PREFIX}/conda-bld
+  rsync -av /build_artefacts/ \${CONDA_PREFIX}/conda-bld/
   conda index \${CONDA_PREFIX}/conda-bld
   conda install -c \${CONDA_PREFIX}/conda-bld mantid-framework=\${VERSION}=\${BUILD}
 
