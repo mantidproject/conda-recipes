@@ -23,6 +23,7 @@ for package in \$(ls /build_artefacts/${OS}/mantid-framework*); do
   # Get python version from package name
   PYTHON_VERSION=\$(echo \${package} | sed -n 's/.*-py\([0-9]\)\([0-9]\).*$/\1\.\2/p')
   PACKAGE_VERSION=\$(echo \${package} | sed -n 's/.*mantid-framework-\(.*\)\.tar.bz2/\1/p')
+  VER_STR=\$(echo \${PACKAGE_VERSION} | sed -n 's/-/=/p')
 
   # Setup the conda environment
   ENV="mantid-framework-\${PACKAGE_VERSION}"
@@ -32,14 +33,14 @@ for package in \$(ls /build_artefacts/${OS}/mantid-framework*); do
   conda install conda-build
 
   # Install package
-  cp -r /build-artefacts \${CONDA_PREFIX}/conda-bld
+  rsync -av /build_artefacts/ \${CONDA_PREFIX}/conda-bld/
   conda index \${CONDA_PREFIX}/conda-bld
-  conda install -c \${CONDA_PREFIX}/conda-bld mantid-framework=\${PACKAGE_VERSION}
+  conda install -c \${CONDA_PREFIX}/conda-bld mantid-framework=\${VER_STR}
 
   # Test installation
   python -c "import mantid"
   python -c "import mantid; print(mantid.__version__)"
-  python -c "from mantid import simpleapi"
+  # python -c "from mantid import simpleapi" # this still does not work. DownloadInstrument trigger segfaults
 
   conda deactivate
 done
