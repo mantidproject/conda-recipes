@@ -26,17 +26,16 @@ requirements:
     - numpy     {{ numpy }} 
     - poco      {{ poco }}
     - pyqt      {{ pyqt }} 
-    - qt        {{ qt }}
     - qtconsole {{ qtconsole }} 
     - nexus     {{ nexus }}
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
-    - readline
-    - openssl
-    - python-dateutil
     - h5py
     - mpi4py
+    - openssl
+    - python-dateutil
+    - readline
     - scipy
 
   run:
