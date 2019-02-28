@@ -22,20 +22,20 @@ conda config --add channels mantid
 for package in \$(ls /build_artefacts/${OS}/mantid-framework*); do
   # Get python version from package name
   PYTHON_VERSION=\$(echo \${package} | sed -n 's/.*-py\([0-9]\)\([0-9]\).*$/\1\.\2/p')
-  PACKAGE_VERSION=\$(echo \${package} | sed -n 's/.*mantid-framework-\(.*\)\.tar.bz2/\1/p')
-  VER_STR=\$(echo \${PACKAGE_VERSION} | sed -n 's/-/=/p')
+  VERSION=\$(echo \${package} | sed -n 's/.*mantid-framework-\(.*\)-\(.*\)\.tar.bz2/\1/p')
+  BUILD=\$(echo \${package} | sed -n 's/.*mantid-framework-\(.*\)-\(.*\)\.tar.bz2/\2/p')
 
   # Setup the conda environment
-  ENV="mantid-framework-\${PACKAGE_VERSION}"
+  ENV="mantid-framework-\${VERSION}-\${BUILD}"
   conda create -n \${ENV} -q python=\${PYTHON_VERSION}
   conda activate \${ENV}
   conda install conda
   conda install conda-build
 
   # Install package
-  rsync -av /build_artefacts/ \${CONDA_PREFIX}/conda-bld/
+  cp -r /build_artefacts \${CONDA_PREFIX}/conda-bld
   conda index \${CONDA_PREFIX}/conda-bld
-  conda install -c \${CONDA_PREFIX}/conda-bld mantid-framework=\${VER_STR}
+  conda install -c \${CONDA_PREFIX}/conda-bld mantid-framework=\${VERSION}=\${BUILD}
 
   # Test installation
   python -c "import mantid"
