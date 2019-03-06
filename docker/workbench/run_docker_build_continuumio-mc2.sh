@@ -57,7 +57,7 @@ mkdir -p ~/GL-includes
 cp -a /usr/include/GL ~/GL-includes/GL
 # ls /root/GL-includes
 export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
-export OPENGL_glu_LIBRARY=usr/lib/x86_64-linux-gnu/libGLU.so.1
+export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
 export OPENGL_INCLUDES=/root/GL-includes
 
 # Copy the host recipes folder so we don't ever muck with it
