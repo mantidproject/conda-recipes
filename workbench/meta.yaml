@@ -30,8 +30,10 @@ requirements:
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
     - pyqt      {{ pyqt }}
+    - qtpy      {{ qtpy }}
     - qtconsole {{ qtconsole }}
     - qscintilla2 {{ qscintilla2 }}
+    - qtawesome {{ qtawesome }}
     - libglu {{ libglu }}
     - sphinx {{ sphinx }}
     - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
@@ -56,6 +58,7 @@ requirements:
     - numpy
     - poco
     - pyqt 
+    - qtpy 
     - nexus
     - jsoncpp
     - tbb
@@ -65,6 +68,7 @@ requirements:
     - qt
     - qtconsole
     - qscintilla2
+    - qtawesome
     - libglu
     - sphinx
     - sphinx_bootstrap_theme

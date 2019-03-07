@@ -5,16 +5,10 @@
 # for python 3
 python:
   - 2.7.14
-  - 2.7.14
   - 3.6
-#  - 2.7.14
-#  - 3.6
 boost:
   - 1.61
   - 1.66
-  - 1.66
-#  - 1.69
-#  - 1.69
 eigen:
   - 3.3.7
 hdf4:
@@ -26,23 +20,14 @@ hdf5:
 gsl:
   - 1.16
   - 2.4
-  - 2.4
-#  - 2.4
-#  - 2.4
 openblas:
   - 0.2.20
   - 0.2.20
-  - 0.2.20
-#  - 0.3.3
-#  - 0.3.3
 blas:
   - 1.1 openblas
 numpy:
   - 1.13
   - 1.14
-  - 1.14
-#  - 1.16
-#  - 1.16
 poco:
   - 1.7.3
 nexus:
@@ -57,10 +42,14 @@ openssl:
   - 1.0.2
 pyqt:
   - 5.6.0
+qtpy:
+  - 1.4.2
 qtconsole:
   - 4.4.3
 qscintilla2:
   - 2.9.3
+qtawesome:
+  - 0.4.4
 libglu:
   - 9.0.0
 sphinx:
@@ -106,9 +95,13 @@ pin_run_as_build:
     max_pin: x.x
   pyqt:
     max_pin: x.x
+  qtpy:
+    max_pin: x.x
   qtconsole:
     max_pin: x.x
   qscintilla2:
+    max_pin: x.x
+  qtawesome:
     max_pin: x.x
   libglu:
     max_pin: x.x
