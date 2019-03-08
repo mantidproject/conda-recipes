@@ -1,0 +1,96 @@
+{% set version = "3.13.20190307.646" %}
+{% set git_rev = "066fe61b6b9ef31f9e9eb87c4152653d943dbe31" %}
+
+package:
+  name: mantid-workbench
+  version: {{ version }}
+
+source:
+  git_rev: {{ git_rev }}
+  git_url: https://github.com/mantidproject/mantid.git
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}  # [linux]
+    - cmake
+  host:
+    - python
+    - boost     {{ boost }}
+    - eigen     {{ eigen }}
+    - hdf4      {{ hdf4 }}
+    - hdf5      {{ hdf5 }}
+    - muparser  2.2.5 0
+    - gsl       {{ gsl }}
+    - openblas  {{ openblas }}
+    - blas      {{ blas }}
+    - numpy     {{ numpy }} 
+    - poco      {{ poco }}
+    - nexus     {{ nexus }}
+    - jsoncpp   {{ jsoncpp }}
+    - tbb       {{ tbb }}
+    - librdkafka  {{ librdkafka }}
+    - pyqt      {{ pyqt }}
+    - qtpy      {{ qtpy }}
+    - qtconsole {{ qtconsole }}
+    - qscintilla2 {{ qscintilla2 }}
+    - qtawesome {{ qtawesome }}
+    - libglu {{ libglu }}
+    - sphinx {{ sphinx }}
+    - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
+    - h5py
+    - mpi4py
+    - openssl
+    - python-dateutil
+    - readline
+    - scipy
+
+  run:
+    - python
+    - boost
+    - eigen
+    - hdf4
+    - hdf5
+    - icu
+    - muparser 2.2.5 0
+    - gsl
+    - openblas
+    - blas
+    - numpy
+    - poco
+    - pyqt 
+    - qtpy 
+    - nexus
+    - jsoncpp
+    - tbb
+    - librdkafka
+    - readline
+    - openssl
+    - qt
+    - qtconsole
+    - qscintilla2
+    - qtawesome
+    - libglu
+    - python-dateutil
+    - h5py
+    - mpi4py
+    - scipy
+    - scikit-image
+    - pyyaml
+    - pycifrw
+    - matplotlib
+    - six
+    - cmake
+
+build:
+  script_env:
+    - CC
+    - CXX
+    - OPENGL_gl_LIBRARY
+    - OPENGL_glu_LIBRARY
+    - OPENGL_INCLUDES
+  string:
+
+about:
+  home:
+  license:
+  license_file:
