@@ -70,8 +70,6 @@ requirements:
     - qscintilla2
     - qtawesome
     - libglu
-    - sphinx
-    - sphinx_bootstrap_theme
     - python-dateutil
     - h5py
     - mpi4py
