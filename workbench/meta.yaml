@@ -1,8 +1,8 @@
-{% set version = "3.13.20190308.2323" %}
-{% set git_rev = "75e6bb4b242e028e2cdae5f1a87c0bc60795047f" %}
+{% set version = "3.13.20190307.646" %}
+{% set git_rev = "066fe61b6b9ef31f9e9eb87c4152653d943dbe31" %}
 
 package:
-  name: mantid-framework
+  name: mantid-workbench
   version: {{ version }}
 
 source:
@@ -29,11 +29,19 @@ requirements:
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
-    - readline
-    - openssl   {{ openssl }}
-    - python-dateutil
+    - pyqt      {{ pyqt }}
+    - qtpy      {{ qtpy }}
+    - qtconsole {{ qtconsole }}
+    - qscintilla2 {{ qscintilla2 }}
+    - qtawesome {{ qtawesome }}
+    - libglu {{ libglu }}
+    - sphinx {{ sphinx }}
+    - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
     - h5py
     - mpi4py
+    - openssl
+    - python-dateutil
+    - readline
     - scipy
 
   run:
@@ -42,18 +50,26 @@ requirements:
     - eigen
     - hdf4
     - hdf5
+    - icu
     - muparser 2.2.5 0
     - gsl
     - openblas
     - blas
     - numpy
     - poco
+    - pyqt 
+    - qtpy 
     - nexus
     - jsoncpp
     - tbb
     - librdkafka
     - readline
     - openssl
+    - qt
+    - qtconsole
+    - qscintilla2
+    - qtawesome
+    - libglu
     - python-dateutil
     - h5py
     - mpi4py
