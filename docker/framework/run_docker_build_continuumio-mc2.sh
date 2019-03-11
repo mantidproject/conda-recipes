@@ -79,6 +79,6 @@ conda build ~/conda-recipes/framework
 
 #
 ls -l /build_artefacts
-# /usr/bin/sudo chown -R ${owner} /build_artefacts
+chown -R ${owner} /build_artefacts
 
 EOF
