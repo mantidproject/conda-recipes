@@ -1,5 +1,5 @@
-{% set version = "3.13.20190311.2323" %}
-{% set git_rev = "ac3e8476ab82d43dc9ba3819f3f7cc17b94a2a88" %}
+{% set version = "3.13.20190312.2323" %}
+{% set git_rev = "727ddead92480c6e9fa9fa78a06c62edcefdca01" %}
 
 package:
   name: mantid-framework
