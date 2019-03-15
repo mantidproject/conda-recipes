@@ -14,8 +14,9 @@ echo "ARTEFACTS_ROOT: "${ARTEFACTS_ROOT}
 config=$(cat <<CONDARC
 
 channels:
- - conda-forge
  - mantid
+ - conda-forge
+ - defaults
 
 conda-build:
  root-dir: /build_artefacts
