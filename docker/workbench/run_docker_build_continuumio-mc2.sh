@@ -14,8 +14,8 @@ echo "ARTEFACTS_ROOT: "${ARTEFACTS_ROOT}
 config=$(cat <<CONDARC
 
 channels:
- - conda-forge
  - mantid
+ - conda-forge
  - defaults
 
 conda-build:
@@ -82,6 +82,6 @@ conda build ~/conda-recipes/workbench
 
 #
 ls -l /build_artefacts
-# /usr/bin/sudo chown -R ${owner} /build_artefacts
+chown -R ${owner} /build_artefacts
 
 EOF

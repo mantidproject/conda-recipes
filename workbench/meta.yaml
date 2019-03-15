@@ -19,7 +19,7 @@ requirements:
     - eigen     {{ eigen }}
     - hdf4      {{ hdf4 }}
     - hdf5      {{ hdf5 }}
-    - muparser  2.2.5 0
+    - muparser  {{ muparser }}
     - gsl       {{ gsl }}
     - openblas  {{ openblas }}
     - blas      {{ blas }}
@@ -29,13 +29,13 @@ requirements:
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
+    - qt        {{ qt }}
     - pyqt      {{ pyqt }}
     - qtpy      {{ qtpy }}
     - qtconsole {{ qtconsole }}
     - qscintilla2 {{ qscintilla2 }}
     - qtawesome {{ qtawesome }}
-    - libglu {{ libglu }}
-    - sphinx {{ sphinx }}
+    - sphinx    {{ sphinx }}
     - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
     - h5py
     - mpi4py
@@ -57,8 +57,6 @@ requirements:
     - blas
     - numpy
     - poco
-    - pyqt 
-    - qtpy 
     - nexus
     - jsoncpp
     - tbb
@@ -66,10 +64,13 @@ requirements:
     - readline
     - openssl
     - qt
+    - pyqt
+    - qtpy
     - qtconsole
     - qscintilla2
     - qtawesome
-    - libglu
+    - psutil
+    - requests
     - python-dateutil
     - h5py
     - mpi4py
@@ -80,6 +81,8 @@ requirements:
     - matplotlib
     - six
     - cmake
+    - psutil
+    - requests
 
 build:
   script_env:

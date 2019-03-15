@@ -40,7 +40,9 @@ for package in \$(ls /build_artefacts/${OS}/mantid-workbench*); do
   # Test installation
   python -c "import mantid"
   python -c "import mantid; print(mantid.__version__)"
-  # python -c "from mantid import simpleapi" # this still does not work. DownloadInstrument trigger segfaults
+  python -c "from mantid import simpleapi"
+  python -c "import mantidqt"
+  python -c "import workbench"
 
   conda deactivate
 done

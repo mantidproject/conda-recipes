@@ -58,3 +58,7 @@ echo $python_site_pkg_path
 mv $PREFIX/bin/mantid $python_site_pkg_path/
 mkdir $PREFIX/lib/mantid
 ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
+
+# move other workbench related libraries
+mv $PREFIX/lib/mantidqt $python_site_pkg_path/
+mv $PREFIX/lib/workbench $python_site_pkg_path/
