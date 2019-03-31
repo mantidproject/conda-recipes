@@ -15,9 +15,11 @@ MANTID_CONDA_TARBALL=$1
 MANTID_SRCROOT=$2
 MANTID_EXTDATADIR=$3
 
+# put tarball in the right place
 mkdir -p $MANTID_SRCROOT/build/
 cp $MANTID_CONDA_TARBALL $MANTID_SRCROOT/build/
 
+# starting docker
 IMAGE_NAME="continuumio/miniconda2"
 owner=$(stat -c '%u:%g' ${MANTID_SRCROOT})
 
@@ -27,6 +29,7 @@ cat << EOF | docker run -i \
                     $IMAGE_NAME \
                     bash -ex || exit $?
 
+# the following runs in the docker
 set -e
 
 # Install OpenGL
@@ -47,13 +50,18 @@ conda install cmake gxx_linux-64
 
 # external data
 ln -s /mantidextdata ~/MantidExternalData
+
+# env vars needed for conda system tests
 export MANTID_FRAMEWORK_CONDA_SYSTEMTEST=1
 export WORKSPACE=/mantidsrc
+export BUILD_THREADS=${BUILD_THREADS}
+
+# build
 ls /mantidsrc
 cd /mantidsrc
-export BUILD_THREADS=${BUILD_THREADS}
 ./buildconfig/Jenkins/systemtests
 
+# clean up
 conda deactivate
 chown -R ${owner} /mantidsrc
 
