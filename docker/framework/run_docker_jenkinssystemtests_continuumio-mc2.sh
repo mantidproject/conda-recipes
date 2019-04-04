@@ -23,9 +23,10 @@ cp $MANTID_CONDA_TARBALL $MANTID_SRCROOT/build/
 IMAGE_NAME="continuumio/miniconda2"
 owner=$(stat -c '%u:%g' ${MANTID_SRCROOT})
 
-cat << EOF | docker run -i \
+cat << EOF | docker run --net=host -i \
 		    -v ${MANTID_SRCROOT}:/mantidsrc \
 		    -v ${MANTID_EXTDATADIR}:/mantidextdata \
+                    -a stdin -a stdout -a stderr \
                     $IMAGE_NAME \
                     bash -ex || exit $?
 
