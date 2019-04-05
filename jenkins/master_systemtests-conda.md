@@ -35,9 +35,11 @@
     ```
     rm -rf conda-recipes
     git clone https://github.com/mantidproject/conda-recipes
-    rsync -av conda-recipes/jenkins/Testing/ Testing/ # update Testing to run tests using conda package
-    ./buildconfig/Jenkins/systemtests && \
-    ANACONDA_ACCESS_KEY=$ANACONDA_ACCESS_KEY MC_DIR=$HOME/miniconda2 conda-recipes/jenkins/upload.sh -l nightly --force $(ls build/mantid-framework-*.tar.bz2)
+    TARBALL=`ls $PWD/build/*.tar.bz2`
+    JKN_TEST_SCRIPT=$PWD/conda-recipes/docker/framework/run_docker_jenkinssystemtests_continuumio-mc2.sh
+    MTD_SRC=$PWD
+    MTD_DATA=$HOME/MantidExternalData
+    BUILD_THREADS=$BUILD_THREADS $JKN_TEST_SCRIPT $TARBALL $MTD_SRC $MTD_DATA
     ```
 * Post-build Actions
   * Publish JUnit test result report
