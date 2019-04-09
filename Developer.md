@@ -12,6 +12,11 @@ Create env vars:
 
 Install [minconda](https://docs.conda.io/en/latest/miniconda.html) first.
 
+Then add conda channels:
+
+	$ conda config --add channels conda-forge
+	$ conda config --add channels mantid
+
 Create a new environment and use it:
 
 	$ conda create -n dev-mantid
