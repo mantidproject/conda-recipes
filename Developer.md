@@ -29,12 +29,12 @@ Install dependencies (versions extracted from `framework/conda_build_config.yaml
 		nexus=4.4.3 jsoncpp=0.10.6 tbb=2018_20170919 librdkafka=0.11 readline \
 		openssl python-dateutil h5py mpi4py scipy 
 
-Create a directory with opengl headers:
+Create a directory with opengl headers (here and in the next command the exact paths of gl headers/libs might be different):
 
 	$ mkdir -p $MANTID_BUILD/GL-includes
 	$ cp -a /usr/include/GL $MANTID_BUILD/GL-includes/GL
 
-Configure build:
+Configure build :
 
 	$ export PREFIX=$CONDA_PREFIX
 	$ export OPENGL_INCLUDES=$MANTID_BUILD/GL-includes
@@ -63,7 +63,7 @@ Post-installation fix:
 	$ mkdir -p $PREFIX/lib/mantid
 	$ ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
 
-Run system tests:
+Run system tests (`-R` allows to select the tests to run):
 
 	$ cd $MANTID_BUILD
 	$ make StandardTestData
