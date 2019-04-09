@@ -30,9 +30,14 @@
     sys.path.insert(0, os.path.abspath("build"))
     import conda_update_recipe as cur
     repo = os.path.abspath(".")
-    if cur.update_meta_yaml(repo, "framework"):
-       cmd = 'git -c user.name="jenkins" -c user.email="mantid-buildserver@mantidproject.org" commit -m "update version and git_rev" framework/meta.yaml'
-       sp.check_call(shlex.split(cmd), cwd=repo)
+
+    pkgs = ['framework', 'workbench']
+    updated = False
+    for pkg in pkgs:
+      updated = updated or cur.update_meta_yaml(repo, pkg)
+    if updated:
+      cmd = 'git -c user.name="jenkins" -c user.email="mantid-buildserver@mantidproject.org" commit -m "update version and git_rev" .'
+      sp.check_call(shlex.split(cmd), cwd=repo)
     ```
 * Post-build Actions
   * Git Publisher
