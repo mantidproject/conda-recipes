@@ -60,7 +60,7 @@ export BUILD_THREADS=${BUILD_THREADS}
 # build
 ls /mantidsrc
 cd /mantidsrc
-./buildconfig/Jenkins/systemtests
+./buildconfig/Jenkins/systemtests -E ILLDirectGeometryReductionTest.IN4
 
 # clean up
 conda deactivate
