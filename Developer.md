@@ -27,7 +27,8 @@ Install dependencies (versions extracted from `framework/conda_build_config.yaml
 	$ conda install cmake python=2.7.14 boost=1.61 eigen=3.3.3 hdf4=4.2.13 hdf5=1.8.18 \
 		muparser=2.2.5=0 gsl=1.16 openblas=0.2.20 blas=1.1 numpy=1.13 poco=1.7.3 \
 		nexus=4.4.3 jsoncpp=0.10.6 tbb=2018_20170919 librdkafka=0.11 readline \
-		openssl python-dateutil h5py mpi4py scipy 
+		openssl python-dateutil h5py mpi4py scipy \
+		scikit-image pyyaml pycifrw matplotlib six 
 
 Create a directory with opengl headers (here and in the next command the exact paths of gl headers/libs might be different):
 
