@@ -30,7 +30,7 @@ Install dependencies (versions extracted from `framework/conda_build_config.yaml
 		openssl python-dateutil h5py mpi4py scipy \
 		scikit-image pyyaml pycifrw matplotlib six 
 
-Create a directory with opengl headers (here and in the next command the exact paths of gl headers/libs might be different):
+Create a directory with opengl headers (here and in the next command the exact paths of gl headers/libs might be different than what is in your system):
 
 	$ mkdir -p $MANTID_BUILD/GL-includes
 	$ cp -a /usr/include/GL $MANTID_BUILD/GL-includes/GL
