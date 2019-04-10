@@ -32,9 +32,9 @@
     repo = os.path.abspath(".")
 
     pkgs = ['framework', 'workbench']
-    updated = False
+    updated = 0
     for pkg in pkgs:
-      updated = updated or cur.update_meta_yaml(repo, pkg)
+      updated += cur.update_meta_yaml(repo, pkg)
     if updated:
       cmd = 'git -c user.name="jenkins" -c user.email="mantid-buildserver@mantidproject.org" commit -m "update version and git_rev" .'
       sp.check_call(shlex.split(cmd), cwd=repo)
