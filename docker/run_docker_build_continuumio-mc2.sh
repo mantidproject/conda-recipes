@@ -75,7 +75,7 @@ conda update conda
 conda install conda-build
 
 # build
-conda build ~/conda-recipes
+conda build ~/conda-recipes >/build_artefacts/log.build 2>&1
 
 #
 ls -l /build_artefacts
