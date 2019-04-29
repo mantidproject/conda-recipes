@@ -46,6 +46,14 @@ cat << EOF | docker run --net=host -i \
                         bash -ex || exit $?
 
 set -e
+clean_up () {
+    ARG=$?
+    echo "clean_up"
+    ls -l /build_artefacts
+    chown -R ${owner} /build_artefacts
+    exit $ARG
+}
+trap clean_up EXIT
 export PYTHONUNBUFFERED=1
 
 # need opengl and glu
@@ -76,9 +84,5 @@ conda install conda-build
 
 # build
 conda build ~/conda-recipes >/build_artefacts/log.build 2>&1
-
-#
-ls -l /build_artefacts
-chown -R ${owner} /build_artefacts
 
 EOF
