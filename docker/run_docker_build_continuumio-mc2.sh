@@ -47,11 +47,11 @@ cat << EOF | docker run --net=host -i \
 
 set -e
 clean_up () {
-    ARG=$?
+    ARG=\$?
     echo "clean_up"
     ls -l /build_artefacts
     chown -R ${owner} /build_artefacts
-    exit $ARG
+    exit \$ARG
 }
 trap clean_up EXIT
 export PYTHONUNBUFFERED=1
