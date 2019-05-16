@@ -64,6 +64,8 @@ EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" ./buildconfig/Jenkins/systemt
 
 # clean up
 conda deactivate
-chown -R ${owner} /mantidsrc
+echo "chmoding..."
+# this one sometimes hangs. give it a time out
+timeout 600 chown -R ${owner} /mantidsrc
 
 EOF
