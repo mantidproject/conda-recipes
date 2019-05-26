@@ -33,6 +33,15 @@ cat << EOF | docker run --net=host -i \
 # the following runs in the docker
 set -e
 
+# clean up code after everything is done
+clean_up () {
+    ARG=\$?
+    echo "clean_up"
+    chown -R ${owner} /mantidsrc  # chown of build results. otherwise will be owned by root
+    exit \$ARG
+}
+trap clean_up EXIT
+
 # Install OpenGL
 apt-get install -y freeglut3-dev make
 
@@ -52,20 +61,24 @@ conda install cmake gxx_linux-64
 # external data
 ln -s /mantidextdata ~/MantidExternalData
 
+# copy source tree
+rsync -av /mantidsrc/ ~/mantidsrc/
+
 # env vars needed for conda system tests
 export MANTID_FRAMEWORK_CONDA_SYSTEMTEST=1
-export WORKSPACE=/mantidsrc
+export WORKSPACE=~/mantidsrc
 export BUILD_THREADS=${BUILD_THREADS}
 
 # build
 ls /mantidsrc
-cd /mantidsrc
+cd ~/mantidsrc
 EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" timeout 10000 ./buildconfig/Jenkins/systemtests
 
 # clean up
 conda deactivate
-echo "chmoding..."
-# this one sometimes hangs. give it a time out
-timeout 600 chown -R ${owner} /mantidsrc
+
+# copy output
+mkdir -p /mantidsrc/build/Testing/SystemTest/
+rsync -av ~/mantidsrc/build/Testing/SystemTests/ /mantidsrc/build/Testing/SystemTest/
 
 EOF
