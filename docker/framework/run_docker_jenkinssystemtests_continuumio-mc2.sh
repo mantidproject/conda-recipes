@@ -60,7 +60,7 @@ export BUILD_THREADS=${BUILD_THREADS}
 # build
 ls /mantidsrc
 cd /mantidsrc
-EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" ./buildconfig/Jenkins/systemtests
+EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" timeout 10000 ./buildconfig/Jenkins/systemtests
 
 # clean up
 conda deactivate
