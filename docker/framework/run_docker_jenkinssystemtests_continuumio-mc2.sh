@@ -62,7 +62,7 @@ conda install cmake gxx_linux-64
 ln -s /mantidextdata ~/MantidExternalData
 
 # copy source tree
-rsync -av /mantidsrc/ ~/mantidsrc/
+rsync -a /mantidsrc/ ~/mantidsrc/
 
 # env vars needed for conda system tests
 export MANTID_FRAMEWORK_CONDA_SYSTEMTEST=1
