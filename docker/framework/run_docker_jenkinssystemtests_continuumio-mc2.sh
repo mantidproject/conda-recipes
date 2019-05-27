@@ -59,7 +59,7 @@ conda activate \${ENV}
 conda install cmake gxx_linux-64
 
 # external data
-ln -s /mantidextdata ~/MantidExternalData
+rsync -av /mantidextdata/ ~/MantidExternalData/
 
 # copy source tree
 rsync -a /mantidsrc/ ~/mantidsrc/
@@ -79,6 +79,7 @@ conda deactivate
 
 # copy output
 mkdir -p /mantidsrc/build/Testing/SystemTest/
-rsync -av ~/mantidsrc/build/Testing/SystemTests/ /mantidsrc/build/Testing/SystemTest/
+# rsync -av ~/mantidsrc/build/Testing/SystemTests/ /mantidsrc/build/Testing/SystemTest/
+rsync -av ~/mantidsrc/ /mantidsrc/
 
 EOF
