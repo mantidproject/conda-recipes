@@ -4,7 +4,7 @@
 
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda2"
+IMAGE_NAME="continuumio/miniconda3"
 
 rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
@@ -57,6 +57,7 @@ trap clean_up EXIT
 export PYTHONUNBUFFERED=1
 
 # need opengl and glu
+apt-get update
 apt-get install -y freeglut3-dev make
 mkdir -p ~/GL-includes
 cp -a /usr/include/GL ~/GL-includes/GL
@@ -76,7 +77,7 @@ echo "# ~/.condarc"
 cat ~/.condarc
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
-conda clean --lock
+# conda clean --lock
 
 # need conda build
 conda update conda
