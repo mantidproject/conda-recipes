@@ -20,7 +20,7 @@ mkdir -p $MANTID_SRCROOT/build/
 cp $MANTID_CONDA_TARBALL $MANTID_SRCROOT/build/
 
 # starting docker
-IMAGE_NAME="continuumio/miniconda2"
+IMAGE_NAME="continuumio/miniconda3"
 owner=$(stat -c '%u:%g' ${MANTID_SRCROOT})
 
 cat << EOF | docker run --net=host -i \
@@ -43,6 +43,7 @@ clean_up () {
 trap clean_up EXIT
 
 # Install OpenGL
+apt-get update
 apt-get install -y freeglut3-dev make
 
 # Setup conda for build
@@ -59,7 +60,7 @@ conda activate \${ENV}
 conda install cmake gxx_linux-64
 
 # external data
-rsync -av /mantidextdata/ ~/MantidExternalData/
+ln -s /mantidextdata/ ~/MantidExternalData
 
 # copy source tree
 rsync -a /mantidsrc/ ~/mantidsrc/
@@ -70,9 +71,9 @@ export WORKSPACE=~/mantidsrc
 export BUILD_THREADS=${BUILD_THREADS}
 
 # build
-ls /mantidsrc
-cd ~/mantidsrc
-EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" timeout 10000 ./buildconfig/Jenkins/systemtests
+ls \${WORKSPACE}
+cd \${WORKSPACE}
+EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4" ./buildconfig/Jenkins/systemtests
 
 # clean up
 conda deactivate
