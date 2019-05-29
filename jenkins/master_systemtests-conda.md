@@ -36,7 +36,7 @@
     rm -rf conda-recipes
     git clone https://github.com/mantidproject/conda-recipes
     TARBALL=`ls $PWD/build/*.tar.bz2`
-    JKN_TEST_SCRIPT=$PWD/conda-recipes/docker/framework/run_docker_jenkinssystemtests_continuumio-mc2.sh
+    JKN_TEST_SCRIPT=$PWD/conda-recipes/docker/framework/run_docker_jenkinssystemtests_continuumio-mc.sh
     MTD_SRC=$PWD
     MTD_DATA=$HOME/MantidExternalData
     BUILD_THREADS=$BUILD_THREADS $JKN_TEST_SCRIPT $TARBALL $MTD_SRC $MTD_DATA
