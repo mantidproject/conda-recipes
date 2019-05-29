@@ -4,7 +4,7 @@
 
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda3"
+IMAGE_NAME="continuumio/miniconda2"
 
 rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
@@ -81,7 +81,7 @@ cat ~/.condarc
 
 # need conda build
 conda update conda
-conda install conda-build
+conda install conda-build=3.17
 
 # build
 conda build ~/conda-recipes >/build_artefacts/log.build 2>&1
