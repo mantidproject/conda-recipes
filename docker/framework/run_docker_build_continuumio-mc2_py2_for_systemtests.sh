@@ -91,7 +91,7 @@ conda clean --lock
 
 # need conda build
 conda update conda
-conda install conda-build
+conda install conda-build=3.17
 
 # build
 conda build --python 2.7.14 --numpy 1.13 ~/conda-recipes/framework
