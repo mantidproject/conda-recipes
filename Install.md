@@ -8,6 +8,7 @@ First install miniconda from https://docs.conda.io/en/latest/miniconda.html and 
 
 ```
 $ conda config --add channels conda-forge
+$ conda config --add channels mantid
 ```
 
 Then create a new conda environment and activate it:
