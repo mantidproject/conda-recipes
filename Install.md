@@ -20,10 +20,17 @@ $ source activate mantid
 
 Now install the mantid package
 ```
-$ conda install -c mantid mantid-framework
+$ conda install -c mantid mantid-framework python={VERSION}
 ```
+
+Here `{VERSION}` is the version of python you want to install mantid for. For example to install mantid with python version 3, do
+
+```
+$ conda install -c mantid mantid-framework python=3
+```
+
 
 To install the nightly build:
 ```
-$ conda install -c mantid/label/nightly mantid-framework
+$ conda install -c mantid/label/nightly mantid-framework python={VERSION}
 ```
