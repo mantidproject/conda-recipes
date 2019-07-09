@@ -4,7 +4,7 @@
 
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda2"
+IMAGE_NAME="continuumio/miniconda3"
 
 rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
