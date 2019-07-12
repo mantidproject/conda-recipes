@@ -7,6 +7,11 @@ There several Jenkins projects in builds.mantidproject.org to build the conda pa
 * [Linux-64 conda build](master_create_conda_linux_pkg.md)
 * [Linux-64 system tests for conda build, and upload to anaconda](master_systemtests-conda.md)
 
+## Jenkins nodes configuration
+
+* Install docker
+* Install miniconda2 at ~builder/miniconda2. Install anaconda client in the root environment
+
 ## Misc Notes
 * anaconda organization: mantid
 * anaconda authentication: use access key. it need to be updated once a while
