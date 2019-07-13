@@ -81,7 +81,7 @@ cat ~/.condarc
 
 # need conda build
 conda update conda
-conda install conda-build=3.17
+conda install conda-build # =3.17
 
 # build
 conda build ~/conda-recipes >/build_artefacts/log.build 2>&1
