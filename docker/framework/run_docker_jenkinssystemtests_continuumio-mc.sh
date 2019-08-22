@@ -73,7 +73,7 @@ export BUILD_THREADS=${BUILD_THREADS}
 # build
 ls \${WORKSPACE}
 cd \${WORKSPACE}
-EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4 --ignore-failed-imports" ./buildconfig/Jenkins/systemtests
+EXTRA_ARGS="-E ILLDirectGeometryReductionTest.IN4 -E PVPythonTest --ignore-failed-imports" ./buildconfig/Jenkins/systemtests
 
 # clean up
 conda deactivate
