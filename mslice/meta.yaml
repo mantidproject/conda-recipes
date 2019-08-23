@@ -1,0 +1,27 @@
+{% set version = "0.9.20180220.1545" %}
+{% set git_rev = "8655d4d4e6bcfbe76519c12c9d6c8f9821aa27f2" %}
+
+package:
+  name: mslice
+  version: {{ version }}
+
+source:
+  git_rev: {{ git_rev }}
+  git_url: https://github.com/mantidproject/mslice.git
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - qtpy
+    - flake8
+
+  run:
+    - mantid-framework
+    - pyqt
+    - qtpy
+
+about:
+  home:
+  license:
+  license_file:
