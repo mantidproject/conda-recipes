@@ -84,6 +84,6 @@ conda update conda
 conda install conda-build # =3.17
 
 # build
-conda build ~/conda-recipes >/build_artefacts/log.build 2>&1
+conda build --python 3.6 ~/conda-recipes >/build_artefacts/log.build 2>&1
 
 EOF
