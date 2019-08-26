@@ -8,7 +8,7 @@ IMAGE_NAME="continuumio/miniconda3"
 EXTRA_ARGS=$@
 EXTRA_PATH_STR="${EXTRA_ARGS// /_}"
 
-rm -rf ${ARTEFACTS_ROOT}
+# rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
 owner=$(stat -c '%u:%g' ${ARTEFACTS_ROOT})
 echo "ARTEFACTS_ROOT: "${ARTEFACTS_ROOT}
