@@ -5,6 +5,7 @@
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
 IMAGE_NAME="continuumio/miniconda3"
+EXTRA_ARGS=$@
 
 rm -rf ${ARTEFACTS_ROOT}
 mkdir -p ${ARTEFACTS_ROOT}
@@ -84,6 +85,6 @@ conda update conda
 conda install conda-build # =3.17
 
 # build
-conda build --python 3.6 ~/conda-recipes >/build_artefacts/log.build 2>&1
+conda build ${EXTRA_ARGS} ~/conda-recipes >/build_artefacts/log.build 2>&1
 
 EOF
