@@ -2,6 +2,7 @@
 
 The following was tested on an Ubuntu 16.04 system. Other assumptions:
 
+* `make` exists
 * `opengl` and `glu` libs and headers are installed
 * `MantidExternalData` exists in `$HOME/MantidExternalData`
 
@@ -28,7 +29,7 @@ Install dependencies (versions extracted from `framework/conda_build_config.yaml
 		muparser=2.2.5=0 gsl=1.16 openblas=0.2.20 blas=1.1 numpy=1.13 poco=1.7.3 \
 		nexus=4.4.3 jsoncpp=0.10.6 tbb=2018_20170919 librdkafka=0.11 readline \
 		openssl python-dateutil h5py mpi4py scipy \
-		scikit-image pyyaml pycifrw matplotlib six 
+		scikit-image pyyaml pycifrw matplotlib six gxx_linux-64
 
 Create a directory with opengl headers (here and in the next command the exact paths of gl headers/libs might be different than what is in your system):
 
