@@ -55,6 +55,5 @@ ${CMAKE} --build . --target install
 # move mantid
 python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 echo $python_site_pkg_path
-mv $PREFIX/bin/mantid $python_site_pkg_path/
-mkdir $PREFIX/lib/mantid
-ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
+mv $PREFIX/lib/mantid $python_site_pkg_path/
+# ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
