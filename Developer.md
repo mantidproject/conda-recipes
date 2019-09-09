@@ -61,9 +61,7 @@ Post-installation fix:
 
 	$ python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 	$ echo $python_site_pkg_path
-	$ rsync -av $PREFIX/bin/mantid/ $python_site_pkg_path/mantid/
-	$ mkdir -p $PREFIX/lib/mantid
-	$ ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
+	$ rsync -av $PREFIX/lib/mantid/ $python_site_pkg_path/mantid/
 
 Run system tests (`-R` allows to select the tests to run):
 
