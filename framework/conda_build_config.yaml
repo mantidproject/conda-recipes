@@ -7,15 +7,13 @@ python:
   - 2.7.14
   - 2.7.14
   - 3.6
-#  - 2.7.14
-#  - 3.6
+  - 3.6
   - 3.7
 boost:
   - 1.63
   - 1.66
   - 1.66
-#  - 1.69
-#  - 1.69
+  - 1.66
   - 1.66
 eigen:
   - 3.3.3
@@ -23,21 +21,13 @@ hdf4:
   - 4.2.13
 hdf5:
   - 1.8.18
-# muparser:
-#   - 2.2.5
 gsl:
   - 1.16
   - 2.4
   - 2.4
-#  - 2.4
-#  - 2.4
+  - 2.4
   - 2.4
 openblas:
-  - 0.2.20
-  - 0.2.20
-  - 0.2.20
-#  - 0.3.3
-#  - 0.3.3
   - 0.2.20
 blas:
   - 1.1 openblas
@@ -45,8 +35,7 @@ numpy:
   - 1.13
   - 1.14
   - 1.14
-#  - 1.16
-#  - 1.16
+  - 1.15
   - 1.14
 poco:
   - 1.7.3
@@ -65,7 +54,6 @@ zip_keys:
   - python
   - boost
   - gsl
-  - openblas
   - numpy
 
 pin_run_as_build:
@@ -97,5 +85,3 @@ pin_run_as_build:
     max_pin: x.x
   openssl:
     max_pin: x.x
-#  muparser:
-#    max_pin: x.x
