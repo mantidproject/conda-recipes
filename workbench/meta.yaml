@@ -1,5 +1,5 @@
-{% set version = "4.1.20191024.1616" %}
-{% set git_rev = "b286a91ed6451c2d5d6706f3cdeec9daf841dc6b" %}
+{% set version = "4.1.20191025.1251" %}
+{% set git_rev = "51b0921d0dacccb47e2b041dc752aa1f2c44a05a" %}
 
 package:
   name: mantid-workbench
