@@ -36,6 +36,9 @@ if [ -e CMakeCache.txt ]; then
   CMAKE_GENERATOR=""
 fi
 
+if [ $(python -c "import sys;print(sys.version_info.major)") -eq "2" ]; then
+  WITH_PYTHON_VERS="-DWITH_PYTHON3=OFF"
+fi
 
 mkdir build; cd build
 CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
@@ -48,6 +51,7 @@ CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_PREFIX_PATH=$PREFIX \
     -DENABLE_OPENCASCADE=FALSE \
+    ${WITH_PYTHON_VERS} \
     ../
 ${CMAKE} --build . -- -j $CORES
 ${CMAKE} --build . --target install
