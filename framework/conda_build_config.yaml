@@ -40,8 +40,6 @@ openssl:
 
 zip_keys:
   - python
-  - boost
-  - gsl
   - numpy
 
 pin_run_as_build:
