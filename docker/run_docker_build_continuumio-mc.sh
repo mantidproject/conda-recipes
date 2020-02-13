@@ -4,7 +4,7 @@
 
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda3"
+IMAGE_NAME="continuumio/miniconda3:4.6.14"  # need to change the way openGL is used to move forward
 EXTRA_ARGS=$@
 EXTRA_PATH_STR="${EXTRA_ARGS// /_}"
 
@@ -83,7 +83,7 @@ cat ~/.condarc
 
 # need conda build
 conda update conda
-conda install conda-build # =3.17
+conda install conda-build conda-verify
 
 # build
 conda build ${EXTRA_ARGS} ~/conda-recipes >/build_artefacts/log.build.${EXTRA_PATH_STR} 2>&1

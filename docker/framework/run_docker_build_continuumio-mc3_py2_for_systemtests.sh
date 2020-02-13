@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-
 # NOTE: This script has been adapted from https://raw.githubusercontent.com/conda-forge/staged-recipes/master/scripts/run_docker_build.sh
 # This script builds the framework package inside the docker image (see $IMAGE_NAME)
 # and then copy the results to mounted directory (see $ARTEFACTS_ROOT).
+set -x
 
 REPO_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda3"
+IMAGE_NAME="continuumio/miniconda3:4.6.14"  # need to change the way openGL is used to move forward
 
 # initialize output dir
 rm -rf ${ARTEFACTS_ROOT}
@@ -50,7 +50,7 @@ cat << EOF | docker run --net=host -i \
                         bash -ex || exit $?
 
 # the following runs inside the docker instance
-set -e
+set -e -x
 
 # clean up code after everything is done
 clean_up () {
@@ -72,7 +72,7 @@ apt-get update
 apt-get install -y freeglut3-dev make
 mkdir -p ~/GL-includes
 cp -a /usr/include/GL ~/GL-includes/GL
-# ls /root/GL-includes
+# ls ~/GL-includes/*
 export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
 export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
 export OPENGL_INCLUDES=/root/GL-includes
@@ -92,7 +92,7 @@ cat ~/.condarc
 
 # need conda build
 conda update conda
-conda install conda-build #=3.17
+conda install conda-build conda-verify
 
 # build
 conda build --python 2.7.14 --numpy 1.14 ~/conda-recipes/framework
