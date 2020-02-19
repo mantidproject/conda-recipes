@@ -8,7 +8,7 @@
 # Example command line
 #
 #   $ BUILD_THREADS=20 ./run_docker_jenkinssystemtests_continuumio-mc2.sh build_artefacts2/linux-64/mantid-framework-3.13.20190225.1515-py27h5d0adaf_0.tar.bz2  /home/lj7/dv/mantid/mantid ~/MantidExternalData &>log.test &
-# 
+#
 # see results in $MANTID_SRCROOT/build/Testing/SystemTests/scripts/TEST-*.xml
 
 MANTID_CONDA_TARBALL=$1
@@ -44,7 +44,7 @@ trap clean_up EXIT
 
 # Install OpenGL
 apt-get update
-apt-get install -y freeglut3-dev make
+apt-get install -y freeglut3-dev make rsync
 
 # Setup conda for build
 echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
