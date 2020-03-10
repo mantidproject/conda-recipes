@@ -27,7 +27,7 @@ requirements:
     - poco      {{ poco }}
     - nexus     {{ nexus }}
     - jsoncpp   {{ jsoncpp }}
-    - tbb       {{ tbb }}
+    - tbb-devel
     - librdkafka  {{ librdkafka }}
     - readline
     - openssl   {{ openssl }}

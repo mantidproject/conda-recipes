@@ -31,8 +31,6 @@ nexus:
   - 4.4.3
 jsoncpp:
   - 0.10.6
-tbb:
-  - 2018_20170919
 librdkafka:
   - 0.11
 openssl:
