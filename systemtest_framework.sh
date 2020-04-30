@@ -55,7 +55,7 @@ conda config --add channels mantid
 
 # Setup the conda environment
 ENV="mantid-systemtests"
-conda create -n \${ENV} -q python=2
+conda create -n \${ENV} -q python=3.6
 conda activate \${ENV}
 conda install cmake gxx_linux-64
 
