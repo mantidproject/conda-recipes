@@ -87,5 +87,6 @@ conda install conda-build conda-verify
 
 # build
 conda build ${EXTRA_ARGS} ~/conda-recipes >/build_artefacts/log.build.${EXTRA_PATH_STR} 2>&1
+conda build ${EXTRA_ARGS} ~/conda-recipes/workbench >>/build_artefacts/log.build.${EXTRA_PATH_STR} 2>&1
 
 EOF

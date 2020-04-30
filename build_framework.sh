@@ -4,7 +4,7 @@
 # and then copy the results to mounted directory (see $ARTEFACTS_ROOT).
 set -x
 
-REPO_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
+REPO_ROOT=$(cd "$(dirname "$0")"; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
 IMAGE_NAME="continuumio/miniconda3:4.6.14"  # need to change the way openGL is used to move forward
 
@@ -56,7 +56,6 @@ set -e -x
 clean_up () {
     ARG=\$?
     echo "clean_up"
-    ls -l /build_artefacts2
     chown -R ${owner} /build_artefacts2  # chown of build results. otherwise will be owned by root
     exit \$ARG
 }
