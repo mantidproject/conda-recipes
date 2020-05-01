@@ -53,6 +53,7 @@ clean_up () {
     echo "clean_up"
     ls -l /build_artefacts
     chown -R ${owner} /build_artefacts
+    echo "exit value $ARG"
     exit \$ARG
 }
 trap clean_up EXIT
