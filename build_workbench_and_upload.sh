@@ -68,6 +68,9 @@ export OPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1
 export OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1
 export OPENGL_INCLUDES=/root/GL-includes
 
+echo '--------->'
+ls -lah /
+
 # Copy the host recipes folder so we don't ever muck with it
 mkdir -p ~/conda-recipes
 cp -r /staged-recipes/framework ~/conda-recipes/framework
