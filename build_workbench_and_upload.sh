@@ -2,7 +2,7 @@
 
 # NOTE: This script has been adapted from https://raw.githubusercontent.com/conda-forge/staged-recipes/master/scripts/run_docker_build.sh
 
-REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
+REPO_ROOT=$(pwd)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
 IMAGE_NAME="continuumio/miniconda3:4.6.14"  # need to change the way openGL is used to move forward
 EXTRA_ARGS=$@
