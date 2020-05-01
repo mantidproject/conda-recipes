@@ -70,6 +70,7 @@ export OPENGL_INCLUDES=/root/GL-includes
 
 echo '--------->'
 ls -lah /
+ls -lah /staged-recipes
 
 # Copy the host recipes folder so we don't ever muck with it
 mkdir -p ~/conda-recipes
