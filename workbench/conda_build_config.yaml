@@ -24,6 +24,7 @@ blas:
   - 1.1 openblas
 numpy:
   - 1.14
+  - 1.15
 poco:
   - 1.7.3
 nexus:
@@ -57,6 +58,7 @@ sphinx_bootstrap_theme:
 
 zip_keys:
   - python
+  - numpy
 
 pin_run_as_build:
   boost:
