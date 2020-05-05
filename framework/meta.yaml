@@ -11,14 +11,12 @@ source:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - cmake
-  host:
     - blas
     - boost
     - cmake
     - eigen
     - gsl
+    - gxx_linux-64 7.3.* [linux64]
     - h5py
     - hdf4
     - hdf5
