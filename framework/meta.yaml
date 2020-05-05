@@ -10,6 +10,9 @@ source:
   git_url: https://github.com/mantidproject/mantid.git
 
 requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - cmake
   host:
     - blas
     - boost
