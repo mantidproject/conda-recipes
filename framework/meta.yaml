@@ -49,6 +49,8 @@ requirements:
 
 build:
   script_env:
+    - CC
+    - CXX
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
     - OPENGL_INCLUDES
