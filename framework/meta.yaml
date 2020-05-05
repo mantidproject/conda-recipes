@@ -31,7 +31,6 @@ requirements:
     - pkg-config
     - poco
     - python {{ python }}
-    - qscintilla2
     - tbb-devel
 
   run:
