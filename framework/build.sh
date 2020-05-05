@@ -2,19 +2,13 @@
 
 set -ex
 
-if [ $(command -v cmake3) ]; then
-    CMAKE=$(command -v cmake3)
-else
-    CMAKE=$(command -v cmake)
-fi
-
 echo "PREFIX: " $PREFIX
 echo "CONDA_PREFIX: " $CONDA_PREFIX
 
 mkdir build
 cd build
 
-${CMAKE} \
+cmake \
     -G Ninja \
     ${CMAKE_EXTRA_ARGS} \
     -DUSE_SYSTEM_EIGEN=ON \
@@ -29,8 +23,8 @@ ${CMAKE} \
     -DBOOST_INCLUDEDIR="${CONDA_PREFIX}/include" \
     ..
 
-${CMAKE} --build .
-${CMAKE} --build . --target install
+cmake --build .
+cmake --build . --target install
 
 # move mantid
 python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
