@@ -51,7 +51,6 @@ echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 . ~/.bashrc
 conda config --set always_yes yes
 conda config --add channels conda-forge
-conda config --add channels mantid
 
 # Setup the conda environment
 ENV="mantid-systemtests"
