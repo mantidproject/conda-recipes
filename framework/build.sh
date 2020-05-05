@@ -8,7 +8,7 @@ echo "CONDA_PREFIX: " $CONDA_PREFIX
 mkdir build
 cd build
 
-export CXXFLAGS="-stdlib=libc++ -std=c++11"
+export CXXFLAGS="-stdlib=libc++ -std=c++14"
 CXXFLAGS=${CXXFLAGS} cmake \
     -G Ninja \
     -DUSE_SYSTEM_EIGEN=ON \
