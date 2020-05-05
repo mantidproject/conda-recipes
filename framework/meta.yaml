@@ -16,7 +16,6 @@ requirements:
     - cmake
     - eigen
     - gsl
-    - gxx_linux-64 7.3.* [linux64]
     - h5py
     - hdf4
     - hdf5
@@ -48,13 +47,6 @@ requirements:
     - tbb
 
 build:
-  script_env:
-    - CC
-    - CXX
-    - OPENGL_gl_LIBRARY
-    - OPENGL_glu_LIBRARY
-    - OPENGL_INCLUDES
-  string:
 
 about:
   home:
