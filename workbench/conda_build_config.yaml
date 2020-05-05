@@ -14,8 +14,6 @@ hdf4:
   - 4.2.13
 hdf5:
   - 1.8.18
-muparser:
-  - 2.2.5 0
 gsl:
   - 2.4
 openblas:
@@ -25,10 +23,8 @@ blas:
 numpy:
   - 1.14
   - 1.15
-poco:
-  - 1.9.0
-nexus:
-  - 4.4.3
+muparser:
+  - 2.2.5 0
 jsoncpp:
   - 0.10.6
 tbb:
@@ -76,10 +72,6 @@ pin_run_as_build:
   blas:
     max_pin: x.x
   numpy:
-    max_pin: x.x
-  poco:
-    max_pin: x.x
-  nexus:
     max_pin: x.x
   jsoncpp:
     max_pin: x.x

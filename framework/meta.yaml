@@ -19,21 +19,21 @@ requirements:
     - eigen     {{ eigen }}
     - hdf4      {{ hdf4 }}
     - hdf5      {{ hdf5 }}
-    - muparser  2.2.5 0
+    - muparser  {{ muparser }}
     - gsl       {{ gsl }}
     - openblas  {{ openblas }}
     - blas      {{ blas }}
     - numpy     {{ numpy }} 
-    - poco      {{ poco }}
-    - nexus     {{ nexus }}
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
-    - readline
     - openssl   {{ openssl }}
-    - python-dateutil
+    - readline
     - h5py
     - mpi4py
+    - nexus
+    - python-dateutil
+    - poco
     - scipy
 
   run:

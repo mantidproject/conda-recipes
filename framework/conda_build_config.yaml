@@ -21,14 +21,12 @@ openblas:
   - 0.2.20
 blas:
   - 1.1 openblas
+muparser:
+  - 2.2.5 0 
 numpy:
   - 1.14
   - 1.15
   - 1.14
-poco:
-  - 1.9.0
-nexus:
-  - 4.4.3
 jsoncpp:
   - 0.10.6
 tbb:
@@ -59,9 +57,7 @@ pin_run_as_build:
     max_pin: x.x
   numpy:
     max_pin: x.x
-  poco:
-    max_pin: x.x
-  nexus:
+  muparser:
     max_pin: x.x
   jsoncpp:
     max_pin: x.x

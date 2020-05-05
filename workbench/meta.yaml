@@ -24,8 +24,6 @@ requirements:
     - openblas  {{ openblas }}
     - blas      {{ blas }}
     - numpy     {{ numpy }} 
-    - poco      {{ poco }}
-    - nexus     {{ nexus }}
     - jsoncpp   {{ jsoncpp }}
     - tbb       {{ tbb }}
     - librdkafka  {{ librdkafka }}
@@ -39,7 +37,9 @@ requirements:
     - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
     - h5py
     - mpi4py
+    - nexus
     - openssl
+    - poco
     - python-dateutil
     - readline
     - scipy
