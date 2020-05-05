@@ -25,13 +25,13 @@ requirements:
     - muparser
     - nexus
     - ninja
-    - numpy     {{ numpy }} 
+    - numpy     {{ numpy }}
     - openblas
     - openssl
     - pkg-config
     - poco
     - python {{ python }}
-    - qscintilla2 
+    - qscintilla2
     - tbb-devel
 
   run:
@@ -54,6 +54,7 @@ build:
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
     - OPENGL_INCLUDES
+  string:
 
 about:
   home:
