@@ -48,6 +48,10 @@ requirements:
     - tbb
 
 build:
+  script_env:
+    - OPENGL_gl_LIBRARY
+    - OPENGL_glu_LIBRARY
+    - OPENGL_INCLUDES
 
 about:
   home:
