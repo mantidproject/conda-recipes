@@ -75,7 +75,6 @@ ls -lah /staged-recipes
 
 # Copy the host recipes folder so we don't ever muck with it
 mkdir -p ~/conda-recipes
-#cp -r /staged-recipes/framework ~/conda-recipes/framework
 cp -r /staged-recipes/workbench ~/conda-recipes/workbench
 
 # condarc
@@ -91,7 +90,6 @@ conda update conda
 conda install conda-build conda-verify
 
 # build
-conda build --python 3.6 {EXTRA_ARGS} ~/conda-recipes >/build_artefacts/log.build.${EXTRA_PATH_STR} 2>&1
-#conda build ${EXTRA_ARGS} ~/conda-recipes/workbench >>/build_artefacts/log.build.${EXTRA_PATH_STR} 2>&1
+conda build --python 3.6 {EXTRA_ARGS} ~/conda-recipes/workbench
 
 EOF
