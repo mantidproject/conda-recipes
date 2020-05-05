@@ -8,15 +8,6 @@ else
     CMAKE=$(command -v cmake)
 fi
 
-if [ $(command -v ninja) ]; then
-  CMAKE_GENERATOR="-G Ninja"
-elif [ $(command -v ninja-build) ]; then
-  CMAKE_GENERATOR="-G Ninja"
-fi
-if [ -e CMakeCache.txt ]; then
-  CMAKE_GENERATOR=""
-fi
-
 mkdir build
 cd build
 

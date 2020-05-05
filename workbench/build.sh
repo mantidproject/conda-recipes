@@ -16,32 +16,13 @@ case "${unameOut}" in
 	;;
     *)  echo "${unameOut} unsupported"; exit 1
 esac
-let CORES-=1
-if ((CORES < 1)); then
-    CORES = 1;
-fi
-
-if [ $(command -v cmake3) ]; then
-    CMAKE=$(command -v cmake3)
-else
-    CMAKE=$(command -v cmake)
-fi
-
-if [ $(command -v ninja) ]; then
-  CMAKE_GENERATOR="-G Ninja"
-elif [ $(command -v ninja-build) ]; then
-  CMAKE_GENERATOR="-G Ninja"
-fi
-if [ -e CMakeCache.txt ]; then
-  CMAKE_GENERATOR=""
-fi
 
 if [ $(python -c "import sys;print(sys.version_info.major)") -eq "2" ]; then
   WITH_PYTHON_VERS="-DWITH_PYTHON3=OFF"
 fi
 
 mkdir build; cd build
-CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
+CXXFLAGS=${CXXFLAGS} ${CMAKE} -G Ninja \
     ${CMAKE_EXTRA_ARGS} \
     -DUSE_SYSTEM_EIGEN=1 \
     -DUSE_CXX98_ABI=TRUE \
@@ -53,7 +34,7 @@ CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
     -DENABLE_OPENCASCADE=FALSE \
     ${WITH_PYTHON_VERS} \
     ../
-${CMAKE} --build . -- -j $CORES
+${CMAKE} --build .
 ${CMAKE} --build . --target install
 
 # move mantid
