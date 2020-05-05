@@ -15,6 +15,7 @@ requirements:
     - boost
     - cmake
     - eigen
+    - freeglut
     - gsl
     - gxx_linux-64 7.3.* [linux64]
     - h5py
