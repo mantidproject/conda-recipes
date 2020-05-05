@@ -19,7 +19,6 @@ config=$(cat <<CONDARC
 
 channels:
  - conda-forge
- - mantid
  - defaults
 
 conda-build:
