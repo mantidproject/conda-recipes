@@ -6,7 +6,7 @@ set -x
 
 REPO_ROOT=$(cd "$(dirname "$0")"; pwd;)
 ARTEFACTS_ROOT=$(pwd;)/build_artefacts2
-IMAGE_NAME="continuumio/miniconda3:4.6.14"
+IMAGE_NAME="continuumio/miniconda3"
 
 # initialize output dir
 rm -rf ${ARTEFACTS_ROOT}
