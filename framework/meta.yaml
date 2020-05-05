@@ -10,69 +10,44 @@ source:
   git_url: https://github.com/mantidproject/mantid.git
 
 requirements:
-  build:
-    - {{ compiler('cxx') }}  # [linux]
-    - cmake
   host:
-    - python
-    - boost     {{ boost }}
-    - eigen     {{ eigen }}
-    - hdf4      {{ hdf4 }}
-    - hdf5      {{ hdf5 }}
-    - muparser  {{ muparser }}
-    - gsl       {{ gsl }}
-    - openblas  {{ openblas }}
-    - blas      {{ blas }}
-    - numpy     {{ numpy }} 
-    - jsoncpp   {{ jsoncpp }}
-    - tbb       {{ tbb }}
-    - librdkafka  {{ librdkafka }}
-    - openssl   {{ openssl }}
-    - readline
-    - h5py
-    - mpi4py
-    - nexus
-    - python-dateutil
-    - poco
-    - scipy
-
-  run:
-    - python
+    - blas
     - boost
+    - cmake
     - eigen
+    - gsl
+    - gxx_linux-64 7.3.* [linux64]
+    - h5py
     - hdf4
     - hdf5
-    - muparser 2.2.5 0
-    - gsl
+    - jsoncpp
+    - librdkafka
+    - muparser
+    - nexus
+    - ninja
+    - numpy     {{ numpy }} 
     - openblas
-    - blas
+    - openssl
+    - pkg-config
+    - poco
+    - python {{ python }}
+    - qscintilla2 
+    - tbb-devel
+
+  run:
+    - boost
+    - h5py
+    - librdkafka
+    - nexus
     - numpy
     - poco
-    - nexus
-    - jsoncpp
-    - tbb
-    - librdkafka
-    - readline
-    - openssl
     - python-dateutil
-    - h5py
-    - mpi4py
-    - scipy
-    - scikit-image
     - pyyaml
-    - pycifrw
-    - matplotlib
+    - scipy
     - six
-    - cmake
+    - tbb
 
 build:
-  script_env:
-    - CC
-    - CXX
-    - OPENGL_gl_LIBRARY
-    - OPENGL_glu_LIBRARY
-    - OPENGL_INCLUDES
-  string:
 
 about:
   home:

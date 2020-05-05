@@ -1,69 +1,13 @@
-# The first one is for jenkins systemtests. a special combination that uses some
-# relatively lower versions of dependencies to allow as many system tests as possible
-# to pass.
-# The second and third are using more recent versions of deps, one for python 2, one
-# for python 3
 python:
-  - 2.7.14
-  - 3.6
-  - 3.7
-boost:
-  - 1.66
-eigen:
-  - 3.3.3
-hdf4:
-  - 4.2.13
-hdf5:
-  - 1.8.18
-gsl:
-  - 2.4
-openblas:
-  - 0.2.20
-blas:
-  - 1.1 openblas
-muparser:
-  - 2.2.5 0 
+  - 2.7.18
+  - 3.6.10
+  - 3.7.7
+
 numpy:
-  - 1.14
   - 1.15
-  - 1.14
-jsoncpp:
-  - 0.10.6
-tbb:
-  - 2018_20170919
-librdkafka:
-  - 0.11
-openssl:
-  - 1.0.2
+  - 1.15
+  - 1.15
 
 zip_keys:
   - python
   - numpy
-
-pin_run_as_build:
-  boost:
-    max_pin: x.x
-  eigen:
-    max_pin: x.x
-  hdf4:
-    max_pin: x.x
-  hdf5:
-    max_pin: x.x
-  gsl:
-    max_pin: x.x
-  openblas:
-    max_pin: x.x
-  blas:
-    max_pin: x.x
-  numpy:
-    max_pin: x.x
-  muparser:
-    max_pin: x.x
-  jsoncpp:
-    max_pin: x.x
-  tbb:
-    max_pin: x.x
-  librdkafka:
-    max_pin: x.x
-  openssl:
-    max_pin: x.x
