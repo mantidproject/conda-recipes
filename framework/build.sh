@@ -10,7 +10,6 @@ cd build
 
 cmake \
     -G Ninja \
-    ${CMAKE_EXTRA_ARGS} \
     -DUSE_SYSTEM_EIGEN=ON \
     -DENABLE_OPENGL=OFF \
     -DENABLE_MANTIDPLOT=FALSE \
