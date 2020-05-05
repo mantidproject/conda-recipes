@@ -38,14 +38,13 @@ Create a directory with opengl headers (here and in the next command the exact p
 
 Configure build :
 
-	$ export PREFIX=$CONDA_PREFIX
 	$ export OPENGL_INCLUDES=$MANTID_BUILD/GL-includes
 	$ cd $MANTID_BUILD
 	$ CXXFLAGS=-I$OPENGL_INCLUDES cmake \
 	  -DOPENGL_gl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so.1 \
 	  -DOPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so.1 \
 	  -DUSE_SYSTEM_EIGEN=1 -DUSE_CXX98_ABI=TRUE  -DENABLE_MANTIDPLOT=FALSE -DENABLE_WORKBENCH=FALSE \
-	  -DCMAKE_SKIP_INSTALL_RPATH=ON -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_PREFIX_PATH=$PREFIX \
+	  -DCMAKE_SKIP_INSTALL_RPATH=ON -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
 	  -DENABLE_OPENCASCADE=FALSE \
 	  $MANTID_SRC
 
@@ -61,7 +60,7 @@ Post-installation fix:
 
 	$ python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 	$ echo $python_site_pkg_path
-	$ rsync -av $PREFIX/lib/mantid/ $python_site_pkg_path/mantid/
+	$ rsync -av $CONDA_PREFIX/lib/mantid/ $python_site_pkg_path/mantid/
 
 Run system tests (`-R` allows to select the tests to run):
 

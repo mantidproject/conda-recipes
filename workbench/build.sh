@@ -12,7 +12,7 @@ case "${unameOut}" in
     Darwin*)
 	let CORES=`sysctl -n hw.ncpu`
 	export CXXFLAGS="-stdlib=libc++ -std=c++11"
-	CMAKE_EXTRA_ARGS="-DHDF5_ROOT=$PREFIX"
+	CMAKE_EXTRA_ARGS="-DHDF5_ROOT=${CONDA_PREFIX}"
 	;;
     *)  echo "${unameOut} unsupported"; exit 1
 esac
@@ -48,8 +48,8 @@ CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
     -DENABLE_MANTIDPLOT=FALSE \
     -DENABLE_WORKBENCH=TRUE \
     -DCMAKE_SKIP_INSTALL_RPATH=OFF \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_PREFIX_PATH=$PREFIX \
+    -DCMAKE_INSTALL_PREFIX=${CONDA_PREFIX} \
+    -DCMAKE_PREFIX_PATH=${CONDA_PREFIX} \
     -DENABLE_OPENCASCADE=FALSE \
     ${WITH_PYTHON_VERS} \
     ../
@@ -59,8 +59,8 @@ ${CMAKE} --build . --target install
 # move mantid
 python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 echo $python_site_pkg_path
-mv $PREFIX/lib/mantid $python_site_pkg_path/
+mv ${CONDA_PREFIX}/lib/mantid $python_site_pkg_path/
 
 # move other workbench related libraries
-mv $PREFIX/lib/mantidqt $python_site_pkg_path/
-mv $PREFIX/lib/workbench $python_site_pkg_path/
+mv ${CONDA_PREFIX}/lib/mantidqt $python_site_pkg_path/
+mv ${CONDA_PREFIX}/lib/workbench $python_site_pkg_path/

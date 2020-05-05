@@ -1,25 +1,6 @@
 #!/usr/bin/env bash
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)
-	let CORES=`grep -c ^processor /proc/cpuinfo`
-	CMAKE_EXTRA_ARGS="-DOPENGL_gl_LIBRARY=${OPENGL_gl_LIBRARY} -DOPENGL_glu_LIBRARY=${OPENGL_glu_LIBRARY}"
-	if [ ! -z "$OPENGL_INCLUDES" ]; then
-	   export CXXFLAGS="$CXXFLAGS -I$OPENGL_INCLUDES"
-	fi
-	;;
-    Darwin*)
-	let CORES=`sysctl -n hw.ncpu`
-	export CXXFLAGS="-stdlib=libc++ -std=c++11"
-	CMAKE_EXTRA_ARGS="-DHDF5_ROOT=$PREFIX"
-	;;
-    *)  echo "${unameOut} unsupported"; exit 1
-esac
-let CORES-=1
-if ((CORES < 1)); then
-    CORES = 1;
-fi
+set -ex
 
 if [ $(command -v cmake3) ]; then
     CMAKE=$(command -v cmake3)
@@ -36,29 +17,30 @@ if [ -e CMakeCache.txt ]; then
   CMAKE_GENERATOR=""
 fi
 
-if [ $(python -c "import sys;print(sys.version_info.major)") -eq "2" ]; then
-  WITH_PYTHON_VERS="-DWITH_PYTHON3=OFF"
-fi
+mkdir build
+cd build
 
-mkdir build; cd build
-CXXFLAGS=${CXXFLAGS} ${CMAKE} ${CMAKE_GENERATOR} \
+${CMAKE} \
+    -G Ninja \
     ${CMAKE_EXTRA_ARGS} \
-    -DUSE_SYSTEM_EIGEN=1 \
-    -DUSE_CXX98_ABI=TRUE \
+    -DUSE_SYSTEM_EIGEN=ON \
+    -DENABLE_OPENGL=OFF \
     -DENABLE_MANTIDPLOT=FALSE \
     -DENABLE_WORKBENCH=FALSE \
-    -DCMAKE_SKIP_INSTALL_RPATH=ON \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_PREFIX_PATH=$PREFIX \
     -DENABLE_OPENCASCADE=FALSE \
-    ${WITH_PYTHON_VERS} \
-    ../
-${CMAKE} --build . -- -j $CORES
+    -DPYTHON_EXECUTABLE="${CONDA_PREFIX}/bin/python" \
+    -DCMAKE_PREFIX_PATH=${CONDA_PREFIX} \
+    -DCMAKE_INSTALL_PATH=${CONDA_PREFIX} \
+    -DCMAKE_SKIP_INSTALL_RPATH=ON \
+    -DBOOST_INCLUDEDIR="${CONDA_PREFIX}/include" \
+    ..
+
+${CMAKE} --build .
 ${CMAKE} --build . --target install
 
 # move mantid
 python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
 echo $python_site_pkg_path
-mv $PREFIX/lib/mantid $python_site_pkg_path/
-mv $PREFIX/lib/mantid-*-py*.egg-info $python_site_pkg_path/
-# ln -s $PREFIX/plugins $PREFIX/lib/mantid/plugins
+
+mv ${CONDA_PREFIX}/lib/mantid $python_site_pkg_path/
+mv ${CONDA_PREFIX}/lib/mantid-*-py*.egg-info $python_site_pkg_path/
