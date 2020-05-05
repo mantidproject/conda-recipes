@@ -4,8 +4,3 @@ python:
 
 numpy:
   - 1.15
-  - 1.15
-
-zip_keys:
-  - python
-  - numpy
