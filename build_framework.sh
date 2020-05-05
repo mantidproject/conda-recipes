@@ -93,7 +93,7 @@ conda update conda
 conda install conda-build conda-verify
 
 # build
-conda build --python 3.6 ~/conda-recipes/framework
+conda build ~/conda-recipes/framework
 
 # copy build artefacts
 ls -l /build_artefacts
