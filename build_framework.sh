@@ -67,7 +67,7 @@ mkdir /build_artefacts
 
 # need opengl and glu
 apt-get update
-apt-get install -y freeglut3-dev make
+apt-get install -y freeglut3-dev make rsync
 mkdir -p ~/GL-includes
 cp -a /usr/include/GL ~/GL-includes/GL
 # ls ~/GL-includes/*
