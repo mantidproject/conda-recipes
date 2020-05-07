@@ -1,4 +1,4 @@
-{% set version = "5.0.20200506" %}
+{% set version = "5.0.20200506.2054" %}
 {% set git_rev = "7f3e0927a3d9e7a6bd9d916621bd0a001bfe4b39" %}
 
 package:
