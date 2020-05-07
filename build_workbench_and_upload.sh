@@ -74,7 +74,7 @@ ls -lah /staged-recipes
 
 # Copy the host recipes folder so we don't ever muck with it
 mkdir -p ~/conda-recipes
-cp -r /staged-recipes/workbench ~/conda-recipes/workbench
+cp -r /staged-recipes/ ~/conda-recipes/
 
 # condarc
 echo "$config" > ~/.condarc
