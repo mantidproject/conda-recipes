@@ -2,9 +2,6 @@
 
 set -ex
 
-echo "PREFIX: " $PREFIX
-echo "CONDA_PREFIX: " $CONDA_PREFIX
-
 mkdir build
 cd build
 
