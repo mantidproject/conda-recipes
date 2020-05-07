@@ -89,6 +89,7 @@ conda update conda
 conda install conda-build conda-verify
 
 # build
+conda build --python 3.6 {EXTRA_ARGS} ~/conda-recipes/framework
 conda build --python 3.6 {EXTRA_ARGS} ~/conda-recipes/workbench
 
 EOF
