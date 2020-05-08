@@ -20,18 +20,17 @@ requirements:
     - {{ cdt('libxext') }}           # [linux]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - libglu
   host:
     - blas
     - boost
     - cmake
     - eigen
     - gsl
-    - freeglut
     - h5py
     - hdf4
     - hdf5
     - jsoncpp
-    - libglu
     - librdkafka
     - muparser
     - nexus
@@ -68,14 +67,6 @@ requirements:
     - scipy
     - six
     - tbb
-
-build:
-  script_env:
-    - CC
-    - CXX
-    - OPENGL_gl_LIBRARY
-    - OPENGL_glu_LIBRARY
-    - OPENGL_INCLUDES
 
 about:
   home:
