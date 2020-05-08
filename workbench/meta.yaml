@@ -11,78 +11,63 @@ source:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [linux]
-    - cmake
+    # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - {{ cdt('libselinux') }}        # [linux]
+    - {{ cdt('libxdamage') }}        # [linux]
+    - {{ cdt('libxxf86vm') }}        # [linux]
+    - {{ cdt('libxext') }}           # [linux]
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
   host:
-    - python
-    - boost     {{ boost }}
-    - eigen     {{ eigen }}
-    - hdf4      {{ hdf4 }}
-    - hdf5      {{ hdf5 }}
-    - muparser  {{ muparser }}
-    - gsl       {{ gsl }}
-    - openblas  {{ openblas }}
-    - blas      {{ blas }}
-    - numpy     {{ numpy }} 
-    - jsoncpp   {{ jsoncpp }}
-    - tbb       {{ tbb }}
-    - librdkafka  {{ librdkafka }}
-    - qt        {{ qt }}
-    - pyqt      {{ pyqt }}
-    - qtpy      {{ qtpy }}
-    - qtconsole {{ qtconsole }}
-    - qscintilla2 {{ qscintilla2 }}
-    - qtawesome {{ qtawesome }}
-    - sphinx    {{ sphinx }}
-    - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
-    - h5py
-    - mpi4py
-    - nexus
-    - openssl
-    - poco
-    - python-dateutil
-    - readline
-    - scipy
-
-  run:
-    - python
+    - blas
     - boost
+    - cmake
     - eigen
+    - gsl
+    - freeglut
+    - h5py
     - hdf4
     - hdf5
-    - icu
-    - muparser 2.2.5 0
-    - gsl
+    - jsoncpp
+    - libglu
+    - librdkafka
+    - muparser
+    - nexus
+    - ninja
+    - numpy     {{ numpy }}
     - openblas
-    - blas
+    - openssl
+    - pkg-config
+    - poco
+    - pyqt
+    - python {{ python }}
+    - qscintilla2
+    - qt
+    - qtawesome
+    - qtconsole
+    - qtpy
+    - sphinx
+    - sphinx_bootstrap_theme
+    - tbb-devel
+    # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
+    - xorg-libxfixes  # [linux]
+
+  run:
+    - boost
+    - h5py
+    - librdkafka
+    - jsoncpp
+    - nexus
     - numpy
     - poco
-    - nexus
-    - jsoncpp
-    - tbb
-    - librdkafka
-    - readline
-    - openssl
-    - qt
-    - pyqt
-    - qtpy
-    - qtconsole
-    - qscintilla2
-    - qtawesome
-    - psutil
-    - requests
+    - python
     - python-dateutil
-    - h5py
-    - mpi4py
-    - scipy
-    - scikit-image
     - pyyaml
-    - pycifrw
-    - matplotlib
+    - scipy
     - six
-    - cmake
-    - psutil
-    - requests
+    - tbb
 
 build:
   script_env:
@@ -91,7 +76,6 @@ build:
     - OPENGL_gl_LIBRARY
     - OPENGL_glu_LIBRARY
     - OPENGL_INCLUDES
-  string:
 
 about:
   home:
