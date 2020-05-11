@@ -18,7 +18,6 @@ requirements:
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libxxf86vm-devel') }}      # [linux]
-  host:
     - blas
     - boost
     - cmake
@@ -28,7 +27,6 @@ requirements:
     - hdf4
     - hdf5
     - jsoncpp
-    - libglu
     - libxcb
     - librdkafka
     - muparser
@@ -49,8 +47,11 @@ requirements:
     - sphinx
     - sphinx_bootstrap_theme
     - tbb-devel
+
+  host:
     # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
     # and https://github.com/conda-forge/freeglut-feedstock/blob/master/recipe/meta.yaml
+    - libglu
     - xorg-libx11                        # [linux]
     - xorg-libxau                        # [linux]
     - xorg-libxext                       # [linux]
