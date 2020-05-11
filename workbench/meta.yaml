@@ -12,15 +12,12 @@ source:
 requirements:
   build:
     # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
-    - {{ compiler('cxx') }}
+    # and https://github.com/conda-forge/freeglut-feedstock/blob/master/recipe/meta.yaml
     - {{ compiler('c') }}
-    - {{ cdt('libselinux') }}        # [linux]
-    - {{ cdt('libxdamage') }}        # [linux]
-    - {{ cdt('libxxf86vm') }}        # [linux]
-    - {{ cdt('libxext') }}           # [linux]
+    - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - libglu
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('libxxf86vm-devel') }}      # [linux]
   host:
     - blas
     - boost
@@ -31,6 +28,8 @@ requirements:
     - hdf4
     - hdf5
     - jsoncpp
+    - libglu
+    - libxcb
     - librdkafka
     - muparser
     - nexus
@@ -51,7 +50,12 @@ requirements:
     - sphinx_bootstrap_theme
     - tbb-devel
     # See http://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=libgl#libgl
-    - xorg-libxfixes  # [linux]
+    # and https://github.com/conda-forge/freeglut-feedstock/blob/master/recipe/meta.yaml
+    - xorg-libx11                        # [linux]
+    - xorg-libxau                        # [linux]
+    - xorg-libxext                       # [linux]
+    - xorg-libxfixes                     # [linux]
+    - xorg-libxi                         # [linux]
 
   run:
     - boost
@@ -60,6 +64,7 @@ requirements:
     - jsoncpp
     - nexus
     - numpy
+    - openblas
     - poco
     - python
     - python-dateutil
