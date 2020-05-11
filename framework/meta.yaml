@@ -39,6 +39,7 @@ requirements:
     - librdkafka
     - nexus
     - numpy
+    - openblas
     - poco
     - python
     - python-dateutil
