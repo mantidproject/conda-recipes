@@ -11,8 +11,7 @@ source:
 
 requirements:
   build:
-    - blas
-    - boost
+    - boost 1.71
     - cmake
     - eigen
     - gsl
@@ -34,7 +33,7 @@ requirements:
     - tbb-devel
 
   run:
-    - boost
+    - boost 1.71
     - h5py
     - librdkafka
     - nexus
