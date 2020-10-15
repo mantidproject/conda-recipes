@@ -20,7 +20,7 @@ requirements:
     - {{ cdt('libxxf86vm-devel') }}      # [linux]
 
   host:
-    - boost 1.71
+    - boost {{ boost }} 
     - cmake
     - eigen
     - gsl
@@ -59,7 +59,7 @@ requirements:
     - xorg-libxi                         # [linux]
 
   run:
-    - boost 1.71
+    - boost {{ boost }} 
     - h5py
     - librdkafka
     - jsoncpp
