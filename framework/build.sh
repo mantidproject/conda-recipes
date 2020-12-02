@@ -8,6 +8,7 @@ cd build
 cmake \
   -G Ninja \
   -DUSE_SYSTEM_EIGEN=ON \
+  -DUSE_CCACHE=OFF \
   -DUSE_JEMALLOC=OFF \
   -DENABLE_OPENGL=OFF \
   -DENABLE_DOCS=OFF \
