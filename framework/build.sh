@@ -24,12 +24,17 @@ cmake \
   -DCMAKE_OSX_SYSROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VERSION.sdk" \
   ..
 
+#  -DCMAKE_FIND_DEBUG_MODE=ON \
+#  -DHDF5_CXX_COMPILER_EXECUTABLE:FILEPATH=/Users/spu92482/miniconda/bin/h5c++ \
+#  -DHDF5_CXX_LIBRARY_hdf5:FILEPATH=/Users/spu92482/miniconda/lib/libhdf5.dylib \
+#  -DHDF5_CXX_LIBRARY_hdf5_cpp:FILEPATH=/Users/spu92482/miniconda/lib/libhdf5_cpp.dylib \
+#  -DHDF5_CXX_LIBRARY_hdf5_hl:FILEPATH=/Users/spu92482/miniconda/lib/libhdf5_hl.dylib \
+#  -DHDF5_CXX_LIBRARY_hdf5_hl_cpp:FILEPATH=/Users/spu92482/miniconda/lib/libhdf5_hl_cpp.dylib \
+#  -DHDF5_DIFF_EXECUTABLE:FILEPATH=/Users/spu92482/miniconda/bin/h5diff \
+
+# cmake -LA
 cmake --build .
 cmake --build . --target install
 
-# move mantid
-python_site_pkg_path=`python -c "from __future__ import print_function; import h5py, os; opd=os.path.dirname; print(opd(opd(h5py.__file__)))"`
-echo $python_site_pkg_path
-
-mv ${CONDA_PREFIX}/lib/mantid $python_site_pkg_path/
-mv ${CONDA_PREFIX}/lib/mantid-*-py*.egg-info $python_site_pkg_path/
+mv ${CONDA_PREFIX}/lib/mantid ${SP_DIR}
+#mv ${CONDA_PREFIX}/lib/mantid-*-py*.egg-info ${SP_DIR}
