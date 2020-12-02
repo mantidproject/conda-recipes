@@ -19,6 +19,9 @@ cmake \
   -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
   -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX \
   -DCMAKE_SKIP_INSTALL_RPATH=ON \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=$OSX_VERSION \
+  -DHDF5_ROOT=$PREFIX \
+  -DCMAKE_OSX_SYSROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VERSION.sdk" \
   ..
 
 cmake --build .

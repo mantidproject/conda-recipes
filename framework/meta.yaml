@@ -1,5 +1,5 @@
 {% set version = "5.1.20201125.2323" %}
-{% set git_rev = "f00b325940c0f7844d650607ff5fea52c23a4462" %}
+{% set git_rev = "0e00ba90387a41e47743b56baea5571e0661bfe7" %}
 
 package:
   name: mantid-framework
@@ -48,6 +48,10 @@ requirements:
     - tbb
 
 build:
+  script_env:
+    - CC
+    - CXX
+    - OSX_VERSION
 
 about:
   home:
