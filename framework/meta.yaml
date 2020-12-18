@@ -47,6 +47,7 @@ requirements:
     - six
     - tbb
     - gsl
+    - mkl
 
 build:
   script_env:
