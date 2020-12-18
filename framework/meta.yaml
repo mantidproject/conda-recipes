@@ -55,6 +55,13 @@ build:
     - CXX
     - OSX_VERSION
 
+test:
+  imports:
+    - mantid.kernel
+    - mantid.geometry
+    - mantid.api
+    - mantid.simpleapi
+
 about:
   home:
   license:
