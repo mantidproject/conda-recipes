@@ -30,4 +30,3 @@ cmake --build .
 cmake --build . --target install
 
 mv ${CONDA_PREFIX}/lib/mantid ${SP_DIR}
-mv ${CONDA_PREFIX}/lib/mantid-*-py*.egg-info ${SP_DIR}
