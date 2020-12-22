@@ -5,6 +5,9 @@ set -ex
 mkdir build
 cd build
 
+# Note that HDF5_ROOT must be specified to prevent Mantid looking in /usr/local
+# Note that OSX we use system clang as at time of writing packaged clang is too old 
+# Note the use of USE_PYTHON_DYNAMI_LIB=OFF conda python builds on OSX statically link to the runtime so we disable dynamic linking to avoid overwriting existing symbols
 cmake \
   -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
@@ -25,7 +28,6 @@ cmake \
   -DUSE_PYTHON_DYNAMIC_LIB=OFF \
   ..
 
-# cmake -LA
 cmake --build .
 cmake --build . --target install
 
