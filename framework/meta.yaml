@@ -47,6 +47,8 @@ requirements:
     - six
     - tbb
     - gsl
+    - jsoncpp
+    - muparser
     - mkl
 
 build:
