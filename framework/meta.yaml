@@ -11,7 +11,7 @@ source:
 
 requirements:
   build:
-    - boost {{ boost }} 
+    - boost {{ boost }}
     - cmake
     - eigen
     - gsl
@@ -46,8 +46,23 @@ requirements:
     - scipy
     - six
     - tbb
+    - gsl
+    - jsoncpp
+    - muparser
+    - mkl
 
 build:
+  script_env:
+    - CC
+    - CXX
+    - OSX_VERSION
+
+test:
+  imports:
+    - mantid.kernel
+    - mantid.geometry
+    - mantid.api
+    - mantid.simpleapi
 
 about:
   home:
