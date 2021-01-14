@@ -34,6 +34,7 @@ requirements:
     - tbb-devel
 
   run:
+    - _openmp_mutex {{ _openmp_mutex }}
     - boost {{ boost }}
     - h5py
     - librdkafka
