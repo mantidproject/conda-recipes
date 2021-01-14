@@ -7,3 +7,5 @@ boost:
 numpy:
   - 1.15
 
+_openmp_mutex:
+  - 4.5 1_gnu
