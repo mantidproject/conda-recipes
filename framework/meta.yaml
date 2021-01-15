@@ -11,7 +11,7 @@ source:
 
 requirements:
   build:
-    - _openmp_mutex {{ _openmp_mutex }}
+    - _openmp_mutex {{ _openmp_mutex }} [linux64]
     - boost {{ boost }} 
     - cmake
     - eigen
@@ -34,7 +34,7 @@ requirements:
     - tbb-devel
 
   run:
-    - _openmp_mutex {{ _openmp_mutex }}
+    - _openmp_mutex {{ _openmp_mutex }} [linux64]
     - boost {{ boost }}
     - h5py
     - librdkafka
