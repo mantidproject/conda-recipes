@@ -32,6 +32,7 @@ requirements:
     - poco
     - python {{ python }}
     - tbb-devel
+    - pre-commit
 
   run:
     - _openmp_mutex {{ _openmp_mutex }} [linux64]
