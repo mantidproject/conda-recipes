@@ -26,6 +26,7 @@ conda-build:
 
 always_yes: true
 show_channel_urls: true
+anaconda_upload: true
 
 CONDARC
 )
