@@ -8,4 +8,5 @@ set -x
 export PATH=$MC_DIR/bin:$PATH
 
 # upload
+# the tool arguments are https://docs.anaconda.com/anacondaorg/commandreference/
 anaconda upload -t $ANACONDA_ACCESS_KEY $@
