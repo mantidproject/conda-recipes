@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x  # turn on debug printing
 
 # Usage: ./upload.sh  -l nightly --force /path/to/pkg.bz2
 # anaconda arguments are https://docs.anaconda.com/anacondaorg/commandreference/
