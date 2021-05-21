@@ -19,5 +19,8 @@ if [ ! $(command -v anaconda) ]; then
   exit 255
 fi
 
+# show tool version
+anaconda --version
+
 # upload
-anaconda upload -t $ANACONDA_ACCESS_KEY $@
+anaconda -v upload -t $ANACONDA_ACCESS_KEY $@
