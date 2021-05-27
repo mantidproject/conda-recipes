@@ -23,5 +23,5 @@ fi
 anaconda --version
 
 # upload
-anaconda -v upload -t $ANACONDA_ACCESS_KEY $@
+anaconda -v upload -t $ANACONDA_ACCESS_KEY $@ 2>&1
 echo "anaconda returned $?"
