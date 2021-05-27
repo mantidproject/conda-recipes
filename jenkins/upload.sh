@@ -32,9 +32,13 @@ fi
 # show tool version
 anaconda --version
 
+_deactivate_conda_environment() {
+   echo "Deactivate conda environment"
+   conda deactivate
+}
+
 # upload
 anaconda -v upload -t $ANACONDA_ACCESS_KEY $@ 2>&1
-echo "anaconda returned $?"
 
-# cleanup
-conda deactivate
+# cleanup - will still return exit code from previous command
+trap _deactivate_conda_environment EXIT
