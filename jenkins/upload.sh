@@ -37,6 +37,16 @@ _deactivate_conda_environment() {
    conda deactivate
 }
 
+# HACK: Patch anaconda-client to show an error message.
+# taken from https://github.com/Anaconda-Platform/anaconda-client/pull/564
+# the following was run on the build server directly
+# conda install wget git
+# cd "$(conda info|grep 'active env location'|awk '{print $5}')/lib/python"*"/site-packages/"
+# wget https://github.com/Anaconda-Platform/anaconda-client/commit/bb74857cbc0b59e9c328fbf7e31caaedbc1bb9f9.diff
+# git apply bb74857cbc0b59e9c328fbf7e31caaedbc1bb9f9.diff
+# rm bb74857cbc0b59e9c328fbf7e31caaedbc1bb9f9.diff
+# cd -
+
 # upload
 anaconda -v upload -t $ANACONDA_ACCESS_KEY $@ 2>&1
 
