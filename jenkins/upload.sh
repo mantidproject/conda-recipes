@@ -24,3 +24,4 @@ anaconda --version
 
 # upload
 anaconda -v upload -t $ANACONDA_ACCESS_KEY $@
+echo "anaconda returned $?"
