@@ -32,11 +32,6 @@ fi
 # show tool version
 anaconda --version
 
-_deactivate_conda_environment() {
-   echo "Deactivate conda environment"
-   conda deactivate
-}
-
 # HACK: Patch anaconda-client to show an error message.
 # taken from https://github.com/Anaconda-Platform/anaconda-client/pull/564
 # the following was run on the build server directly
@@ -49,6 +44,3 @@ _deactivate_conda_environment() {
 
 # upload
 anaconda -v upload -t $ANACONDA_ACCESS_KEY $@ 2>&1
-
-# cleanup - will still return exit code from previous command
-trap _deactivate_conda_environment EXIT
