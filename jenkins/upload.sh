@@ -43,4 +43,4 @@ anaconda --version
 # cd -
 
 # upload
-anaconda -v upload -u mantid -t $ANACONDA_ACCESS_KEY $@ 2>&1
+anaconda -v -t $ANACONDA_ACCESS_KEY upload -u mantid $@ 2>&1
