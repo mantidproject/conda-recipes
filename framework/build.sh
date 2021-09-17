@@ -20,7 +20,6 @@ cmake \
   -DHDF5_ROOT=$CONDA_PREFIX \
   -DCMAKE_OSX_SYSROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VERSION.sdk" \
   -DUSE_SYSTEM_EIGEN=OFF \
-  -DENABLE_MANTIDPLOT=OFF \
   -DENABLE_WORKBENCH=OFF \
   -DENABLE_OPENGL=OFF \
   -DENABLE_DOCS=OFF \
