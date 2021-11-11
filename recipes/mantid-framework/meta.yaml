@@ -54,7 +54,7 @@ requirements:
     - matplotlib-base
     - nexus
     - {{ pin_compatible("numpy", max_pin="x.x") }}
-    - occt
+    - {{ pin_compatible("occt", max_pin="x.x.x") }}
     - python
     - python-dateutil
     - pyyaml
