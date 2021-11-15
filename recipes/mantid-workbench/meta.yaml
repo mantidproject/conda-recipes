@@ -1,0 +1,49 @@
+{% set version = "6.2.1" %}
+
+package:
+  name: mantid-workbench
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/mantidproject/mantid.git
+  git_tag: main
+
+build:
+  number: 0
+  entry_points:
+    - workbench = workbench.app.main:main
+  osx_is_app: true
+
+requirements:
+  build:
+    - {{ compiler("cxx") }}
+    - ninja  # [unix]
+    - cmake
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libx11-devel') }}  # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+  host:
+    - boost {{ boost }}
+    - mantid-qt {{ version }}
+    - setuptools 48.0.*
+  run:    
+    - ipykernel <6
+    - psutil
+    - python
+    - python.app  # [osx]
+    - qtconsole
+
+test:
+  imports:
+    - workbench
+
+about:
+  home: https://github.com/mantidproject/mantid
+  license: GPL-3.0-or-later
+  summary: Mantid provides a framework that supports high-performance computing and visualisation of materials science data.
+
+extra:
+  recipe-maintainers:
+    - StephenSmith25

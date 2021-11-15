@@ -1,0 +1,21 @@
+c_compiler:
+  - gcc                      # [linux]
+  - clang                    # [osx]
+  - vs2019                   # [win]
+cxx_compiler:
+  - gxx                      # [linux]
+  - clangxx                  # [osx]
+  - vs2019                   # [win]
+
+python:
+  - 3.8
+
+boost:
+  - 1.75
+
+numpy:
+  - 1.19
+
+pin_run_as_build:
+    boost:
+      max_pin: x.x
