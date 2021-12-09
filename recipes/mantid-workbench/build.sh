@@ -12,6 +12,7 @@ cmake \
   -DENABLE_DOCS=OFF \
   -DWORKBENCH_SITE_PACKAGES=$SP_DIR \
   -DWORKBENCH_BIN_DIR=$PREFIX/bin \
+  -DCMAKE_OSX_SYSROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VERSION.sdk" \
   -DENABLE_PRECOMMIT=OFF \
   -DCONDA_BUILD=True \
   -DCONDA_ENV=True \
