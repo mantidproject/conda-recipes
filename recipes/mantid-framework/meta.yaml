@@ -60,13 +60,6 @@ requirements:
     - pyyaml
     - scipy
 
-test:
-  imports:
-    - mantid.kernel
-    - mantid.geometry
-    - mantid.api
-    - mantid.simpleapi
-
 about:
   home: https://github.com/mantidproject/mantid
   license: GPL-3.0-or-later
