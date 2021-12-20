@@ -19,6 +19,7 @@ requirements:
     - {{ compiler("cxx") }}
     - ninja  # [unix]
     - cmake
+    - git
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
     - {{ cdt('libxxf86vm') }}  # [linux]
