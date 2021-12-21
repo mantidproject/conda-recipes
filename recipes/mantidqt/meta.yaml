@@ -1,17 +1,17 @@
 {% set version = "6.2.1" %}
 
 package:
-  name: mantid-framework
+  name: mantidqt
   version: {{ version }}
 
 source:
   git_url: https://github.com/mantidproject/mantid.git
-  git_tag: main_pipeline_prototype
+  git_tag: main
 
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage('mantid-framework', max_pin='x.x.x') }}
+    - {{ pin_subpackage('mantidqt', max_pin='x.x.x') }}
 
 requirements:
   build:
@@ -27,39 +27,28 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+
   host:
-    - boost {{ boost }}
     - eigen
-    - gsl<=2.6
-    - h5py
-    - hdf5=1.10.*
     - jemalloc  # [unix]
-    - jsoncpp
-    - librdkafka
-    - lib3mf  # [win]
-    - muparser
-    - nexus
-    - numpy {{ numpy }}
-    - occt<=7.5
-    - python {{ python }}
-    - poco
-    - tbb-devel=2020.2.*
-    - zlib
-    - pip
-  run:
-    - {{ pin_compatible("boost", max_pin="x.x") }}
-    - {{ pin_compatible("gsl", max_pin="x.x") }}
-    - h5py
-    - {{ pin_compatible("hdf5", max_pin="x.x") }}
-    - lib3mf  # [win]
-    - matplotlib-base
-    - nexus
-    - {{ pin_compatible("numpy", max_pin="x.x") }}
-    - {{ pin_compatible("occt", max_pin="x.x.x") }}
+    - mantid {{ version }}
     - python
-    - python-dateutil
-    - pyyaml
-    - scipy
+    - pyqt
+    - qt 5.12.*
+    - qscintilla2
+    - setuptools 48.0.*
+    - tbb-devel 2020.2.*
+
+  run:
+    - matplotlib-base
+    - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
+    - qtpy
+    - python
+    
+test:
+  imports:
+    - mantidqt
+    - mantidqt.icons
 
 about:
   home: https://github.com/mantidproject/mantid
@@ -69,3 +58,4 @@ about:
 extra:
   recipe-maintainers:
     - StephenSmith25
+    - Pasarus

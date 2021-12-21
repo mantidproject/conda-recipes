@@ -1,17 +1,17 @@
 {% set version = "6.2.1" %}
 
 package:
-  name: mantid-qt
+  name: mantid
   version: {{ version }}
 
 source:
   git_url: https://github.com/mantidproject/mantid.git
-  git_tag: main
+  git_tag: main_pipeline_prototype
 
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage('mantid-qt', max_pin='x.x.x') }}
+    - {{ pin_subpackage('mantid', max_pin='x.x.x') }}
 
 requirements:
   build:
@@ -27,28 +27,39 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-
   host:
+    - boost {{ boost }}
     - eigen
+    - gsl<=2.6
+    - h5py
+    - hdf5=1.10.*
     - jemalloc  # [unix]
-    - mantid-framework {{ version }}
-    - python
-    - pyqt
-    - qt 5.12.*
-    - qscintilla2
-    - setuptools 48.0.*
-    - tbb-devel 2020.2.*
-
+    - jsoncpp
+    - librdkafka
+    - lib3mf  # [win]
+    - muparser
+    - nexus
+    - numpy {{ numpy }}
+    - occt<=7.5
+    - python {{ python }}
+    - poco
+    - tbb-devel=2020.2.*
+    - zlib
+    - pip
   run:
+    - {{ pin_compatible("boost", max_pin="x.x") }}
+    - {{ pin_compatible("gsl", max_pin="x.x") }}
+    - h5py
+    - {{ pin_compatible("hdf5", max_pin="x.x") }}
+    - lib3mf  # [win]
     - matplotlib-base
-    - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
-    - qtpy
+    - nexus
+    - {{ pin_compatible("numpy", max_pin="x.x") }}
+    - {{ pin_compatible("occt", max_pin="x.x.x") }}
     - python
-    
-test:
-  imports:
-    - mantidqt
-    - mantidqt.icons
+    - python-dateutil
+    - pyyaml
+    - scipy
 
 about:
   home: https://github.com/mantidproject/mantid
@@ -58,3 +69,4 @@ about:
 extra:
   recipe-maintainers:
     - StephenSmith25
+    - Pasarus

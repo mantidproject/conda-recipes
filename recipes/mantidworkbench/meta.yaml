@@ -1,7 +1,7 @@
 {% set version = "6.2.1" %}
 
 package:
-  name: mantid-workbench
+  name: mantidworkbench
   version: {{ version }}
 
 source:
@@ -27,7 +27,7 @@ requirements:
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
   host:
     - boost {{ boost }}
-    - mantid-qt {{ version }}
+    - mantidqt {{ version }}
     - setuptools 48.0.*
   run:    
     - ipykernel <6
@@ -48,3 +48,4 @@ about:
 extra:
   recipe-maintainers:
     - StephenSmith25
+    - Pasarus
