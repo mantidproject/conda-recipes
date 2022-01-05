@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/mantidproject/mantid.git
-  git_tag: main
+  git_tag: main_pipeline_prototype
 
 build:
   number: 0
