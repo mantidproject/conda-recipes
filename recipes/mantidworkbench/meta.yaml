@@ -27,8 +27,10 @@ requirements:
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
   host:
     - boost {{ boost }}
-    - mantidqt {{ version }}
     - setuptools 48.0.*
+    - mantidqt {{ version }}
+    - sphinx
+    - sphinx_bootstrap_theme
   run:    
     - ipykernel <6
     - psutil

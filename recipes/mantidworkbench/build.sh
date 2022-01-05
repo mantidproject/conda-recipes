@@ -9,7 +9,8 @@ cmake \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_PREFIX_PATH=$PREFIX \
   -DCMAKE_FIND_FRAMEWORK=LAST \
-  -DENABLE_DOCS=OFF \
+  -DENABLE_DOCS=ON \
+  -DPACKAGE_DOCS=ON \
   -DWORKBENCH_SITE_PACKAGES=$SP_DIR \
   -DWORKBENCH_BIN_DIR=$PREFIX/bin \
   -DENABLE_PRECOMMIT=OFF \
@@ -24,4 +25,5 @@ cmake \
   ../
 
 ninja
+ninja docs-qthelp
 ninja install
