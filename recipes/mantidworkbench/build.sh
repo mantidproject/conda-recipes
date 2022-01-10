@@ -21,6 +21,7 @@ cmake \
   -DMANTID_QT_LIB=SYSTEM \
   -DENABLE_WORKBENCH=ON \
   -DQt5_DIR=$PREFIX/lib/cmake/qt5 \
+  -DCPACK_PACKAGE_SUFFIX="" \
   -GNinja \
   ../
 
