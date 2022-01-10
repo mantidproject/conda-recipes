@@ -40,7 +40,7 @@ requirements:
     - muparser
     - nexus
     - numpy {{ numpy }}
-    - occt<7.6
+    - occt==7.5.*
     - python {{ python }}
     - poco
     - tbb-devel=2020.2.*
