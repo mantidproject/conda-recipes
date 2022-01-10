@@ -31,10 +31,11 @@ requirements:
     - mantidqt {{ version }}
     - sphinx
     - sphinx_bootstrap_theme
+    - python
   run:    
     - ipykernel <6
     - psutil
-    - python
+    - {{ pin_compatible("python", max_pin="x.x") }}
     - python.app  # [osx]
     - qtconsole
 
