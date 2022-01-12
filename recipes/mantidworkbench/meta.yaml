@@ -38,6 +38,7 @@ requirements:
     - {{ pin_compatible("python", max_pin="x.x") }}
     - python.app  # [osx]
     - qtconsole
+    - {{ pin_compatible("setuptools", max_pin="x.x") }}
 
 test:
   imports:
