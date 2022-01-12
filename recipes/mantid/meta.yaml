@@ -46,6 +46,7 @@ requirements:
     - tbb-devel=2020.2.*
     - zlib
     - pip
+    - openssl==1.1.1l # Pinned here to stay in line with qt
   run:
     - {{ pin_compatible("boost", max_pin="x.x") }}
     - {{ pin_compatible("gsl", max_pin="x.x") }}
