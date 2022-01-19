@@ -15,7 +15,6 @@ export CDT_MESA_LIBGL_DIR="${CONDA_PREFIX}/x86_64-conda_cos6-linux-gnu/sysroot/u
 
 cmake \
    -G Ninja \
-  -DUSE_SYSTEM_EIGEN=ON \
   -DUSE_JEMALLOC=OFF \
   -DENABLE_OPENGL=ON \
   -DENABLE_MANTIDPLOT=FALSE \
