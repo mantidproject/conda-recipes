@@ -11,7 +11,7 @@ cd build
 cmake \
   -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
-  -DUSE_JEMALLOC=OFF \
+  -DUSE_JEMALLOC=ON \
   -DUSE_CCACHE=OFF \
   -DPython_EXECUTABLE="$CONDA_PREFIX/bin/python" \
   -DCMAKE_PREFIX_PATH=$CONDA_PREFIX \
