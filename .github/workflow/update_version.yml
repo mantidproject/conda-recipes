@@ -1,0 +1,87 @@
+name: Update Version and Sha of conda
+
+# Call this in the repo that you want to update based upon
+# curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/YOURNAME/APPLICATION_NAME/actions/workflows/build.yaml/dispatches --data '{"ref": "master"}'
+on: workflow_dispatch
+
+jobs:
+  update_version_and_sha:
+    name: Update Version number and git sha
+    runs_on: ubuntu-latest
+    steps:
+      - name: Clone conda recipes
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Clone mantid
+        uses: actions/checkout@v2
+        with:
+          name: mantidproject/mantid
+
+      - name: Calculate version and git commit sha then set as env vars
+        shell: bash -l {0}
+        run: |
+          cd mantid
+
+          export LATEST_GIT_SHA_DATE=$(command git log -1 --format=format:%ci)
+          export YEAR=${LATEST_GIT_SHA_DATE:0:4}
+          export MONTH=${LATEST_GIT_SHA_DATE:5:2}
+          export DAY=${LATEST_GIT_SHA_DATE:8:2}
+          export HOUR=${LATEST_GIT_SHA_DATE:11:2}
+          export MINS=${LATEST_GIT_SHA_DATE:14:2}
+          export PATCH_VERSION=$YEAR$MONTH$DAY.$HOUR$MINS
+
+          export VERSION_MAJOR_STRING=$(command grep "set(VERSION_MAJOR" buildconfig/CMake/VersionNumber.cmake)
+          export MAJOR_VERSION=${VERSION_MAJOR_STRING:20:1} # Only valid for 1 digit 
+
+          export VERSION_MINOR_STRING=$(command grep "set(VERSION_MINOR" buildconfig/CMake/VersionNumber.cmake)
+          export MINOR_VERSION=${VERSION_MINOR_STRING:20:1} # Or a Minor version number?
+
+          export VERSION=$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION
+
+          export LATEST_GIT_SHA=$(command git log -1 --format=format:%H)
+
+          cd ..
+
+      - name: Install pre-req for sha256 calculation
+        shell: bash -l {0}
+        run: |
+          sudo apt-get install curl openssl -y
+
+      - name: Calculate sha256 value then set as env var
+        shell: bash -l {0}
+        run: |      
+          export SOURCE_FILE=$LATEST_GIT_SHA.tar.gz
+          curl -LO https://github.com/mantidproject/mantid/archive/$SOURCE_FILE
+          export SHA256=$(command openssl sha256 $SOURCE_FILE)
+          rm -rf $SOURCE_FILE
+
+      - name: Implant sha and version into the conda recipes
+        shell: bash -l {0}
+        run: |
+          cd recipes/mantid
+          sed -i '/{% set git_commit =/c\{% set git_commit = "'$LATEST_GIT_SHA'" %}' ./meta.yaml
+          sed -i '/{% set version =/c\{% set version = "'$VERSION'" %}' ./meta.yaml
+          sed -i '/  sha256: /c\  sha256: '$SHA256'' ./meta.yaml
+
+          cd ../mantidqt
+          sed -i '/{% set git_commit =/c\{% set git_commit = "'$LATEST_GIT_SHA'" %}' ./meta.yaml
+          sed -i '/{% set version =/c\{% set version = "'$VERSION'" %}' ./meta.yaml
+          sed -i '/  sha256: /c\  sha256: '$SHA256'' ./meta.yaml
+
+          cd ../mantidworkbench
+          sed -i '/{% set git_commit =/c\{% set git_commit = "'$LATEST_GIT_SHA'" %}' ./meta.yaml
+          sed -i '/{% set version =/c\{% set version = "'$VERSION'" %}' ./meta.yaml
+          sed -i '/  sha256: /c\  sha256: '$SHA256'' ./meta.yaml
+
+      - name: Git Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.9.1
+        with:
+          commit_message: Update Version and Git sha
+          commit_options: '--no-verify --signoff'
+          file_pattern: "**/recipes/mantid/*"
+          commit_user_name: mantid-builder
+          commit_user_email: mantid-builder@hosting.com
+
+      # If release-next was updated within the last 4 days, guess that the sha and version number should be from that branch.

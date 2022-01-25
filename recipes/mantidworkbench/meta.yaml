@@ -1,12 +1,13 @@
-{% set version = "6.2.1" %}
+{% set version = "6.2.20220119.1530" %}
+{% set git_commit = "2cbb09a86e3cb09388fbefde9adfa8e649566a01" %}
 
 package:
   name: mantidworkbench
   version: {{ version }}
 
 source:
-  git_url: https://github.com/mantidproject/mantid.git
-  git_tag: main_pipeline_prototype
+  url: https://github.com/mantidproject/mantid/archive/{{ git_commit }}.tar.gz
+  sha256: 68e932e6ce42232abdce315a438feb05b9d01624038904849ff104fc740f1b29
 
 build:
   number: 0
