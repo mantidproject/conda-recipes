@@ -80,7 +80,7 @@ jobs:
         with:
           commit_message: Update Version and Git sha
           commit_options: '--no-verify --signoff'
-          file_pattern: "**/recipes/mantid/*"
+          file_pattern: recipes/*/meta.yaml
           commit_user_name: mantid-builder
           commit_user_email: mantid-builder@hosting.com
 
