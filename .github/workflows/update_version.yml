@@ -15,9 +15,9 @@ jobs:
           fetch-depth: 0
 
       - name: Clone mantid
-        uses: actions/checkout@v2
-        with:
-          name: mantidproject/mantid
+        shell: bash -l {0}
+        run: |
+          git clone -b release-next https://github.com/mantidproject/mantid.git mantid
 
       - name: Calculate version and git commit sha then set as env vars
         shell: bash -l {0}
