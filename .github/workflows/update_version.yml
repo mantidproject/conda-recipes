@@ -19,7 +19,12 @@ jobs:
         run: |
           git clone -b release-next https://github.com/mantidproject/mantid.git mantid
 
-      - name: Calculate version and git commit sha then set as env vars
+      - name: Install pre-req for sha256 calculation
+        shell: bash -l {0}
+        run: |
+          sudo apt-get install curl openssl -y
+
+      - name: Calculate variables and implant into recipes
         shell: bash -l {0}
         run: |
           cd mantid
@@ -34,12 +39,12 @@ jobs:
           export PATCH_VERSION=$YEAR$MONTH$DAY.$HOUR$MINS
           echo $PATCH_VERSION
 
-          export VERSION_MAJOR_STRING=$(command grep "set(VERSION_MAJOR" buildconfig/CMake/VersionNumber.cmake)
-          export MAJOR_VERSION=${VERSION_MAJOR_STRING:20:1} # Only valid for 1 digit 
+          export VERSION_MAJOR_STRING=$(command grep "set(VERSION_MAJOR" ./buildconfig/CMake/VersionNumber.cmake)
+          export MAJOR_VERSION=${VERSION_MAJOR_STRING:18:1} # Only valid for 1 digit 
           echo $MAJOR_VERSION
 
-          export VERSION_MINOR_STRING=$(command grep "set(VERSION_MINOR" buildconfig/CMake/VersionNumber.cmake)
-          export MINOR_VERSION=${VERSION_MINOR_STRING:20:1} # Or a Minor version number?
+          export VERSION_MINOR_STRING=$(command grep "set(VERSION_MINOR" ./buildconfig/CMake/VersionNumber.cmake)
+          export MINOR_VERSION=${VERSION_MINOR_STRING:18:1} # Or a Minor version number?
           echo $MINOR_VERSION
 
           export VERSION=$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION
@@ -50,22 +55,11 @@ jobs:
 
           cd ..
 
-      - name: Install pre-req for sha256 calculation
-        shell: bash -l {0}
-        run: |
-          sudo apt-get install curl openssl -y
-
-      - name: Calculate sha256 value then set as env var
-        shell: bash -l {0}
-        run: |      
           export SOURCE_FILE=$LATEST_GIT_SHA.tar.gz
           curl -LO https://github.com/mantidproject/mantid/archive/$SOURCE_FILE
           export SHA256=$(command openssl sha256 $SOURCE_FILE)
           rm -rf $SOURCE_FILE
 
-      - name: Implant sha and version into the conda recipes
-        shell: bash -l {0}
-        run: |
           cd recipes/mantid
           sed -i '/{% set git_commit =/c\{% set git_commit = "'$LATEST_GIT_SHA'" %}' ./meta.yaml
           sed -i '/{% set version =/c\{% set version = "'$VERSION'" %}' ./meta.yaml
