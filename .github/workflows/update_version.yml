@@ -58,6 +58,7 @@ jobs:
           export SOURCE_FILE=$LATEST_GIT_SHA.tar.gz
           curl -LO https://github.com/mantidproject/mantid/archive/$SOURCE_FILE
           export SHA256=$(command openssl sha256 $SOURCE_FILE)
+          echo $SHA256
           rm -rf $SOURCE_FILE
 
           cd recipes/mantid
