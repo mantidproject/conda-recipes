@@ -57,7 +57,9 @@ jobs:
 
           export SOURCE_FILE=$LATEST_GIT_SHA.tar.gz
           curl -LO https://github.com/mantidproject/mantid/archive/$SOURCE_FILE
-          export SHA256=$(command openssl sha256 $SOURCE_FILE)
+          export SHA_RESULT=$(command openssl sha256 $SOURCE_FILE)
+          export STRING_ARRAY=($SHA_RESULT)
+          export SHA256=${STRING_ARRAY[1]}
           echo $SHA256
           rm -rf $SOURCE_FILE
 
