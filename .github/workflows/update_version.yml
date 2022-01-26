@@ -1,8 +1,9 @@
 name: Update Version and Sha of conda
 
-# Call this in the repo that you want to update based upon
-# curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/YOURNAME/APPLICATION_NAME/actions/workflows/build.yaml/dispatches --data '{"ref": "master"}'
-on: workflow_dispatch
+on: 
+  schedule:
+    - cron: '0 0/1 * * *' # “At minute 0 past every hour from 0 through 23.” 
+  push:
 
 jobs:
   update_version_and_sha:
@@ -22,6 +23,7 @@ jobs:
       - name: Install pre-req for sha256 calculation
         shell: bash -l {0}
         run: |
+          sudo apt-get update
           sudo apt-get install curl openssl -y
 
       - name: Calculate variables and implant into recipes
