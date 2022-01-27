@@ -1,9 +1,6 @@
 name: Update Version and Sha of conda
 
-on: 
-  schedule:
-    - cron: '0 0/1 * * *' # “At minute 0 past every hour from 0 through 23.” 
-  push:
+on: workflow_dispatch
 
 jobs:
   update_version_and_sha:
