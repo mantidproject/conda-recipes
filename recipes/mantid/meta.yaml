@@ -1,5 +1,5 @@
-{% set version = "6.2.20220202.0855" %}
-{% set git_commit = "dc59014f568ee41177e4065e589ffa8f2b33344a" %}
+{% set version = "6.2.20220202.1216" %}
+{% set git_commit = "ad65ffe6dc567266e70cb88bd34029fa8ead1d6a" %}
 
 package:
   name: mantid
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mantidproject/mantid/archive/{{ git_commit }}.tar.gz
-  sha256: 99fcaa5ee16e952e4b800986461131ffd6bc69e165b50a1cc35883e2dafa9dac
+  sha256: b549bb26f38d0ebca75cea1b94596b0711aee3acfed8eb51ab6371e2fe147edb
 
 build:
   number: 0
