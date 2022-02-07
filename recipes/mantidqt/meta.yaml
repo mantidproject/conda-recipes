@@ -41,7 +41,7 @@ requirements:
     - tbb-devel 2020.2.*
 
   run:
-    - matplotlib-base
+    - matplotlib-base==3.1.3
     - toml
     - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
     - qtpy
