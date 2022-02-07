@@ -42,6 +42,7 @@ requirements:
 
   run:
     - matplotlib-base
+    - toml
     - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
     - qtpy
     - python
