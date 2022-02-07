@@ -37,6 +37,7 @@ requirements:
     - ipykernel <6
     - psutil
     - {{ pin_compatible("python", max_pin="x.x") }}
+    - matplotlib {{ matplotlib }}
     - python.app  # [osx]
     - qtconsole
     - {{ pin_compatible("setuptools", max_pin="x.x") }}

@@ -16,6 +16,9 @@ boost:
 numpy:
   - 1.19
 
+matplotlib:
+  - 3.5.*
+
 pin_run_as_build:
     boost:
       max_pin: x.x
