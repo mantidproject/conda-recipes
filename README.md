@@ -1,5 +1,8 @@
 # conda-recipes
 
+**These recipes are legacy recipes from a first attempt to distribute a conda build.
+They only build a mantid-framework package on Linux**
+
 ## Prerequisites
 
 * anaconda or miniconda
