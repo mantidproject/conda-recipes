@@ -47,7 +47,7 @@ requirements:
     - tbb-devel=2020.2.*
     - zlib
     - pip
-    - openssl==1.1.1l # Pinned here to stay in line with qt
+    - openssl {{openssl}}
   run:
     - {{ pin_compatible("boost", max_pin="x.x") }}
     - {{ pin_compatible("gsl", max_pin="x.x") }}
@@ -61,6 +61,7 @@ requirements:
     - python-dateutil
     - pyyaml
     - scipy
+    - openssl {{openssl}}
 
 about:
   home: https://github.com/mantidproject/mantid
