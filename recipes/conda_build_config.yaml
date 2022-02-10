@@ -19,6 +19,9 @@ numpy:
 matplotlib:
   - 3.5.*
 
+openssl:
+  - 1.1.1l
+
 pin_run_as_build:
     boost:
       max_pin: x.x
