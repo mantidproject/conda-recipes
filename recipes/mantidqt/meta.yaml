@@ -35,10 +35,10 @@ requirements:
     - mantid {{ version }}
     - python
     - pyqt
-    - qt 5.12.*
+    - qt {{ qt }}
     - qscintilla2
-    - setuptools 48.0.*
-    - tbb-devel 2020.2.*
+    - setuptools {{ setuptools }}
+    - tbb-devel {{ tbb }}
 
   run:
     - matplotlib {{ matplotlib }}

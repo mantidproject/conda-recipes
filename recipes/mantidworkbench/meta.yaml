@@ -28,13 +28,13 @@ requirements:
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
   host:
     - boost {{ boost }}
-    - setuptools 48.0.*
+    - setuptools {{ setuptools }}
     - mantidqt {{ version }}
     - sphinx
     - sphinx_bootstrap_theme
     - python
   run:    
-    - ipykernel <6
+    - ipykernel {{ ipykernel }}
     - psutil
     - {{ pin_compatible("python", max_pin="x.x") }}
     - matplotlib {{ matplotlib }}

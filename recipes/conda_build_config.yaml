@@ -22,6 +22,27 @@ matplotlib:
 openssl:
   - 1.1.1l
 
+setuptools:
+  - 48.0.*
+
+qt:
+  - 5.12.*
+
+tbb:
+  - 2020.2.*
+
+hdf5:
+  - 1.10.*
+
+occt:
+  - 7.5.*
+
+gsl:
+  - 2.6
+
+ipykernel:
+  - <6
+
 pin_run_as_build:
     boost:
       max_pin: x.x

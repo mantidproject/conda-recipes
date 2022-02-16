@@ -31,9 +31,9 @@ requirements:
   host:
     - boost {{ boost }}
     - eigen
-    - gsl<=2.6
+    - gsl {{ gsl }}
     - h5py
-    - hdf5=1.10.*
+    - hdf5 {{ hdf5 }}
     - jemalloc  # [unix]
     - jsoncpp
     - librdkafka
@@ -41,13 +41,13 @@ requirements:
     - muparser
     - nexus
     - numpy {{ numpy }}
-    - occt==7.5.*
+    - occt {{ occt }}
     - python {{ python }}
     - poco
-    - tbb-devel=2020.2.*
+    - tbb-devel {{ tbb }}
     - zlib
     - pip
-    - openssl {{openssl}}
+    - openssl {{ openssl }}
   run:
     - {{ pin_compatible("boost", max_pin="x.x") }}
     - {{ pin_compatible("gsl", max_pin="x.x") }}
@@ -61,7 +61,7 @@ requirements:
     - python-dateutil
     - pyyaml
     - scipy
-    - openssl {{openssl}}
+    - openssl {{ openssl }}
 
 about:
   home: https://github.com/mantidproject/mantid
