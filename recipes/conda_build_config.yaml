@@ -11,7 +11,7 @@ python:
   - 3.8
 
 boost:
-  - 1.75
+  - 1.74
 
 numpy:
   - 1.19
@@ -19,11 +19,17 @@ numpy:
 matplotlib:
   - 3.5.*
 
-openssl:
-  - 1.1.1
+gsl:
+  - 2.6
+
+jsoncpp:
+  - 1.8.4
 
 setuptools:
   - 48.0.*
+
+openssl:
+  - 1.1.1l
 
 qt:
   - 5.12.*
@@ -31,14 +37,14 @@ qt:
 tbb:
   - 2020.2.*
 
-hdf5:
-  - 1.10.*
+tbb_devel:
+  - 2020.2
 
 occt:
   - 7.5.*
 
-gsl:
-  - 2.6
+hdf5:
+  - 1.10.*
 
 ipykernel:
   - <6
