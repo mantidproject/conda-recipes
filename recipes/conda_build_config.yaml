@@ -20,7 +20,7 @@ matplotlib:
   - 3.5.*
 
 openssl:
-  - 1.1.1l
+  - 1.1.1
 
 setuptools:
   - 48.0.*
@@ -42,6 +42,9 @@ gsl:
 
 ipykernel:
   - <6
+
+cppcheck:
+  - 2.5
 
 pin_run_as_build:
     boost:

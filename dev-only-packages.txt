@@ -1,0 +1,5 @@
+    - gxx_linux-64==10.3  # [linux]
+    - cppcheck==2.5
+    - gcovr
+    - pre-commit
+    - nsis # [win]

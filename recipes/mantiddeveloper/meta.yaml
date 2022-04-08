@@ -1,0 +1,71 @@
+package:
+  name: mantid-developer
+  version: 1.1.1
+
+build:
+  number: 0
+
+requirements:
+  run:
+    # Compiler and buildtools
+    - gxx_linux-64=10.3  # [linux]
+    - llvm-openmp  # [osx]
+    - libgomp  # [linux]
+    - ninja  # [unix]
+    - cmake
+    - git
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+    - {{ cdt('libxxf86vm') }}  # [linux]
+    - {{ cdt('libx11-devel') }}  # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    # Mantid dependencies
+    - boost {{ boost }}
+    - eigen
+    - gsl {{ gsl }}
+    - h5py
+    - hdf5 {{ hdf5 }}
+    - jemalloc  # [unix]
+    - jsoncpp
+    - librdkafka
+    - lib3mf  # [win]
+    - muparser
+    - nexus
+    - numpy {{ numpy }}
+    - occt {{ occt }}
+    - python {{ python }}
+    - poco
+    - tbb-devel {{ tbb }}
+    - zlib
+    - pip
+    - python-dateutil
+    - pyyaml
+    - scipy
+    - openssl {{ openssl }}
+    - pyqt
+    - qt {{ qt }}
+    - qscintilla2
+    - setuptools {{ setuptools }}
+    - matplotlib {{ matplotlib }}
+    - toml
+    - qtpy
+    - sphinx
+    - sphinx_bootstrap_theme
+    - ipykernel {{ ipykernel }}
+    - psutil
+    - python.app  # [osx]
+    - qtconsole
+    # Test/dev only packages (not dependencies or build tools)
+    - cppcheck {{ cppcheck }}
+    - gcovr
+    - pre-commit
+
+about:
+  home: https://github.com/mantidproject/mantid
+  license: GPL-3.0-or-later
+  summary: Mantid meta package for developers
+  description: Contains at runtime the dependencies used to develop and improve mantid
+
+extra:
+  recipe-maintainers:
+    - Pasarus
