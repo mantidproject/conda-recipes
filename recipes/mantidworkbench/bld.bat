@@ -14,6 +14,7 @@ cmake ^
     -DENABLE_WORKBENCH=ON ^
     -DCPACK_PACKAGE_SUFFIX="" ^
     -DWORKBENCH_SITE_PACKAGES=%SP_DIR% ^
+	-DUSE_PRECOMPILED_HEADERS=OFF ^
     ..
 
 if errorlevel 1 exit 1
