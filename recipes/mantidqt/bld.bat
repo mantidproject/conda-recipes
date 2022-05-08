@@ -14,6 +14,7 @@ cmake ^
     -DMANTID_QT_LIB=BUILD ^
     -DCPACK_PACKAGE_SUFFIX="" ^
     -DENABLE_WORKBENCH=OFF ^
+    -DUSE_PRECOMPILED_HEADERS=OFF ^
     ..
 
 if errorlevel 1 exit 1
