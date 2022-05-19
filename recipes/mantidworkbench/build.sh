@@ -3,15 +3,14 @@ set -ex
 
 # QtHelp docs build needs to start a QApplication so we need an X server on Linux
 XVFB_SERVER_NUM=101
-XVFB_RUN=$(which xvfb-run)
 
 function run_with_xvfb {
-    if [ -f "${XVFB_RUN}" ]; then
+    if [ $(command -v xvfb-run) ]; then
         # Use -e because a bug on RHEL7 means --error-file produces an error:
 	#   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=337703;msg=2
         # Use -noreset because of an X Display bug caused by a race condition in xvfb:
 	#  https://gitlab.freedesktop.org/xorg/xserver/-/issues/1102
-        ${XVFB_RUN} -e /dev/stderr --server-args="-core -noreset -screen 0 640x480x24" \
+        xvfb_run -e /dev/stderr --server-args="-core -noreset -screen 0 640x480x24" \
         --server-num=${XVFB_SERVER_NUM} $@
     else
         eval $@
@@ -19,7 +18,7 @@ function run_with_xvfb {
 }
 
 function terminate_xvfb_sessions {
-    if [ -f "${XVFB_RUN}" ]; then
+    if [ $(command -v xvfb-run) ]; then
         echo "Terminating any existing Xvfb sessions"
 
         # Kill Xvfb processes
