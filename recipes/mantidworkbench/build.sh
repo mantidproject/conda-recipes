@@ -5,12 +5,12 @@ set -ex
 XVFB_SERVER_NUM=101
 
 function run_with_xvfb {
-    if [ $(command -v xvfb-run) ]; then
+    if [[ $OSTYPE == "linux"* ]]; then
         # Use -e because a bug on RHEL7 means --error-file produces an error:
 	#   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=337703;msg=2
         # Use -noreset because of an X Display bug caused by a race condition in xvfb:
 	#  https://gitlab.freedesktop.org/xorg/xserver/-/issues/1102
-        xvfb_run -e /dev/stderr --server-args="-core -noreset -screen 0 640x480x24" \
+        xvfb-run -e /dev/stderr --server-args="-core -noreset -screen 0 640x480x24" \
         --server-num=${XVFB_SERVER_NUM} $@
     else
         eval $@
@@ -18,14 +18,14 @@ function run_with_xvfb {
 }
 
 function terminate_xvfb_sessions {
-    if [ $(command -v xvfb-run) ]; then
+    if [[ $OSTYPE == "linux"* ]]; then
         echo "Terminating any existing Xvfb sessions"
 
         # Kill Xvfb processes
         killall Xvfb || true
 
         # Remove Xvfb X server lock files
-        rm -f /tmp/.X${XVFB_SERVER_NUM}-lock
+        rm -f /tmp/.X${XVFB_SERVER_NUM}-lock || true
     fi
 }
 
@@ -56,6 +56,7 @@ cmake \
   ../
 
 cmake --build .
-trap terminate_xvfb_sessions INT TERM EXIT
 run_with_xvfb cmake --build . --target docs-qthelp
+terminate_xvfb_sessions 
 cmake --build . --target install
+
