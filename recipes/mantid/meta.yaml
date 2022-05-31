@@ -55,7 +55,7 @@ requirements:
     - {{ pin_compatible("hdf5", max_pin="x.x") }}
     - lib3mf  # [win]
     - nexus
-    - numpy >={{ numpy }},<=1.22.3|>=1.23
+    - {{ pin_compatible("numpy") }}
     - {{ pin_compatible("occt", max_pin="x.x.x") }}
     - python
     - python-dateutil
