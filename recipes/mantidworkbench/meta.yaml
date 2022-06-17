@@ -32,6 +32,7 @@ requirements:
     - mantidqt {{ version }}
     - sphinx
     - sphinx_bootstrap_theme
+    - texlive-core
     - python
   run:    
     - ipykernel {{ ipykernel }}
