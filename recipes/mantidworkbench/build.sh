@@ -29,6 +29,10 @@ function terminate_xvfb_sessions {
     fi
 }
 
+if [[ $OSTYPE == "linux"* ]]; then
+    texconfig rehash
+fi
+
 mkdir build
 cd build
 
