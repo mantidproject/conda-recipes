@@ -38,12 +38,7 @@ cmake \
   -DCMAKE_PREFIX_PATH=$PREFIX \
   -DCMAKE_FIND_FRAMEWORK=LAST \
   -DOpenSSL_ROOT=$PREFIX \
-  -DENABLE_DOCS=ON \
-  -DDOCS_DOTDIAGRAMS=ON \
-  -DDOCS_SCREENSHOTS=ON \
-  -DDOCS_MATH_EXT=sphinx.ext.imgmath \
-  -DDOCS_PLOTDIRECTIVE=ON \
-  -DPACKAGE_DOCS=ON \
+  -DENABLE_DOCS=OFF \
   -DWORKBENCH_SITE_PACKAGES=$SP_DIR \
   -DWORKBENCH_BIN_DIR=$PREFIX/bin \
   -DENABLE_PRECOMMIT=OFF \
@@ -59,6 +54,4 @@ cmake \
   ../
 
 cmake --build .
-run_with_xvfb cmake --build . --target docs-qthelp
-terminate_xvfb_sessions
 cmake --build . --target install
