@@ -1,2 +1,12 @@
-*~
+# Compiled Python files
 *.pyc
+
+# Emacs autosave files
+*~
+
+# Local environments
+condaenv/
+venv/
+
+# Local conda-bld workspace
+conda-bld/
