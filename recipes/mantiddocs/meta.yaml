@@ -2,7 +2,7 @@
 {% set git_commit = "03419345085260c45c41432724bc84514ed6f9af" %}
 
 package:
-  name: mantidqt
+  name: mantiddocs
   version: {{ version }}
 
 source:
@@ -10,16 +10,15 @@ source:
   sha256: ac1fe59902da3dd832acd52c05770b788005e9b019b2c679b8634dbcc5a0b2a8
 
 build:
+  noarch: generic
   number: 0
-  run_exports:
-    - {{ pin_subpackage('mantidqt', max_pin='x.x.x') }}
+  ignore_run_exports_from:
+      - {{ compiler('cxx') }}
+      - python
 
 requirements:
   build:
-    - {{ compiler("c") }}
     - {{ compiler("cxx") }}
-    - llvm-openmp  # [osx]
-    - libgomp  # [linux]
     - ninja  # [unix]
     - cmake
     - git
@@ -28,36 +27,26 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-
   host:
-    - eigen
-    - jemalloc  # [unix]
-    - mantid {{ version }}
     - python
-    - pyqt
-    - qt {{ qt }}
-    - qscintilla2
     - setuptools {{ setuptools }}
-    - tbb-devel {{ tbb }}
+    - sphinx
+    - sphinx_bootstrap_theme
+    - mantidqt {{ version }}
 
-  run:
-    - matplotlib {{ matplotlib }}
-    - toml
-    - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
-    - qtpy
-    - python
+# there are no run requirements as it's just pure html
 
 test:
-  imports:
-    - mantidqt
-    - mantidqt.icons
+  files:
+    - share/doc/index.html
+    - share/doc/mantid.png
 
 about:
   home: https://github.com/mantidproject/mantid
   license: GPL-3.0-or-later
-  summary: Mantid provides a framework that supports high-performance computing and visualisation of materials science data.
+  summary: The QtHelp documentation for mantid
 
 extra:
   recipe-maintainers:
-    - StephenSmith25
-    - Pasarus
+    - martyngigg
+    - thomashampson
