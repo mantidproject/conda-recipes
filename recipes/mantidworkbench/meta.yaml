@@ -27,13 +27,10 @@ requirements:
     - {{ cdt('libx11-devel') }}  # [linux]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
   host:
-    - boost {{ boost }}
     - setuptools {{ setuptools }}
     - mantidqt {{ version }}
-    - sphinx
-    - sphinx_bootstrap_theme
     - python
-  run:    
+  run:
     - ipykernel {{ ipykernel }}
     - psutil
     - {{ pin_compatible("python", max_pin="x.x") }}
@@ -49,7 +46,7 @@ test:
 about:
   home: https://github.com/mantidproject/mantid
   license: GPL-3.0-or-later
-  summary: Mantid provides a framework that supports high-performance computing and visualisation of materials science data.
+  summary: MantidWorkbench provides a graphical user interface to the Mantid framework, supporting high-performance computing and visualisation of materials science data.
 
 extra:
   recipe-maintainers:

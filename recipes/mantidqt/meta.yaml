@@ -45,7 +45,7 @@ requirements:
     - {{ pin_compatible("qscintilla2", max_pin="x.x") }}
     - qtpy
     - python
-    
+
 test:
   imports:
     - mantidqt
