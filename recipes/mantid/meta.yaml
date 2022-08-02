@@ -62,6 +62,7 @@ requirements:
     - pyyaml
     - scipy
     - openssl {{ openssl }}
+    - euphonic=0.6.*
 
 about:
   home: https://github.com/mantidproject/mantid
