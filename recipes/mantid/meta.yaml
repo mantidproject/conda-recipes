@@ -63,6 +63,7 @@ requirements:
     - scipy
     - openssl {{ openssl }}
     - euphonic=0.6.*
+    - toml
 
 about:
   home: https://github.com/mantidproject/mantid
