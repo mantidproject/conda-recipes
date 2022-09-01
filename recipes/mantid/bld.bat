@@ -1,6 +1,7 @@
 mkdir build && cd build
 
 cmake ^
+    -GNinja ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_LIBDIR=%LIBRARY_LIB% ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
