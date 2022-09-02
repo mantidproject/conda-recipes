@@ -42,6 +42,9 @@ sphinx_bootstrap_theme:
 qt:
   - 5.15.*
 
+qscintilla2:
+  - 2.13.*
+
 tbb:
   - 2020.2.*
 

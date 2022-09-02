@@ -36,7 +36,7 @@ requirements:
     - python
     - pyqt
     - qt {{ qt }}
-    - qscintilla2
+    - qscintilla2 {{ qscintilla2 }}
     - setuptools {{ setuptools }}
     - tbb-devel {{ tbb }}
 
