@@ -33,6 +33,9 @@ openssl:
 setuptools:
   - 48.0.*
 
+sphinx:
+  - 5.1.1
+
 qt:
   - 5.12.*
 
