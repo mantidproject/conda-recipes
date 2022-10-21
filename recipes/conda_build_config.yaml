@@ -38,6 +38,7 @@ sphinx:
   
 sphinx_bootstrap_theme:
   - >0.8.0
+
 qt:
   - 5.12.*
 
