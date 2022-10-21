@@ -31,7 +31,7 @@ requirements:
     - python
     - setuptools {{ setuptools }}
     - sphinx {{ sphinx }}
-    - sphinx_bootstrap_theme
+    - sphinx_bootstrap_theme {{ sphinx_bootstrap_theme }}
     - mantidqt {{ version }}
 
 # there are no run requirements as it's just pure html
