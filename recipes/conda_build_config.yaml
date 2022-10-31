@@ -36,6 +36,9 @@ setuptools:
 sphinx:
   - 5.1.1
 
+sphinx_bootstrap_theme:
+  - 0.8.1
+
 qt:
   - 5.12.*
 
