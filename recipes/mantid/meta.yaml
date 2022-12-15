@@ -57,6 +57,7 @@ requirements:
     - nexus
     - {{ pin_compatible("numpy") }}
     - {{ pin_compatible("occt", max_pin="x.x.x") }}
+    - pycifrw=4.4.1 # Force to 4.4.1 as later versions cause issues with loading CIF files
     - python
     - python-dateutil
     - pyyaml
