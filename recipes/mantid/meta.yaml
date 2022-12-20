@@ -40,7 +40,7 @@ requirements:
     - lib3mf  # [win]
     - muparser
     - nexus
-    - numpy {{ numpy }}
+    - numpy >={{numpy}},<=1.23.5|>=1.23
     - occt {{ occt }}
     - python {{ python }}
     - poco
