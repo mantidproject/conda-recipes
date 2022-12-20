@@ -57,6 +57,12 @@ gsl:
 ipykernel:
   - <6
 
+euphonic:
+  - 0.6.*
+
+pycifrw:
+  - 4.4.1
+
 pin_run_as_build:
     boost:
       max_pin: x.x
