@@ -40,7 +40,7 @@ requirements:
     - lib3mf  # [win]
     - muparser
     - nexus
-    - numpy {{ numpy }}
+    - numpy {{ numpy }},<1.24 # Pinned below 1.24 due to the issues with h5py and numpy versioning.
     - occt {{ occt }}
     - python {{ python }}
     - poco
@@ -55,7 +55,7 @@ requirements:
     - {{ pin_compatible("hdf5", max_pin="x.x") }}
     - lib3mf  # [win]
     - nexus
-    - {{ pin_compatible("numpy") }}
+    - {{ pin_compatible("numpy"), max_pin="x.x" }}
     - {{ pin_compatible("occt", max_pin="x.x.x") }}
     - python
     - python-dateutil
