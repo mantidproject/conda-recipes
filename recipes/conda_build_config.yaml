@@ -25,7 +25,7 @@ numpy:
   - 1.19
 
 matplotlib:
-  - 3.5.*
+  - 3.6.*
 
 openssl:
   - 1.1.*
