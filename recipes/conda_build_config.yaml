@@ -3,17 +3,17 @@ c_compiler:
   - clang                    # [osx]
   - vs2019                   # [win]
 c_compiler_version:            # [unix]
-  - 13                         # [osx]
+  - 14                         # [osx]
   - 10                         # [linux]
 cxx_compiler:
   - gxx                      # [linux]
   - clangxx                  # [osx]
   - vs2019                   # [win]
 cxx_compiler_version:          # [unix]
-  - 13                         # [osx]
+  - 14                         # [osx]
   - 10                         # [linux]
 llvm_openmp:                   # [osx]
-  - 13                         # [osx]
+  - 14                         # [osx]
 
 python:
   - 3.8
@@ -46,7 +46,7 @@ qscintilla2:
   - 2.13.*
 
 tbb:
-  - 2020.2.*
+  - 2021
 
 hdf5:
   - 1.12.*
